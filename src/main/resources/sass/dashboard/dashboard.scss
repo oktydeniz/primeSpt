@@ -1,0 +1,244 @@
+@import "variables";
+
+body, html {
+background-color:#131219;
+ margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.container {
+display:flex;
+  height: 100%;
+}
+
+.left-section,
+.right-section {
+  width: 100px; /* Adjust width as needed */
+  overflow-y: auto;
+}
+
+.middle-section {
+  flex: 1;
+  overflow-y: auto; /* Enable scrolling for the middle section */
+  position: relative;
+}
+
+.left-section {
+    width: 260px;
+    background-color:#131219;
+    border-right:2px solid #2F3035;
+}
+
+.application-nav {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.application-name {
+    margin-top:25px;
+    margin-bottom:48px;
+}
+
+.application-name a{
+    color:white;
+    font-weight:400;
+    font-size:35px;
+    text-decoration-color:$application-light-green !important;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.menu {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    align-items: baseline;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    padding:8px;
+    cursor:pointer;
+    font-size:20px;
+    display: flex;
+    width:100%;
+    height:34px;
+    color:$text-color-light;
+    align-items: center;
+    margin:4px;
+}
+.menu-item:hover {
+    background-color:$application-light-green;
+    border-radius:8px;
+    color:#1F262A;
+}
+.menu-item img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.menu-item span {
+ flex: 1;
+}
+
+
+.right-section {
+    background-color:#21222D;
+  //  max-width:300px;
+   // min-width:250px;
+   border-radius: 15px 0 0 15px;
+    width: 20%;
+    display:flex;
+    flex-direction:column;
+}
+
+.user-scheduled {
+    width:100%;
+    height:250px;
+    align-items:center;
+    margin-top: 5px;
+}
+.user-inf {
+    margin-bottom:50px;
+}
+.scheduled-list {
+   overflow-y: auto;
+   height: 380px;
+   margin-top:12px;
+}
+.detail-item {
+    display:flex;
+    margin:15px;
+    height:60px;
+    padding:10px;
+    cursor:pointer;
+    border-radius:8px;
+    background-color:$scheduled-card-bg;
+    position:relative;
+    flex-direction:column;
+}
+
+.item-name {
+    color:#FAF9FA;
+    font-size:20px;
+    padding:5px;
+}
+.time {
+    color:#BABBBD;
+    font-size:16px;
+    padding:5px;
+}
+
+.detail-item img {
+    position:absolute;
+    right:12px;
+    color:$text-color-light;
+    top:12px;
+}
+
+.scheduled-title {
+    font-size: 24px;
+    color:$text-color-light;
+    margin:20px;
+}
+
+.user-body-info {
+    background-color:$user-bms-card-bg;
+    height:70px;
+    border-radius:8px;
+    margin:16px;
+    justify-content:space-around;
+    display:flex;
+    flex-decoration:row;
+
+}
+.body-info {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.value-name {
+    font-size:18px;
+    font-weight:400;
+    color:$application-white;
+}
+.value {
+    color:$text-color-light;
+    font-size:14px;
+}
+
+.activity-lvl {
+    color:$text-color-green;
+    font-size:12px;
+    margin-top:5px;
+}
+.user-name {
+    color:$text-color-light;
+    font-size: 24px;
+}
+.info {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.avatar {
+    width:125px;
+    border-radius:50%;
+    height:125px;
+    margin-bottom:20px;
+}
+
+.search-bar {
+    height:58px;
+          position: sticky;
+          top: 20px;
+    display:flex;
+    align-items:center;
+    border-radius:10px;
+    background-color:$search-bg-color-dark;
+    margin:20px;
+}
+
+.search-icon {
+    width: 30px;
+    padding: 8px;
+    margin:5px;
+    height: 30px;
+}
+
+.input-search {
+    height:52px;
+    flex:1;
+    border-radius:8px;
+    border:none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size:18px;
+    background-color:$search-bg-color-dark;
+    color:$text-color-light;
+    outline: none;
+}
+
+.input-search::placeholder {
+    color:$application-white;
+    opacity:1;
+}
+.input-search::-ms-input-placeholder {
+  color:$application-white;
+}
+
+.deneme {
+background-color:red;
+height:1300px;
+    }

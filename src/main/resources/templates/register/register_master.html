@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          name="viewport">
+    <meta name="author" content="primeSport">
+    <link rel="icon" type="image/x-icon" th:href="@{/static/img/logo.png}">
+    <meta name="Description" content="Prime Sport Facility">
+    <meta name="keywords"
+          content="workout, fitness, sport, cardio, performance, body analytics, coach, gym, home_gym">
+    <link th:href="@{/static/css/reset.css}" rel="stylesheet"s type="text/css" media="screen">
+    <link th:href="@{/static/stylesheets/register/register.css}" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" th:src="@{/static/plugin/jquery.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/font.css}">
+    <title>Welcome | Prime Sport</title>
+</head>
+<body>
+
+<div class="container">
+    <section class="left-section"></section>
+    <section class="form-section">
+        <div layout:fragment="register_content"></div>
+    </section>
+</div>
+
+<footer> </footer>
+
+<!-- Common scripts -->
+<script th:src="@{/static/js/main.js}"></script>
+<div layout:fragment="page_scripts"></div>
+</body>
+</html>

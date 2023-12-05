@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          name="viewport">
+    <meta name="author" content="primeSport">
+    <meta name="Description" content="Prime Sport Facility">
+    <meta name="keywords"
+          content="workout, fitness, sport, cardio, performance, body analytics, coach, gym, home_gym">
+    <link th:href="@{/static/css/reset.css}" rel="stylesheet" type="text/css" media="screen">
+    <link th:href="@{/static/stylesheets/style.css}" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" th:src="@{/static/plugin/jquery.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/font.css}">
+    <title>Prime Sport </title>
+</head>
+<body>
+
+<div class="container">
+
+    <nav class="navbar">
+        <ul class="menu">
+            <li class="menu-item app-header"><a href="#">Prime Sport</a></li>
+            <li class="menu-item"><a href="#">Our Facility</a></li>
+            <li class="menu-item"><a href="#">Prices & Plans</a></li>
+        </ul>
+    </nav>
+
+    <div layout:fragment="content"></div>
+</div>
+<footer> </footer>
+
+<!-- Common scripts -->
+<script th:src="@{/static/js/main.js}"></script>
+<div layout:fragment="page_scripts"></div>
+</body>
+</html>

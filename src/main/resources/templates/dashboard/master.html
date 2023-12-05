@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        name="viewport">
+  <meta name="author" content="primeSport">
+  <link rel="icon" type="image/x-icon" th:href="@{/static/img/logo.png}">
+  <meta name="Description" content="Prime Sport Facility">
+  <meta name="keywords"
+        content="workout, fitness, sport, cardio, performance, body analytics, coach, gym, home_gym">
+  <link th:href="@{/static/css/reset.css}" rel="stylesheet" type="text/css" media="screen">
+  <link th:href="@{/static/stylesheets/dashboard/dashboard.css}" rel="stylesheet" type="text/css" media="screen">
+  <script type="text/javascript" th:src="@{/static/plugin/jquery.min.js}"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{/static/css/font.css}">
+  <title>Prime Sport </title>
+</head>
+<body>
+
+
+<div class="container">
+  <section class="left-section">
+    <div class="application-nav">
+      <div class="application-name"> <a href="#">Prime Sport</a></div>
+      <div class="menu">
+        <div class="menu-item">
+          <img th:src="@{/static/img/icons/home.png}">
+          <span>Dashboard</span>
+        </div>
+        <div class="menu-item">
+          <img th:src="@{/static/img/icons/activities.png}">
+          <span>My Activities</span>
+        </div>
+        <div class="menu-item">
+          <img th:src="@{/static/img/icons/user_icon.png}">
+          <span>Profile</span>
+        </div>
+        <div class="menu-item">
+          <img th:src="@{/static/img/icons/settings.png}">
+          <span>Settings</span>
+        </div>
+        <div class="menu-item">
+          <img th:src="@{/static/img/icons/sign_out.png}">
+          <span>Sign-out</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="middle-section">
+    <div class="search-bar">
+      <img th:src="@{/static/img/icons/search.png}" class="search-icon">
+      <input class="input-search" placeholder="Search">
+    </div>
+    <div class="deneme">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae non quod voluptas. Culpa hic ipsa neque nihil porro quam rem suscipit tempora vitae voluptatum! Alias aperiam at error facere ipsa ipsum iusto labore necessitatibus nesciunt voluptate! Asperiores autem commodi consequatur debitis, deleniti dicta doloremque dolorum ex exercitationem expedita fugiat fugit id ipsa iusto nemo neque nesciunt nobis nostrum odio quaerat qui quod soluta! Cupiditate, dolore doloremque eos error id nam nesciunt, omnis perspiciatis possimus quasi quia quibusdam quis rem sequi tempora veritatis voluptatem. Explicabo hic nemo nobis! Doloribus ex explicabo illo illum laboriosam molestias pariatur quam, quisquam veniam vitae.
+    </div>
+    <div layout:fragment="page_content"></div>
+  </section>
+  <section class="right-section">
+    <div class="user-info">
+      <div class="info">
+        <img class="avatar" src="https://via.assets.so/album.png?id=6&q=95&w=360&h=360&fit=fill">
+        <span class="user-name">Lincoln Bator</span>
+        <span class="activity-lvl">24 | Activity Level: B5</span>
+      </div>
+      <div class="user-body-info">
+        <div class="body-info">
+          <span class="value-name">
+            Weight
+          </span>
+          <span class="value">
+            78kg
+          </span>
+        </div>
+        <div class="body-info">
+          <span class="value-name">
+            Height
+          </span>
+          <span class="value">
+            179.61 cm
+          </span>
+        </div>
+        <div class="body-info">
+          <span class="value-name">
+            BMI
+          </span>
+          <span class="value">
+            21%
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="user-scheduled">
+        <span class="scheduled-title">Scheduled</span>
+      <div class="scheduled-list">
+        <div class="scheduled-items">
+          <div class="detail-item">
+            <span class="item-name">
+              Gym Fitness Training
+            </span>
+            <span class="time">
+              Today, 8PM
+            </span>
+            <img th:src="@{/static/img/icons/menu_dots.png}" alt="user_menu">
+          </div>
+          <div class="detail-item">
+            <span class="item-name">
+              Gym Fitness Training
+            </span>
+            <span class="time">
+              Today, 8PM
+            </span>
+            <img th:src="@{/static/img/icons/menu_dots.png}" alt="user_menu">
+          </div><div class="detail-item">
+            <span class="item-name">
+              Gym Fitness Training
+            </span>
+          <span class="time">
+              Today, 8PM
+            </span>
+          <img th:src="@{/static/img/icons/menu_dots.png}" alt="user_menu">
+        </div>
+          <div class="detail-item">
+            <span class="item-name">
+              Gym Fitness Training
+            </span>
+            <span class="time">
+              Today, 8PM
+            </span>
+            <img th:src="@{/static/img/icons/menu_dots.png}" alt="user_menu">
+          </div>
+          <div class="detail-item">
+            <span class="item-name">
+              Gym Fitness Training
+            </span>
+            <span class="time">
+              Today, 8PM
+            </span>
+            <img th:src="@{/static/img/icons/menu_dots.png}" alt="user_menu">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer> </footer>
+
+<!-- Common scripts -->
+<script th:src="@{/static/js/main.js}"></script>
+<div layout:fragment="page_scripts"></div>
+</body>
+</html>

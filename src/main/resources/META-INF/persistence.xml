@@ -1,0 +1,7 @@
+<persistence-unit name="PrimePersistenceNameStrategy">
+    <properties>
+        <property name="hibernate.physical_naming_strategy"
+                  value="com.facility.primeSport.configuration.PersistenceNameStrategy"/>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+</persistence-unit>

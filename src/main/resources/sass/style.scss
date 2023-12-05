@@ -1,0 +1,121 @@
+@import "variables";
+
+body {
+  background: url('/static/img/bg_main.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+.welcome {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.motto {
+    color:white;
+    font-weight: 400;
+    font-size:80px;
+}
+.motto-desc{
+    color:white;
+    font-weight: 200;
+    margin-top:20px;
+    font-size:26px;
+    margin-bottom:50px;
+}
+.click_start{
+    height:42px;
+    background-color:$application-red;;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:6px;
+    width:160px;
+}
+
+
+// app-header
+.app-header {
+    margin-right:50px !important;
+    font-weight:400 !important;
+    font-size:33px !important;
+    text-decoration-color:$application-red !important;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.navbar {
+  position: fixed;
+  top:0;
+  width: 100%;
+  height:62px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  height: 100%;
+}
+
+.menu-item {
+  margin-right: 20px;
+  position: relative;
+  font-size:20px;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+/* Header styles */
+.menu-item:first-child a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: $application-red;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.menu-item:not(:first-child) a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: $application-red;
+  transition: width 0.3s ease;
+}
+
+/* Hover effects
+.menu-item:first-child a:hover::before {
+  transform: scaleX(1);
+}
+*/
+.menu-item:not(:first-child) a:hover::after {
+  width: 100%;
+}
