@@ -110,6 +110,15 @@ public class User extends DateIDBaseModel {
         @JsonView(View.Internal.class)
         private User coach;
 
+        @Column(name = "member_start_date")
+        @JsonView(View.Public.class)
+        private LocalDate memberStartDate;
+
+        @Column(name = "member_end_date")
+        @JsonView(View.Public.class)
+        private LocalDate memberEndDate;
+
+
         public User(UserAuthRegisterRequest request){
                 this.userName = request.getUserName();
                 this.email = request.getEmail();

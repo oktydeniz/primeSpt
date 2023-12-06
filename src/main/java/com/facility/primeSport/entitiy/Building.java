@@ -76,6 +76,10 @@ public class Building extends DateIDBaseModel {
     )
     private Set<User> users = new HashSet<>();
 
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
+    private Set<BuildingPackage> packages = new HashSet<>();
+
     public Building(BuildingRequest dto){
         this.buildingName = dto.getBuildingName();
         this.buildingLogoUrl = dto.getBuildingUrl();

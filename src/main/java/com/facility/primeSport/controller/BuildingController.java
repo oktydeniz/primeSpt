@@ -1,8 +1,10 @@
 package com.facility.primeSport.controller;
 
 import com.facility.primeSport.dto.building.BuildingRequest;
+import com.facility.primeSport.dto.building.PackageRequest;
 import com.facility.primeSport.dto.user.UpdateCoachRequest;
 import com.facility.primeSport.entitiy.Building;
+import com.facility.primeSport.model.ApiResponse;
 import com.facility.primeSport.service.BuildingService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class BuildingController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('user:crud') or hasAuthority('admin:crud')")
-    public ResponseEntity<String> save(Authentication authentication,
+    public ResponseEntity<ApiResponse<Object>> save(Authentication authentication,
                                        @RequestBody BuildingRequest request,
                                        HttpServletRequest httpServletRequest){
         return service.createBuilding(authentication, request);
@@ -33,7 +35,7 @@ public class BuildingController {
 
     @PostMapping("/addNewUser")
     @PreAuthorize("hasAuthority('admin:crud')")
-    public ResponseEntity<String> addNewCoach(Authentication authentication,
+    public ResponseEntity<ApiResponse<Object>> addNewUser(Authentication authentication,
                                               @RequestBody UpdateCoachRequest request,
                                               HttpServletRequest httpServletRequest){
         return service.addUserToBuilding(authentication, request);
@@ -41,8 +43,25 @@ public class BuildingController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('admin:crud')")
-    public ResponseEntity<Set<Building>> getBuilding(Authentication authentication,
-                                                     HttpServletRequest request){
+    public ResponseEntity<ApiResponse<Set<Building>>> getBuilding(Authentication authentication,
+                                                                  HttpServletRequest request){
         return service.getBuilding(authentication);
     }
+
+    @DeleteMapping
+    @PreAuthorize("hasAuthority('admin:crud')")
+    public ResponseEntity<ApiResponse<Object>> deleteUser(Authentication authentication,
+                                                          @RequestBody UpdateCoachRequest request,
+                                                          HttpServletRequest httpServletRequest){
+        return service.deleteUser(authentication,request);
+    }
+
+    @PostMapping("/addPackage")
+    @PreAuthorize("hasAuthority('admin:crud') or hasAuthority('user:crud')")
+    public ResponseEntity<ApiResponse<Object>> addPackage(Authentication authentication,
+                                                    @RequestBody PackageRequest request,
+                                                    HttpServletRequest httpServletRequest){
+        return service.addPackage(authentication, request);
+    }
+
 }

@@ -54,6 +54,26 @@ public class ApiResponse<T> implements Serializable {
         return response;
     }
 
+    public static <T> ApiResponse<T> error() {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.setSuccess(false);
+        response.setMessage("An Error Has Occurred");
+        return response;
+    }
+
+    public static <T> ApiResponse<T> success(String message) {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.setSuccess(true);
+        response.setMessage(message);
+        return response;
+    }
+
+    public static <T> ApiResponse<T> success() {
+        ApiResponse<T> response = new ApiResponse<>();
+        response.setSuccess(true);
+        response.setMessage("Successful");
+        return response;
+    }
 
 
     public static <T> ResponseEntity<ApiResponse<T>> createdData(T value, String message){

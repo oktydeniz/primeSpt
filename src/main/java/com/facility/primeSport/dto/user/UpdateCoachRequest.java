@@ -1,10 +1,13 @@
 package com.facility.primeSport.dto.user;
 
+import com.facility.primeSport.enums.permission.Role;
 import lombok.Data;
 
-@Data
-public class UpdateCoachRequest {
+import java.time.LocalDate;
 
-    private Long buildingId;
-    private String coachMail;
-}
+public record UpdateCoachRequest(
+        Long buildingId,
+        String userMail,
+        Role role,
+        LocalDate endDate
+){}
