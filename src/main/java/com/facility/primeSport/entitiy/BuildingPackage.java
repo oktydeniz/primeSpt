@@ -43,6 +43,11 @@ public class BuildingPackage extends DateIDBaseModel {
     @JsonView(View.Public.class)
     private Integer discountRate;
 
+
+    @Column(name = "package_usage_range", nullable = false)
+    @JsonView(View.Public.class)
+    private Integer packageUsageRange;
+
     @ManyToOne
     @JoinColumn(name = "building_id")
     private Building building;
@@ -55,5 +60,6 @@ public class BuildingPackage extends DateIDBaseModel {
         this.description = request.description();
         this.price = request.price();
         this.packageName = request.packageName();
+        this.packageUsageRange = request.packageUsageRange();
     }
 }

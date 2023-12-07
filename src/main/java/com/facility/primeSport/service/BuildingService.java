@@ -61,13 +61,14 @@ public class BuildingService {
     public ResponseEntity<ApiResponse<Object>> addUserToBuilding(Authentication authentication, UpdateCoachRequest request){
         Building building = buildingRepository.findById(request.buildingId()).orElse(null);
         User user = userRepository.findByEmail(request.userMail());
-        if (user != null && building != null){
+        BuildingPackage buildingPackage = buildingPackageRepository.findById(request.packageId()).orElse(null);
+        if (user != null && building != null  && buildingPackage != null){
             user.setRole((request.role() != null ) ? request.role() : Role.B_USER);
             building.getUsers().add(user);
             user.getBuildings().add(building);
             user.setMemberStartDate(LocalDate.now());
-            user.setMemberEndDate((request.endDate() != null) ? request.endDate() : null);
-
+            user.setMemberEndDate(LocalDate.now().plusMonths(buildingPackage.getPackageUsageRange()));
+            user.setBuildingPackage(buildingPackage);
             buildingRepository.save(building);
             userRepository.save(user);
             return new ResponseEntity<>(ApiResponse.success("User Successfully Added"), HttpStatus.OK);

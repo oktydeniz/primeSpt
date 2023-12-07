@@ -9,5 +9,6 @@ public record UpdateCoachRequest(
         Long buildingId,
         String userMail,
         Role role,
-        LocalDate endDate
+        LocalDate endDate,
+        Long packageId
 ){}

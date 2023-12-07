@@ -118,6 +118,9 @@ public class User extends DateIDBaseModel {
         @JsonView(View.Public.class)
         private LocalDate memberEndDate;
 
+        @JoinColumn(name = "package_id")
+        @ManyToOne(fetch = FetchType.EAGER)
+        private BuildingPackage buildingPackage;
 
         public User(UserAuthRegisterRequest request){
                 this.userName = request.getUserName();

@@ -10,7 +10,8 @@ public record PackageRequest(
         String packageUrl,
         LocalDate endDate,
         Integer discountRate,
-        Long buildingId
+        Long buildingId,
+        Integer packageUsageRange
 ){
 
 }
