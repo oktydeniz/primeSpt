@@ -51,6 +51,7 @@ public class ApiResponse<T> implements Serializable {
     public static <T> ApiResponse<T> create(T value) {
         ApiResponse<T> response = new ApiResponse<>();
         response.setData(value);
+        response.setSuccess(true);
         return response;
     }
 

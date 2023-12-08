@@ -2,6 +2,7 @@ package com.facility.primeSport.controller;
 
 
 import com.facility.primeSport.auth.JWTUserDetail;
+import com.facility.primeSport.dto.user.UserDetailResponse;
 import com.facility.primeSport.entitiy.User;
 import com.facility.primeSport.model.ApiResponse;
 import com.facility.primeSport.repo.UserRepository;
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<Object>> getInfo(Authentication authentication){
+    public ResponseEntity<ApiResponse<UserDetailResponse>> getInfo(Authentication authentication){
         return userService.getInfo(authentication);
     }
 }

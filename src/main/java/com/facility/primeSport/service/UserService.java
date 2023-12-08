@@ -1,6 +1,7 @@
 package com.facility.primeSport.service;
 
 import com.facility.primeSport.auth.JWTUserDetail;
+import com.facility.primeSport.dto.user.UserDetailResponse;
 import com.facility.primeSport.entitiy.User;
 import com.facility.primeSport.model.ApiResponse;
 import com.facility.primeSport.repo.UserRepository;
@@ -32,13 +33,14 @@ public class UserService {
          return userRepository.findById(id).orElse(null);
     }
 
-    public ResponseEntity<ApiResponse<Object>> getInfo(Authentication authentication) {
+    public ResponseEntity<ApiResponse<UserDetailResponse>> getInfo(Authentication authentication) {
 
         JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
         if (userDetail != null){
             Optional<User> user = userRepository.findById(userDetail.getId());
             if (user.isPresent()){
-                return new ResponseEntity<>(ApiResponse.create(user.get().getEmail()), HttpStatus.OK);
+                UserDetailResponse userDetailResponse = new UserDetailResponse(user.get());
+                return new ResponseEntity<>(ApiResponse.create(userDetailResponse), HttpStatus.OK);
             }
         }
         return new ResponseEntity<>(ApiResponse.error(), HttpStatus.OK);

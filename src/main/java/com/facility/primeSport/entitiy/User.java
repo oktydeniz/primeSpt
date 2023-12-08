@@ -122,6 +122,10 @@ public class User extends DateIDBaseModel {
         @ManyToOne(fetch = FetchType.EAGER)
         private BuildingPackage buildingPackage;
 
+        @JoinColumn(name = "profession_id")
+        @ManyToOne(fetch = FetchType.EAGER)
+        private UserProfession profession;
+
         public User(UserAuthRegisterRequest request){
                 this.userName = request.getUserName();
                 this.email = request.getEmail();

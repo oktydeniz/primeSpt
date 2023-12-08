@@ -2,6 +2,7 @@ package com.facility.primeSport.service;
 
 import com.facility.primeSport.auth.JWTUserDetail;
 import com.facility.primeSport.dto.building.BuildingRequest;
+import com.facility.primeSport.dto.building.OwnerBuildingInfoResponse;
 import com.facility.primeSport.dto.building.PackageRequest;
 import com.facility.primeSport.dto.user.UpdateCoachRequest;
 import com.facility.primeSport.entitiy.Building;
@@ -18,7 +19,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class BuildingService {
@@ -76,12 +79,13 @@ public class BuildingService {
         return new ResponseEntity<>(ApiResponse.error(), HttpStatus.BAD_REQUEST);
     }
 
-    public ResponseEntity<ApiResponse<Set<Building>>> getBuilding(Authentication authentication) {
+    public ResponseEntity<ApiResponse<List<OwnerBuildingInfoResponse>>> getBuilding(Authentication authentication) {
         JWTUserDetail user = (JWTUserDetail) authentication.getPrincipal();
         User owner = userRepository.findById(user.getId()).orElse(null);
         if (owner!=null){
             Set<Building> buildings = owner.getBuildings();
-            return new ResponseEntity<>(ApiResponse.create(buildings), HttpStatus.OK);
+            List<OwnerBuildingInfoResponse> response = buildings.stream().map(OwnerBuildingInfoResponse::new).collect(Collectors.toList());
+            return new ResponseEntity<>(ApiResponse.create(response), HttpStatus.OK);
         }
         return new ResponseEntity<>(ApiResponse.error(), HttpStatus.BAD_REQUEST);
     }

@@ -1,6 +1,7 @@
 package com.facility.primeSport.controller;
 
 import com.facility.primeSport.dto.building.BuildingRequest;
+import com.facility.primeSport.dto.building.OwnerBuildingInfoResponse;
 import com.facility.primeSport.dto.building.PackageRequest;
 import com.facility.primeSport.dto.user.UpdateCoachRequest;
 import com.facility.primeSport.entitiy.Building;
@@ -12,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -43,8 +45,8 @@ public class BuildingController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('admin:crud')")
-    public ResponseEntity<ApiResponse<Set<Building>>> getBuilding(Authentication authentication,
-                                                                  HttpServletRequest request){
+    public ResponseEntity<ApiResponse<List<OwnerBuildingInfoResponse>>> getBuilding(Authentication authentication,
+                                                                                    HttpServletRequest request){
         return service.getBuilding(authentication);
     }
 
