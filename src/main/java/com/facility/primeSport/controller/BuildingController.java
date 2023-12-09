@@ -1,8 +1,6 @@
 package com.facility.primeSport.controller;
 
-import com.facility.primeSport.dto.building.BuildingRequest;
-import com.facility.primeSport.dto.building.OwnerBuildingInfoResponse;
-import com.facility.primeSport.dto.building.PackageRequest;
+import com.facility.primeSport.dto.building.*;
 import com.facility.primeSport.dto.user.UpdateCoachRequest;
 import com.facility.primeSport.entitiy.Building;
 import com.facility.primeSport.model.ApiResponse;
@@ -35,9 +33,9 @@ public class BuildingController {
         return service.createBuilding(authentication, request);
     }
 
-    @PostMapping("/addNewUser")
+    @PostMapping("/addCoach")
     @PreAuthorize("hasAuthority('admin:crud')")
-    public ResponseEntity<ApiResponse<Object>> addNewUser(Authentication authentication,
+    public ResponseEntity<ApiResponse<Object>> addNewCoach(Authentication authentication,
                                               @RequestBody UpdateCoachRequest request,
                                               HttpServletRequest httpServletRequest){
         return service.addUserToBuilding(authentication, request);
@@ -64,6 +62,27 @@ public class BuildingController {
                                                     @RequestBody PackageRequest request,
                                                     HttpServletRequest httpServletRequest){
         return service.addPackage(authentication, request);
+    }
+
+    @PostMapping("/addMember")
+    @PreAuthorize("hasAuthority('admin:crud') or hasAuthority('coach:crud')")
+    public ResponseEntity<ApiResponse<Object>> addNewMember(Authentication authentication,
+                                                           @RequestBody UpdateCoachRequest request,
+                                                           HttpServletRequest httpServletRequest){
+        return service.addNewMember(authentication, request);
+    }
+
+    @GetMapping("/{building_id}")
+    public ResponseEntity<ApiResponse<List<BuildingMembersResponse>>> getBuildingMembers(Authentication authentication,
+                                                                                         @PathVariable(name = "building_id") Long buildingId,
+                                                                                         HttpServletRequest httpServletRequest){
+        return service.getBuildingMembers(buildingId);
+
+    }    @GetMapping("users/{user_id}")
+    public ResponseEntity<ApiResponse<BuildingMemberDetailResponse>> getMemberDetail(Authentication authentication,
+                                                                                     @PathVariable(name = "user_id") Long buildingId,
+                                                                                     HttpServletRequest httpServletRequest){
+        return service.getMemberDetail(buildingId);
     }
 
 }

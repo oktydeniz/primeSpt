@@ -105,23 +105,6 @@ public class User extends DateIDBaseModel {
         @JsonView(View.Public.class)
         private Boolean isActiveAdverting;
 
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "coach_id")
-        @JsonView(View.Internal.class)
-        private User coach;
-
-        @Column(name = "member_start_date")
-        @JsonView(View.Public.class)
-        private LocalDate memberStartDate;
-
-        @Column(name = "member_end_date")
-        @JsonView(View.Public.class)
-        private LocalDate memberEndDate;
-
-        @JoinColumn(name = "package_id")
-        @ManyToOne(fetch = FetchType.EAGER)
-        private BuildingPackage buildingPackage;
-
         @JoinColumn(name = "profession_id")
         @ManyToOne(fetch = FetchType.EAGER)
         private UserProfession profession;

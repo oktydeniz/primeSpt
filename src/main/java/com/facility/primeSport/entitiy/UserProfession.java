@@ -19,5 +19,19 @@ public class UserProfession extends DateIDBaseModel {
     @JsonView(View.Public.class)
     private String professionImg;
 
+    public String getProfessionName() {
+        return professionName;
+    }
 
+    public void setProfessionName(String professionName) {
+        this.professionName = professionName;
+    }
+
+    public String getProfessionImg() {
+        return professionImg;
+    }
+
+    public void setProfessionImg(String professionImg) {
+        this.professionImg = professionImg;
+    }
 }

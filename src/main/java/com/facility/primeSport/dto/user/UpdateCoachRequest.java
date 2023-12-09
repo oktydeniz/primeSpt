@@ -6,9 +6,12 @@ import lombok.Data;
 import java.time.LocalDate;
 
 public record UpdateCoachRequest(
+
+        Long userId,
         Long buildingId,
         String userMail,
         Role role,
         LocalDate endDate,
-        Long packageId
+        Long packageId,
+        Long coachId
 ){}

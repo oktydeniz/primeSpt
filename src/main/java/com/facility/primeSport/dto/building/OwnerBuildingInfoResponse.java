@@ -1,7 +1,8 @@
 package com.facility.primeSport.dto.building;
 
-import com.facility.primeSport.dto.user.OwnerUserDetail;
+import com.facility.primeSport.dto.user.CoachDetailResponse;
 import com.facility.primeSport.entitiy.Building;
+import com.facility.primeSport.enums.permission.Role;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +34,9 @@ public class OwnerBuildingInfoResponse {
 
     private String buildingLogoUrl;
 
-    private List<OwnerUserDetail> users;
+    private List<CoachDetailResponse> admins;
+
+    private List<CoachDetailResponse> coaches;
 
     public OwnerBuildingInfoResponse(Building building){
         this.buildingName = building.getBuildingName();
@@ -45,17 +48,32 @@ public class OwnerBuildingInfoResponse {
         this.longitude = building.getLongitude();
         this.latitude = building.getLatitude();
         this.buildingPhoneNumber = building.getBuildingPhoneNumber();
+        this.admins = building.getUsers()
+                .stream()
+                .filter(user -> user.getRole().equals(Role.B_OWNER))
+                .map(CoachDetailResponse::new)
+                .collect(Collectors.toList());
+        this.coaches = building.getUsers().stream()
+                .filter(user -> user.getRole().equals(Role.B_COACH))
+                .map(CoachDetailResponse::new)
+                .collect(Collectors.toList());
         this.buildingPhoneNumberSecond = building.getBuildingPhoneNumberSecond();
-        this.users = building.getUsers().stream().map(OwnerUserDetail::new).collect(Collectors.toList());
-
     }
 
-    public List<OwnerUserDetail> getUsers() {
-        return users;
+    public List<CoachDetailResponse> getCoaches() {
+        return coaches;
     }
 
-    public void setUsers(List<OwnerUserDetail> users) {
-        this.users = users;
+    public void setCoaches(List<CoachDetailResponse> coaches) {
+        this.coaches = coaches;
+    }
+
+    public List<CoachDetailResponse> getAdmins() {
+        return admins;
+    }
+
+    public void setUsers(List<CoachDetailResponse> admins) {
+        this.admins = admins;
     }
 
     public String getBuildingName() {

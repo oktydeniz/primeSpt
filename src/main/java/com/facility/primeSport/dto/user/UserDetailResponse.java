@@ -1,11 +1,8 @@
 package com.facility.primeSport.dto.user;
 
-
 import com.facility.primeSport.dto.building.UserBuildingInfoResponse;
 import com.facility.primeSport.entitiy.User;
 import com.facility.primeSport.enums.Gender;
-
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,10 +14,6 @@ public class UserDetailResponse {
     private Gender gender;
     private String userLevel;
     private String userAvatarUrl;
-    private CoachDetailResponse coach;
-    private LocalDate memberStartDate;
-    private LocalDate memberEndDate;
-    private String buildingPackage;
     private List<UserBuildingInfoResponse> buildingSet;
     private Boolean isActiveAdverting;
     private Boolean isActiveAnalytics;
@@ -32,13 +25,9 @@ public class UserDetailResponse {
         this.userName = user.getUserName();
         this.userAvatarUrl = user.getAvatarUrl();
         this.phoneNumber = user.getPhoneNumber();
-        this.memberEndDate = user.getMemberEndDate();
-        this.memberStartDate = user.getMemberStartDate();
         this.isActiveAdverting = user.getIsActiveAdverting();
         this.isActiveAnalytics = user.getIsActiveAnalytics();
         this.isActiveMarketing = user.getIsActiveMarketing();
-        this.coach = new CoachDetailResponse(user);
-        this.buildingPackage = user.getBuildingPackage().getPackageName();
         this.buildingSet = user.getBuildings().stream().map(UserBuildingInfoResponse::new).collect(Collectors.toList());
     }
 
@@ -88,38 +77,6 @@ public class UserDetailResponse {
 
     public void setUserAvatarUrl(String userAvatarUrl) {
         this.userAvatarUrl = userAvatarUrl;
-    }
-
-    public CoachDetailResponse getCoach() {
-        return coach;
-    }
-
-    public void setCoach(CoachDetailResponse coach) {
-        this.coach = coach;
-    }
-
-    public LocalDate getMemberStartDate() {
-        return memberStartDate;
-    }
-
-    public void setMemberStartDate(LocalDate memberStartDate) {
-        this.memberStartDate = memberStartDate;
-    }
-
-    public LocalDate getMemberEndDate() {
-        return memberEndDate;
-    }
-
-    public void setMemberEndDate(LocalDate memberEndDate) {
-        this.memberEndDate = memberEndDate;
-    }
-
-    public String getBuildingPackage() {
-        return buildingPackage;
-    }
-
-    public void setBuildingPackage(String buildingPackage) {
-        this.buildingPackage = buildingPackage;
     }
 
     public List<UserBuildingInfoResponse> getBuildingSet() {
