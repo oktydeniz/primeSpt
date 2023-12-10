@@ -13,5 +13,5 @@ public interface UserSportDetailRepository extends JpaRepository<UserSportDetail
     @Query(value = "SELECT DISTINCT ON (user_id) * FROM psf_user_sport_detail WHERE building_id = :buildingId", nativeQuery = true)
     List<UserSportDetail> getUsersByBuildingId(Long buildingId);
 
-    UserSportDetail findByUserId(Long userId);
+    List<UserSportDetail> findByUserId(Long userId);
 }

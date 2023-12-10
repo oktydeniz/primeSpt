@@ -1,8 +1,10 @@
 package com.facility.primeSport.controller;
 
-import com.facility.primeSport.dto.building.*;
+import com.facility.primeSport.dto.building.BuildingMembersResponse;
+import com.facility.primeSport.dto.building.BuildingRequest;
+import com.facility.primeSport.dto.building.OwnerBuildingInfoResponse;
+import com.facility.primeSport.dto.building.PackageRequest;
 import com.facility.primeSport.dto.user.UpdateCoachRequest;
-import com.facility.primeSport.entitiy.Building;
 import com.facility.primeSport.model.ApiResponse;
 import com.facility.primeSport.service.BuildingService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/building")
@@ -73,15 +75,19 @@ public class BuildingController {
     }
 
     @GetMapping("/{building_id}")
+    @PreAuthorize("hasAuthority('admin:crud') or hasAuthority('coach:crud')")
     public ResponseEntity<ApiResponse<List<BuildingMembersResponse>>> getBuildingMembers(Authentication authentication,
                                                                                          @PathVariable(name = "building_id") Long buildingId,
                                                                                          HttpServletRequest httpServletRequest){
         return service.getBuildingMembers(buildingId);
 
-    }    @GetMapping("users/{user_id}")
-    public ResponseEntity<ApiResponse<BuildingMemberDetailResponse>> getMemberDetail(Authentication authentication,
-                                                                                     @PathVariable(name = "user_id") Long buildingId,
-                                                                                     HttpServletRequest httpServletRequest){
+    }
+
+    @GetMapping("users/{user_id}")
+    @PreAuthorize("hasAuthority('admin:crud')")
+    public ResponseEntity<ApiResponse<Map<String , Object>>> getMemberDetail(Authentication authentication,
+                                                                             @PathVariable(name = "user_id") Long buildingId,
+                                                                             HttpServletRequest httpServletRequest){
         return service.getMemberDetail(buildingId);
     }
 

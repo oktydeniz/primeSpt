@@ -3,6 +3,7 @@ package com.facility.primeSport.service;
 import com.facility.primeSport.auth.JWTUserDetail;
 import com.facility.primeSport.dto.building.*;
 import com.facility.primeSport.dto.user.UpdateCoachRequest;
+import com.facility.primeSport.dto.user.UserPackagesList;
 import com.facility.primeSport.entitiy.Building;
 import com.facility.primeSport.entitiy.BuildingPackage;
 import com.facility.primeSport.entitiy.User;
@@ -18,8 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -137,13 +137,31 @@ public class BuildingService {
         return new ResponseEntity<>(ApiResponse.error(), HttpStatus.BAD_REQUEST);
     }
 
-    // TODO ::
-    public ResponseEntity<ApiResponse<BuildingMemberDetailResponse>> getMemberDetail(Long userId){
-        UserSportDetail user = userSportDetailRepository.findByUserId(userId);
+    public ResponseEntity<ApiResponse<Map<String , Object>>> getMemberDetail(Long userId){
+        List<UserSportDetail> user = userSportDetailRepository.findByUserId(userId);
         if (user != null){
-            BuildingMemberDetailResponse response = new BuildingMemberDetailResponse(user);
+            List<BuildingMemberDetailResponse> data = user.stream().map(BuildingMemberDetailResponse::new).collect(Collectors.toList());
+            Map<String , Object> response = groupTheUserPackages(data);
             return new ResponseEntity<>(ApiResponse.create(response), HttpStatus.OK);
         }
         return new ResponseEntity<>(ApiResponse.error(), HttpStatus.BAD_REQUEST);
+    }
+
+    private Map<String , Object> groupTheUserPackages(List<BuildingMemberDetailResponse> response) {
+        List<UserPackagesList> list = new ArrayList<>();
+        Map<String , Object> userInformation = new HashMap<>();
+        BuildingMemberDetailResponse data = response.get(0);
+        userInformation.put("userName", data.getUserName());
+        userInformation.put("phoneNumber", data.getPhoneNumber());
+        userInformation.put("userAvatar", data.getUserAvatar());
+        userInformation.put("userId", data.getUserId());
+        userInformation.put("level", data.getLevel());
+        for (BuildingMemberDetailResponse r : response) {
+            UserPackagesList userPackagesList = new UserPackagesList(r);
+            list.add(userPackagesList);
+        }
+        userInformation.put("packages", list);
+
+        return userInformation;
     }
 }
