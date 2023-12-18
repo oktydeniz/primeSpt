@@ -1,11 +1,8 @@
 package com.facility.primeSport.controller;
 
 
-import com.facility.primeSport.auth.JWTUserDetail;
 import com.facility.primeSport.dto.user.UserDetailResponse;
-import com.facility.primeSport.entitiy.User;
 import com.facility.primeSport.model.ApiResponse;
-import com.facility.primeSport.repo.UserRepository;
 import com.facility.primeSport.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

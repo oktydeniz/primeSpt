@@ -33,7 +33,9 @@ public class BuildingService {
 
     private final UserSportDetailRepository userSportDetailRepository;
 
-    public BuildingService(BuildingRepository repository, UserRepository userService, BuildingPackageRepository buildingPackageRepository, UserSportDetailRepository userSportDetailRepository) {
+    public BuildingService(BuildingRepository repository, UserRepository userService,
+                           BuildingPackageRepository buildingPackageRepository,
+                           UserSportDetailRepository userSportDetailRepository) {
         this.buildingRepository = repository;
         this.userRepository = userService;
         this.buildingPackageRepository = buildingPackageRepository;
@@ -138,13 +140,13 @@ public class BuildingService {
     }
 
     public ResponseEntity<ApiResponse<Map<String , Object>>> getMemberDetail(Long userId){
-        List<UserSportDetail> user = userSportDetailRepository.findByUserId(userId);
-        if (user != null){
-            List<BuildingMemberDetailResponse> data = user.stream().map(BuildingMemberDetailResponse::new).collect(Collectors.toList());
+        List<UserSportDetail> users = userSportDetailRepository.findByUserId(userId);
+        if (users != null && users.size() >1){
+            List<BuildingMemberDetailResponse> data = users.stream().map(BuildingMemberDetailResponse::new).collect(Collectors.toList());
             Map<String , Object> response = groupTheUserPackages(data);
             return new ResponseEntity<>(ApiResponse.create(response), HttpStatus.OK);
         }
-        return new ResponseEntity<>(ApiResponse.error(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ApiResponse.error(), HttpStatus.NOT_FOUND);
     }
 
     private Map<String , Object> groupTheUserPackages(List<BuildingMemberDetailResponse> response) {
