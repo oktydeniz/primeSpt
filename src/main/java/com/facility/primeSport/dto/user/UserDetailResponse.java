@@ -3,6 +3,8 @@ package com.facility.primeSport.dto.user;
 import com.facility.primeSport.dto.building.UserBuildingInfoResponse;
 import com.facility.primeSport.entitiy.User;
 import com.facility.primeSport.enums.Gender;
+import com.facility.primeSport.util.CommonUtil;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +20,10 @@ public class UserDetailResponse {
     private Boolean isActiveAdverting;
     private Boolean isActiveAnalytics;
     private Boolean isActiveMarketing;
+    private String profession;
+    private String birthDate;
+
+    private String language;
 
     public UserDetailResponse(User user){
         this.gender = user.getGender();
@@ -28,7 +34,26 @@ public class UserDetailResponse {
         this.isActiveAdverting = user.getIsActiveAdverting();
         this.isActiveAnalytics = user.getIsActiveAnalytics();
         this.isActiveMarketing = user.getIsActiveMarketing();
+        this.language = user.getLanguage();
+        //this.profession = user.getProfession().getProfessionName();
+        this.birthDate = CommonUtil.getBirtDateFormat(user.getBirthDate());
         this.buildingSet = user.getBuildings().stream().map(UserBuildingInfoResponse::new).collect(Collectors.toList());
+    }
+
+    public void setBirthDate(String data){
+        this.birthDate = data;
+    }
+
+    public String getBirthDate(){
+        return this.birthDate;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
     }
 
     public String getUserName() {
@@ -109,5 +134,13 @@ public class UserDetailResponse {
 
     public void setActiveMarketing(Boolean activeMarketing) {
         isActiveMarketing = activeMarketing;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

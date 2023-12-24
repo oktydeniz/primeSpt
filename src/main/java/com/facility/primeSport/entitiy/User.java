@@ -93,15 +93,15 @@ public class User extends DateIDBaseModel {
         @JsonView(View.Public.class)
         private String language;
 
-        @Column(name = "is_marketing_active")
+        @Column(name = "is_marketing_active", columnDefinition = "boolean default false")
         @JsonView(View.Public.class)
         private Boolean isActiveMarketing;
 
-        @Column(name = "is_analytics_active")
+        @Column(name = "is_analytics_active", columnDefinition = "boolean default false")
         @JsonView(View.Public.class)
         private Boolean isActiveAnalytics;
 
-        @Column(name = "is_adverting_active")
+        @Column(name = "is_adverting_active", columnDefinition = "boolean default false")
         @JsonView(View.Public.class)
         private Boolean isActiveAdverting;
 

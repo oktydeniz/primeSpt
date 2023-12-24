@@ -13,12 +13,12 @@
         <div class="icon-content">
         </div>
         <div class="form-content">
-            <form method="POST" th:action="@{/user-login}">
+            <form method="POST" name="login" th:action="@{/login}">
                 <div class="form-input">
-                    <input placeholder="email" type="email">
+                    <input placeholder="email" name="email" type="email">
                 </div>
                 <div class="form-input">
-                    <input placeholder="password" type="password">
+                    <input placeholder="password" type="password" name="password">
                 </div>
                 <div class="actions">
                     <span>Forgot Password</span>

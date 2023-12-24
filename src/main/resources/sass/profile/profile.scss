@@ -1,0 +1,129 @@
+@import "variables";
+
+* {
+ color: $white;
+ font-weight:500;
+ font-size: 15px;
+}
+
+.profile-page-content {
+    display:flex;
+    margin: 30px 15px 20px 20px;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.item-value {
+    font-size:16px;
+}
+.profile {
+    color:$text-color-gray;
+    font-size:22px;
+}
+.profile-info-content{
+    margin-top:15px;
+}
+.user-avatar {
+    width: 125px;
+    border-radius: 50%;
+    height: 125px;
+    margin-bottom: 20px;
+    position:relative;
+}
+
+.chance-image-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 125px;
+    height: 100%;
+    border-radius: 50%;
+}
+.chance-image-content:hover {
+    cursor:pointer;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+}
+.chance-avatar-camera{
+     position: absolute;
+     bottom: 10px;
+     left: 0;
+     margin: auto 40%;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+}
+
+.user-avatar:hover .chance-avatar-camera {
+    opacity: 1;
+}
+
+.user-profile{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-info-content {
+    display:flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.info-content {
+    display:flex;
+    flex-direction: row;
+    align-items: center
+}
+.name {
+    color:$text-color-light;
+    font-size:22px;
+    margin-bottom:10px;
+}
+.user-info-content .item-name {
+    font-size: 20px;
+    font-weight: 500;
+    color:$text-color-gray;
+}
+.permissions{
+    display:flex;
+    margin: 5px 20px;
+    justify-content: start;
+    flex-direction: column;
+}
+.per-desc {
+    color:$white;
+    font-size:15px;
+    font-weight:500;
+}
+.permission-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.links {
+    margin: 15px 0 0 0;
+}
+.link{
+    color:$white;
+    font-size:15px;
+    font-weight:500;
+    text-decoration: underline;
+}
+.settings-content {
+    display:flex;
+    margin: 20px;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.settings {
+    display:flex;
+    justify-content: start;
+    margin-top:15px;
+    flex-direction: column;
+}
+
+.app-language {
+    font-size:16px;
+    display:flex;
+}

@@ -1,6 +1,7 @@
 package com.facility.primeSport.service;
 
 import com.facility.primeSport.auth.JWTUserDetail;
+import com.facility.primeSport.dto.user.PermissionData;
 import com.facility.primeSport.dto.user.UserDetailResponse;
 import com.facility.primeSport.entitiy.User;
 import com.facility.primeSport.model.ApiResponse;
@@ -44,5 +45,29 @@ public class UserService {
             }
         }
         return new ResponseEntity<>(ApiResponse.error(), HttpStatus.OK);
+    }
+
+    public UserDetailResponse getUserProfileInformation(Long userId){
+        User user =userRepository.findById(userId).orElse(null);
+        if (user != null){
+            return new UserDetailResponse(user);
+        }
+        return null;
+    }
+
+    public Boolean updateUSerPermissions(PermissionData data, Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user != null){
+            switch (data.action()) {
+                case "advertising" -> user.setIsActiveAdverting(data.isChecked());
+                case "marketing" -> user.setIsActiveMarketing(data.isChecked());
+                case "analytics" -> user.setIsActiveAnalytics(data.isChecked());
+                default -> {
+                }
+            }
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 }

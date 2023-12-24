@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/master}">
+<head>
+    <link th:href="@{/static/stylesheets/profile/profile.css}"
+          rel="stylesheet" type="text/css" media="screen">
+    <title>[[#{profile}]] | [[${user.userName}]]</title>
+</head>
+<body>
+<h4>[[#{profile}]]</h4>
+<div layout:fragment="page_content">
+
+    <div class="profile-page-content">
+        <span class="profile">[[#{profile}]]</span>
+        <div class="user-profile">
+            <div class="profile-info-content">
+                <div class="user-avatar">
+                    <div class="avatar">
+                        <img class="user-avatar" th:src="${user.userAvatarUrl}" alt="User Avatar">
+                    </div>
+                    <div class="chance-image-content">
+                        <img class="chance-avatar-camera" th:src="@{/static/img/camera.png}">
+                    </div>
+                </div>
+            </div>
+            <div class="user-info-content">
+                <div class="info-content">
+                    <div class="item-name">[[#{profile.birth.date}]] : </div>
+                    <div class="item-value">
+                        <span th:text="${user.birthDate}"></span>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <div class="item-name">[[#{profile.plan}]] : </div>
+                    <div class="item-value">
+                        <span> - </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="permissions">
+        <span class="profile">[[#{profile.permission}]]</span>
+        <div id="permissions-container">
+            <div class="permission-content">
+                <span class="per-desc">[[#{profile.permission.analytics}]]</span>
+                <label for="analytics-toggle"></label><input id="analytics-toggle" type="checkbox" th:checked="${user.getActiveAnalytics()}" data-action="analytics">
+            </div>
+            <div class="permission-content">
+                <span class="per-desc">[[#{profile.permission.marketing}]]</span>
+                <label for="marketing-toggle"></label><input id="marketing-toggle" type="checkbox" th:checked="${user.getActiveMarketing()}" data-action="marketing">
+            </div>
+            <div class="permission-content">
+                <span class="per-desc">[[#{profile.permission.data.share}]]</span>
+                <label for="share-data-toggle"></label><input id="share-data-toggle" type="checkbox" th:checked="${user.getActiveAdverting()}" data-action="advertising">
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-content">
+        <span class="profile">[[#{profile.application.setting}]]</span>
+        <div class="settings">
+            <div class="app-language">
+                <span>[[#{profile.application.language}]] : [[${user.language}]]</span>
+            </div>
+            <div class="links">
+                <a class="link" href="#">[[#{profile.application.clear.data}]]</a>
+            </div>
+            <div class="links">
+                <a class="link" href="#">[[#{profile.delete.account}]]</a>
+            </div>
+            <div class="links">
+                <a class="link" href="#">[[#{profile.get.help}]]</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div layout:fragment="page_scripts">
+    <script th:src="@{/static/js/template/profile.js}"></script>
+</div>
+</body>
+</html>
+

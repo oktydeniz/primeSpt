@@ -34,15 +34,17 @@
         </div>
         <div class="menu-item">
           <img th:src="@{/static/img/icons/user_icon.png}">
-          <span>Profile</span>
+          <span><a href="/profile">Profile</a></span>
         </div>
         <div class="menu-item">
           <img th:src="@{/static/img/icons/settings.png}">
           <span>Settings</span>
         </div>
-        <div class="menu-item">
-          <img th:src="@{/static/img/icons/sign_out.png}">
-          <span>Sign-out</span>
+        <div id="sign-out" class="menu-item">
+          <a href="/logout">
+            <img th:src="@{/static/img/icons/sign_out.png}">
+            <span>Sign-out</span>
+          </a>
         </div>
       </div>
     </div>
@@ -51,9 +53,6 @@
     <div class="search-bar">
       <img th:src="@{/static/img/icons/search.png}" class="search-icon">
       <input class="input-search" placeholder="Search">
-    </div>
-    <div class="deneme">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae non quod voluptas. Culpa hic ipsa neque nihil porro quam rem suscipit tempora vitae voluptatum! Alias aperiam at error facere ipsa ipsum iusto labore necessitatibus nesciunt voluptate! Asperiores autem commodi consequatur debitis, deleniti dicta doloremque dolorum ex exercitationem expedita fugiat fugit id ipsa iusto nemo neque nesciunt nobis nostrum odio quaerat qui quod soluta! Cupiditate, dolore doloremque eos error id nam nesciunt, omnis perspiciatis possimus quasi quia quibusdam quis rem sequi tempora veritatis voluptatem. Explicabo hic nemo nobis! Doloribus ex explicabo illo illum laboriosam molestias pariatur quam, quisquam veniam vitae.
     </div>
     <div layout:fragment="page_content"></div>
   </section>
@@ -149,6 +148,8 @@
 
 <!-- Common scripts -->
 <script th:src="@{/static/js/main.js}"></script>
+<script th:src="@{/static/js/locale/en.js}"></script>
+<script th:src="@{/static/js/locale/i18n.js}"></script>
 <div layout:fragment="page_scripts"></div>
 </body>
 </html>

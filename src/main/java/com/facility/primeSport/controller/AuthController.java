@@ -1,8 +1,8 @@
 package com.facility.primeSport.controller;
 
 import com.facility.primeSport.dto.user.UserAuthRegisterRequest;
-import com.facility.primeSport.requestDto.UserRequest;
-import com.facility.primeSport.response.AuthResponse;
+import com.facility.primeSport.dto.user.UserRequest;
+import com.facility.primeSport.dto.AuthResponse;
 import com.facility.primeSport.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

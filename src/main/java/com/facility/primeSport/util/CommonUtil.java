@@ -1,6 +1,8 @@
 package com.facility.primeSport.util;
 
 import java.security.SecureRandom;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 public class CommonUtil {
@@ -35,6 +37,15 @@ public class CommonUtil {
     public static boolean isValidPhoneNumber(String phoneNumber) {
         return phoneNumber != null && PHONE_PATTERN.matcher(phoneNumber).matches();
     }
+
+    public static String getBirtDateFormat(LocalDate date){
+        if (date != null){
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            return  date.format(formatter);
+        }
+        return "-";
+    }
+
     public static boolean isValidEmail(String email) {
         return email != null && EMAIL_PATTERN.matcher(email).matches();
     }
