@@ -4,10 +4,63 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{dashboard/master}">
 <head>
-  <title>Prime Sport</title>
+  <link th:href="@{/static/stylesheets/dashboard/dashboard.css}"
+        rel="stylesheet" type="text/css" media="screen">
+  <title>Welcome</title>
 </head>
 <body>
 <div layout:fragment="page_content">
+  <span class="title">[[#{dashboard.overview}]]</span>
+
+  <div class="overview">
+  <div class="user-daily-info">
+    <div class="box">
+      <div class="info-block">
+        <div class="icon">
+          <img th:src="@{/static/img/icons/calories.png}">
+        </div>
+        <div class="value">305</div>
+        <div class="info-type">Calories burned</div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="info-block">
+        <div class="icon">
+          <img th:src="@{/static/img/icons/distance.png}">
+        </div>
+        <div class="value">12 Km</div>
+        <div class="info-type">Distance</div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="info-block">
+        <div class="icon">
+          <img th:src="@{/static/img/icons/steps.png}">
+        </div>
+        <div class="value">12,546</div>
+        <div class="info-type">Total Steps</div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="info-block">
+        <div class="icon">
+          <img th:src="@{/static/img/icons/sleep.png}">
+        </div>
+        <div class="value">6h51m</div>
+        <div class="info-type">Sleep Times</div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="info-block">
+        <div class="icon">
+          <img th:src="@{/static/img/icons/stress.png}">
+        </div>
+        <div class="value">Low</div>
+        <div class="info-type">Stress Level</div>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
 <div layout:fragment="page_scripts"></div>
 </body>

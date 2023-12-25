@@ -70,4 +70,16 @@ public class UserService {
         }
         return false;
     }
+
+    public ResponseEntity<Boolean> updateLanguage(String language, Long id){
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setLanguage(language);
+            userRepository.save(user);
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

@@ -20,4 +20,20 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#user-language').on('change', function() {
+        $.ajax({
+            url: '/profile/language',
+            method: 'PATCH',
+            data: {
+                language: $(this).val()
+            },
+            success: function(response) {
+                console.log('Language updated successfully');
+            },
+            error: function(xhr, status, error) {
+                console.error('Failed to update language:', status, error);
+            }
+        });
+    });
 });

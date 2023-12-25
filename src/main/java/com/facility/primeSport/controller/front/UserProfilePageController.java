@@ -41,4 +41,10 @@ public class UserProfilePageController {
         Boolean result = userService.updateUSerPermissions(data, userDetail.getId());
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @PatchMapping("/language")
+    public ResponseEntity<Boolean> updateLanguage(Authentication authentication, @RequestParam String language) {
+        JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
+        return userService.updateLanguage(language, userDetail.getId());
+    }
 }

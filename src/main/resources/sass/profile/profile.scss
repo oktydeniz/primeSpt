@@ -126,4 +126,15 @@
 .app-language {
     font-size:16px;
     display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.select-ui {
+  width:100px;
+  height:25px;
+  background-color:$search-bg-color-dark;
+  color:$application-light-green;
+  border-radius:10px;
+  margin-left: 10px;
 }

@@ -63,7 +63,11 @@
         <span class="profile">[[#{profile.application.setting}]]</span>
         <div class="settings">
             <div class="app-language">
-                <span>[[#{profile.application.language}]] : [[${user.language}]]</span>
+                <label for="user-language" th:text="#{profile.application.language}"></label>
+                <select class="select-ui" name="app-language" id="user-language">
+                    <option value="en" th:selected="${user.language == 'en'}">English</option>
+                    <option value="tr" th:selected="${user.language == 'tr'}">Turkish</option>
+                </select>
             </div>
             <div class="links">
                 <a class="link" href="#">[[#{profile.application.clear.data}]]</a>
