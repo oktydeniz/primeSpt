@@ -19,7 +19,7 @@
         <div class="icon">
           <img th:src="@{/static/img/icons/calories.png}">
         </div>
-        <div class="value">305</div>
+        <span class="value">[[${dailyData.calories}]]</span>
         <div class="info-type">Calories burned</div>
       </div>
     </div>
@@ -28,7 +28,7 @@
         <div class="icon">
           <img th:src="@{/static/img/icons/distance.png}">
         </div>
-        <div class="value">12 Km</div>
+        <span class="value">[[${dailyData.distance}]] Km</span>
         <div class="info-type">Distance</div>
       </div>
     </div>
@@ -37,7 +37,7 @@
         <div class="icon">
           <img th:src="@{/static/img/icons/steps.png}">
         </div>
-        <div class="value">12,546</div>
+        <span class="value">[[${dailyData.steps}]]</span>
         <div class="info-type">Total Steps</div>
       </div>
     </div>
@@ -46,7 +46,7 @@
         <div class="icon">
           <img th:src="@{/static/img/icons/sleep.png}">
         </div>
-        <div class="value">6h51m</div>
+        <span class="value">[[${dailyData.sleepTime}]]</span>
         <div class="info-type">Sleep Times</div>
       </div>
     </div>
@@ -55,7 +55,7 @@
         <div class="icon">
           <img th:src="@{/static/img/icons/stress.png}">
         </div>
-        <div class="value">Low</div>
+        <span class="value">[[${dailyData.stressLevel}]]</span>
         <div class="info-type">Stress Level</div>
       </div>
     </div>

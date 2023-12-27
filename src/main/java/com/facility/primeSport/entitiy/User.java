@@ -4,6 +4,7 @@ import com.facility.primeSport.View;
 import com.facility.primeSport.dto.user.UserAuthRegisterRequest;
 import com.facility.primeSport.entitiy.base.DateIDBaseModel;
 import com.facility.primeSport.enums.Gender;
+import com.facility.primeSport.enums.UnitMeasure;
 import com.facility.primeSport.enums.permission.Role;
 import com.facility.primeSport.util.CommonUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -108,6 +109,10 @@ public class User extends DateIDBaseModel {
         @JoinColumn(name = "profession_id")
         @ManyToOne(fetch = FetchType.EAGER)
         private UserProfession profession;
+
+        @Column(name = "unit_of_measure")
+        @Enumerated(EnumType.ORDINAL)
+        private UnitMeasure unitMeasure;
 
         public User(UserAuthRegisterRequest request){
                 this.userName = request.getUserName();

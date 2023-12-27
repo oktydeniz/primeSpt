@@ -1,6 +1,7 @@
 package com.facility.primeSport.controller.front;
 
 import com.facility.primeSport.auth.JWTUserDetail;
+import com.facility.primeSport.dto.user.UserDailyDataResponse;
 import com.facility.primeSport.service.UDailyAnalyticsService;
 import lombok.Getter;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -28,10 +29,11 @@ public class HomeController {
     @GetMapping("/dashboard")
     public String dashboard(Authentication authentication, Model model){
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
-            return "/login";
+            return "redirect:/login";
         }
         JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
-        model.addAttribute("dailyReports", dailyAnalyticsService.getDailyData(userDetail.getId()));
+        UserDailyDataResponse dailyData = dailyAnalyticsService.getDailyData(userDetail.getId());
+        model.addAttribute("dailyData", dailyData);
         return "dashboard/dashboard";
     }
 
