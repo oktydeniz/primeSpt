@@ -58,10 +58,6 @@ public class UserActivityList extends DateIDBaseModel {
     @JsonView(View.Public.class)
     private LocalTime endTime;
 
-    @Column(name = "activity_days")
-    @JsonView(View.Public.class)
-    private String activityDays;
-
     @ElementCollection
     @CollectionTable(name = "program_days",
             joinColumns = @JoinColumn(name = "program_id"))

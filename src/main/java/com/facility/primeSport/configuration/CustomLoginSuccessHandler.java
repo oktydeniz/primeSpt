@@ -18,7 +18,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
     private ConfigurationManager configurationManager;
 
     public CustomLoginSuccessHandler() {
-        setDefaultTargetUrl("/profile");
+        setDefaultTargetUrl("/home/dashboard");
         setAlwaysUseDefaultTargetUrl(false);
     }
 

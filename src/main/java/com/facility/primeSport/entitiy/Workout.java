@@ -1,6 +1,7 @@
 package com.facility.primeSport.entitiy;
 
 import com.facility.primeSport.View;
+import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutListDetail;
 import com.facility.primeSport.enums.WorkoutLevel;
 import com.facility.primeSport.entitiy.Sport;
 import com.facility.primeSport.entitiy.base.DateIDBaseModel;
@@ -50,4 +51,9 @@ public class Workout extends DateIDBaseModel {
     @JsonView(View.Public.class)
     @Column(name = "target_muscle", length = 100)
     private String targetMuscle;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "public_activity_workout_list_detail_id")
+    private PublicActivityWorkoutListDetail publicActivityListDetail;
 }

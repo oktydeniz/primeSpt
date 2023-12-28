@@ -106,10 +106,11 @@ body, html {
   border-radius: 15px 0 0 15px;
   width: 20%;
   display: flex;
+  z-index: 1111;
   flex-direction: column;
 }
 
-/* line 100, ../../../sass/dashboard/dashboard.scss */
+/* line 101, ../../../sass/dashboard/dashboard.scss */
 .user-scheduled {
   width: 100%;
   height: 250px;
@@ -117,19 +118,19 @@ body, html {
   margin-top: 5px;
 }
 
-/* line 106, ../../../sass/dashboard/dashboard.scss */
+/* line 107, ../../../sass/dashboard/dashboard.scss */
 .user-inf {
   margin-bottom: 50px;
 }
 
-/* line 109, ../../../sass/dashboard/dashboard.scss */
+/* line 110, ../../../sass/dashboard/dashboard.scss */
 .scheduled-list {
   overflow-y: auto;
   height: 380px;
   margin-top: 12px;
 }
 
-/* line 114, ../../../sass/dashboard/dashboard.scss */
+/* line 115, ../../../sass/dashboard/dashboard.scss */
 .detail-item {
   display: flex;
   margin: 15px;
@@ -142,21 +143,21 @@ body, html {
   flex-direction: column;
 }
 
-/* line 126, ../../../sass/dashboard/dashboard.scss */
+/* line 127, ../../../sass/dashboard/dashboard.scss */
 .item-name {
   color: #FAF9FA;
   font-size: 20px;
   padding: 5px;
 }
 
-/* line 131, ../../../sass/dashboard/dashboard.scss */
+/* line 132, ../../../sass/dashboard/dashboard.scss */
 .time {
   color: #BABBBD;
   font-size: 16px;
   padding: 5px;
 }
 
-/* line 137, ../../../sass/dashboard/dashboard.scss */
+/* line 138, ../../../sass/dashboard/dashboard.scss */
 .detail-item img {
   position: absolute;
   right: 12px;
@@ -164,14 +165,14 @@ body, html {
   top: 12px;
 }
 
-/* line 144, ../../../sass/dashboard/dashboard.scss */
+/* line 145, ../../../sass/dashboard/dashboard.scss */
 .scheduled-title {
   font-size: 24px;
   color: #F6F6F6;
   margin: 20px;
 }
 
-/* line 150, ../../../sass/dashboard/dashboard.scss */
+/* line 151, ../../../sass/dashboard/dashboard.scss */
 .user-body-info {
   background-color: #2F353E;
   height: 70px;
@@ -182,7 +183,7 @@ body, html {
   flex-decoration: row;
 }
 
-/* line 160, ../../../sass/dashboard/dashboard.scss */
+/* line 161, ../../../sass/dashboard/dashboard.scss */
 .body-info {
   display: flex;
   flex-direction: column;
@@ -190,33 +191,33 @@ body, html {
   justify-content: space-evenly;
 }
 
-/* line 167, ../../../sass/dashboard/dashboard.scss */
+/* line 168, ../../../sass/dashboard/dashboard.scss */
 .value-name {
   font-size: 18px;
   font-weight: 400;
   color: #B3B5B9;
 }
 
-/* line 172, ../../../sass/dashboard/dashboard.scss */
+/* line 173, ../../../sass/dashboard/dashboard.scss */
 .value {
   color: #F6F6F6;
   font-size: 14px;
 }
 
-/* line 177, ../../../sass/dashboard/dashboard.scss */
+/* line 178, ../../../sass/dashboard/dashboard.scss */
 .activity-lvl {
   color: #A1D4CF;
   font-size: 12px;
   margin-top: 5px;
 }
 
-/* line 182, ../../../sass/dashboard/dashboard.scss */
+/* line 183, ../../../sass/dashboard/dashboard.scss */
 .user-name {
   color: #F6F6F6;
   font-size: 24px;
 }
 
-/* line 186, ../../../sass/dashboard/dashboard.scss */
+/* line 187, ../../../sass/dashboard/dashboard.scss */
 .info {
   display: flex;
   flex-direction: column;
@@ -225,7 +226,7 @@ body, html {
   margin-top: 20px;
 }
 
-/* line 194, ../../../sass/dashboard/dashboard.scss */
+/* line 195, ../../../sass/dashboard/dashboard.scss */
 .avatar {
   width: 125px;
   border-radius: 50%;
@@ -233,7 +234,7 @@ body, html {
   margin-bottom: 20px;
 }
 
-/* line 201, ../../../sass/dashboard/dashboard.scss */
+/* line 202, ../../../sass/dashboard/dashboard.scss */
 .search-bar {
   height: 58px;
   position: sticky;
@@ -245,7 +246,7 @@ body, html {
   margin: 20px;
 }
 
-/* line 212, ../../../sass/dashboard/dashboard.scss */
+/* line 213, ../../../sass/dashboard/dashboard.scss */
 .search-icon {
   width: 30px;
   padding: 8px;
@@ -253,7 +254,7 @@ body, html {
   height: 30px;
 }
 
-/* line 219, ../../../sass/dashboard/dashboard.scss */
+/* line 220, ../../../sass/dashboard/dashboard.scss */
 .input-search {
   height: 52px;
   flex: 1;
@@ -268,19 +269,117 @@ body, html {
   outline: none;
 }
 
-/* line 233, ../../../sass/dashboard/dashboard.scss */
+/* line 234, ../../../sass/dashboard/dashboard.scss */
 .input-search::placeholder {
   color: #B3B5B9;
   opacity: 1;
 }
 
-/* line 237, ../../../sass/dashboard/dashboard.scss */
+/* line 238, ../../../sass/dashboard/dashboard.scss */
 .input-search::-ms-input-placeholder {
   color: #B3B5B9;
 }
 
-/* line 241, ../../../sass/dashboard/dashboard.scss */
-.deneme {
-  background-color: red;
-  height: 1300px;
+/* line 243, ../../../sass/dashboard/dashboard.scss */
+input[type="checkbox"] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: grey;
+  outline: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* line 256, ../../../sass/dashboard/dashboard.scss */
+input[type="checkbox"]::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+/* line 268, ../../../sass/dashboard/dashboard.scss */
+input[type="checkbox"]:checked::before {
+  transform: translateX(100%);
+  background: #FFFFFF;
+}
+
+/* line 273, ../../../sass/dashboard/dashboard.scss */
+input[type="checkbox"]:checked {
+  background: #A9DFD8;
+}
+
+/* line 277, ../../../sass/dashboard/dashboard.scss */
+.overview {
+  display: flex;
+  overflow: auto;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+}
+
+/* line 283, ../../../sass/dashboard/dashboard.scss */
+.overview::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+/* line 287, ../../../sass/dashboard/dashboard.scss */
+.user-daily-info {
+  margin: 15px;
+  display: flex;
+  width: 100%;
+  transition: all 0.6s ease;
+  flex-wrap: nowrap;
+}
+
+/* line 295, ../../../sass/dashboard/dashboard.scss */
+.box {
+  width: 180px;
+  height: 150px;
+  border-radius: 10px;
+  margin-left: 15px;
+  background-color: #21222D;
+}
+
+/* line 302, ../../../sass/dashboard/dashboard.scss */
+.box:first-child {
+  margin: 0;
+}
+
+/* line 305, ../../../sass/dashboard/dashboard.scss */
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+/* line 312, ../../../sass/dashboard/dashboard.scss */
+.info-block .value {
+  color: #FFFFFF;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+/* line 318, ../../../sass/dashboard/dashboard.scss */
+.info-block .info-type {
+  color: #A5A5AA;
+}
+
+/* line 322, ../../../sass/dashboard/dashboard.scss */
+.title {
+  color: #B3B5B9;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 15px;
 }
