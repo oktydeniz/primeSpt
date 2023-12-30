@@ -66,6 +66,11 @@ public class PublicActivityWorkoutList extends DateIDBaseModel {
     private ActivityType activityType;
 
 
+    public PublicActivityWorkoutList(){
+
+    }
+
+
     public PublicActivityWorkoutList(CreateActivityRequest request){
         this.description = request.description();
         this.name = request.name();

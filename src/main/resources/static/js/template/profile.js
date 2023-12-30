@@ -17,7 +17,6 @@ $(document).ready(function() {
             isPrivate: $("#isPrivate").prop('checked'),
 
         }
-        debugger;
         $.ajax({
             url: '/activity/create',
             method: 'POST',

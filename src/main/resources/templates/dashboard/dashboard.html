@@ -61,8 +61,27 @@
     </div>
   </div>
   </div>
+
+  <div class="programs">
+    <div class="category" th:each="entry : ${activities}">
+      <div class="category-keys">
+        <span class="title" th:text="${entry.key.activityType}"></span>
+        <a class="see-all" th:href="@{/home/dashboard/category/{categoryId}(categoryId=${entry.key.id})}">See All</a>
+      </div>
+      <section class="category-values-section">
+        <div class="category-values" th:each="item : ${entry.value}">
+          <div class="category-item" th:attr="data-id=${item.id}">
+            <img th:src="${item.imageUrl}" th:alt="${item.name}">
+            <p th:text="${item.name}"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>
-<div layout:fragment="page_scripts"></div>
+<div layout:fragment="page_scripts">
+  <script th:src="@{/static/js/template/dashboard.js}"></script>
+</div>
 </body>
 </html>
 

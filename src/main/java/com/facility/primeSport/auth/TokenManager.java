@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class TokenManager {
 
-    public static final Long validity = 60 * 120 * 120000L;
+    public static final Long validity = 30 * 60 * 1000L;
     Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String generateToken(Authentication authentication) {

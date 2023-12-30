@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/master}">
+<head>
+  <link th:href="@{/static/stylesheets/dashboard/dashboard.css}"
+        rel="stylesheet" type="text/css" media="screen">
+  <title th:text="${activity.activityType}"></title>
+</head>
+<body>
+<div layout:fragment="page_content">
+  <div class="programs">
+    <div class="category" th:each="item : ${category}">
+      <section class="category-values-section">
+          <div class="category-item" th:attr="data-id=${item.id}">
+            <img th:src="${item.imageUrl}" th:alt="${item.name}">
+            <p th:text="${item.name}"></p>
+          </div>
+
+      </section>
+    </div>
+  </div>
+
+</div>
+<div layout:fragment="page_scripts">
+  <script th:src="@{/static/js/template/dashboard.js}"></script>
+</div>
+</body>
+</html>
+
