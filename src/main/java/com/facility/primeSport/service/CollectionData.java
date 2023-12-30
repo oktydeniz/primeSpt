@@ -3,7 +3,7 @@ package com.facility.primeSport.service;
 
 import com.facility.primeSport.dto.fitness.ActivityTypeResponse;
 import com.facility.primeSport.dto.fitness.PublicActivityWorkoutResponse;
-import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutList;
+import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutListDetail;
 import com.facility.primeSport.entitiy.fitness.ActivityType;
 import com.facility.primeSport.repo.ActivityTypeRepository;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,16 @@ import java.util.stream.Collectors;
 public class CollectionData {
 
 
-    private ActivityTypeRepository activityType;
+    private final ActivityTypeRepository activityType;
 
-    private PublicActivityWorkoutListService publicActivityWorkoutListService;
+    private final PublicActivityWorkoutListService publicActivityWorkoutListService;
 
-    public CollectionData(ActivityTypeRepository activityType, PublicActivityWorkoutListService publicActivityWorkoutListService) {
+    private final PublicActivityWorkoutListDetailService publicActivityWorkoutListDetailService;
+
+    public CollectionData(ActivityTypeRepository activityType, PublicActivityWorkoutListService publicActivityWorkoutListService, PublicActivityWorkoutListDetailService publicActivityWorkoutListDetailService) {
         this.activityType = activityType;
         this.publicActivityWorkoutListService = publicActivityWorkoutListService;
+        this.publicActivityWorkoutListDetailService = publicActivityWorkoutListDetailService;
     }
 
     public List<ActivityTypeResponse> getActivityTypes(){
@@ -39,5 +42,14 @@ public class CollectionData {
 
     public List<PublicActivityWorkoutResponse> getByCategory(Long categoryId) {
         return publicActivityWorkoutListService.getByCategoryId(categoryId);
+    }
+
+    public PublicActivityWorkoutResponse getPublicProgramDetail(Long programId) {
+        return publicActivityWorkoutListService.findById(programId);
+
+    }
+
+    public List<PublicActivityWorkoutListDetail> getPublicProgramListDetail(Long programId) {
+        return publicActivityWorkoutListDetailService.findById(programId);
     }
 }

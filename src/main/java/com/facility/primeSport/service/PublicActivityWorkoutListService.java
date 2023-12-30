@@ -41,4 +41,12 @@ public class PublicActivityWorkoutListService {
                 .map(this::convertToDTO)
                 .collect(Collectors.groupingBy(PublicActivityWorkoutResponse::getActivityType));
     }
+
+    public PublicActivityWorkoutResponse findById(Long programId) {
+        PublicActivityWorkoutList response = repository.findById(programId).orElse(null);
+        if (response != null){
+            return new PublicActivityWorkoutResponse(response);
+        }
+        return null;
+    }
 }

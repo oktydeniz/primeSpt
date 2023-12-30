@@ -37,7 +37,13 @@ public class PublicActivityWorkoutListDetail extends DateIDBaseModel {
     @JsonView(View.Public.class)
     private String description;
 
-    @OneToMany(mappedBy = "publicActivityListDetail", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Workout> workouts = new ArrayList<>();
+    @Column(name = "workout_order")
+    @JsonView(View.Public.class)
+    private Integer workoutOrder;
+
+    @JoinColumn(name = "workout_id")
+    @JsonView(View.Public.class)
+    @ManyToOne
+    private Workout workout;
 
 }

@@ -51,9 +51,4 @@ public class Workout extends DateIDBaseModel {
     @JsonView(View.Public.class)
     @Column(name = "target_muscle", length = 100)
     private String targetMuscle;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "public_activity_workout_list_detail_id")
-    private PublicActivityWorkoutListDetail publicActivityListDetail;
 }

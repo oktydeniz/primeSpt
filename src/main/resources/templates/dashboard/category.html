@@ -10,18 +10,28 @@
 </head>
 <body>
 <div layout:fragment="page_content">
-  <div class="programs">
-    <div class="category" th:each="item : ${category}">
-      <section class="category-values-section">
-          <div class="category-item" th:attr="data-id=${item.id}">
-            <img th:src="${item.imageUrl}" th:alt="${item.name}">
-            <p th:text="${item.name}"></p>
-          </div>
 
-      </section>
+  <section class="detail-section">
+    <div class="activity">
+      <br>
+      <h2 class="activity-name" th:text="${activity.activityType}"></h2>
+      <br>
+      <h4 class="activity-description" th:text="${activity.description}"></h4>
     </div>
-  </div>
 
+    <div class="activity-programs">
+      <div class="category" th:each="item : ${category}">
+        <section class="activity-programs-lists">
+          <a th:href="@{/home/dashboard/program/{programId}(programId=${item.id})}">
+            <div class="category-item" th:attr="data-id=${item.id}">
+              <img th:src="${item.imageUrl}" th:alt="${item.name}">
+              <p th:text="${item.name}"></p>
+            </div>
+          </a>
+        </section>
+      </div>
+    </div>
+  </section>
 </div>
 <div layout:fragment="page_scripts">
   <script th:src="@{/static/js/template/dashboard.js}"></script>

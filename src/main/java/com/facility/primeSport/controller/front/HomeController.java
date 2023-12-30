@@ -5,6 +5,7 @@ import com.facility.primeSport.dto.fitness.ActivityTypeResponse;
 import com.facility.primeSport.dto.fitness.PublicActivityWorkoutResponse;
 import com.facility.primeSport.dto.user.UserDailyDataResponse;
 import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutList;
+import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutListDetail;
 import com.facility.primeSport.entitiy.fitness.ActivityType;
 import com.facility.primeSport.service.CollectionData;
 import com.facility.primeSport.service.UDailyAnalyticsService;
@@ -58,5 +59,15 @@ public class HomeController {
         model.addAttribute("category", category);
         model.addAttribute("activity", activity);
         return "dashboard/category";
+    }
+
+    @GetMapping("/dashboard/program/{programId}")
+    public String getSelectedProgramDetail(Model model, @PathVariable(name = "programId") Long programId,
+                                           Authentication authentication){
+        PublicActivityWorkoutResponse program = collectionData.getPublicProgramDetail(programId);
+        List<PublicActivityWorkoutListDetail> programList = collectionData.getPublicProgramListDetail(programId);
+        model.addAttribute("program", program);
+        model.addAttribute("programList", programList);
+        return "dashboard/program_detail";
     }
 }

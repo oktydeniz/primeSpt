@@ -70,10 +70,12 @@
       </div>
       <section class="category-values-section">
         <div class="category-values" th:each="item : ${entry.value}">
-          <div class="category-item" th:attr="data-id=${item.id}">
+          <a th:href="@{/home/dashboard/program/{programId}(programId=${item.id})}">
+          <div class="category-item">
             <img th:src="${item.imageUrl}" th:alt="${item.name}">
             <p th:text="${item.name}"></p>
           </div>
+          </a>
         </div>
       </section>
     </div>
