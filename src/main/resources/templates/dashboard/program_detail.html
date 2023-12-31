@@ -6,11 +6,77 @@
 <head>
     <link th:href="@{/static/stylesheets/dashboard/dashboard.css}"
           rel="stylesheet" type="text/css" media="screen">
-    <title></title>
+    <title th:text="${program.name}"></title>
 </head>
 <body>
 <div layout:fragment="page_content">
 
+    <div class="container">
+        <div class="program-details">
+            <section class="program-detail">
+                <div class="detail-value">
+                    <span>Program Name: </span>
+                    <span th:text="${program.name}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Program Description: </span>
+                    <span th:text="${program.description}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Program Level: </span>
+                    <span th:text="${program.workoutLevel}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Program Total Rate: </span>
+                    <span th:text="${program.rate}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Program imageUrl: </span>
+                    <span th:text="${program.imageUrl}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Number of Visit: </span>
+                    <span th:text="${program.countOfClicked}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Activity Type: </span>
+                    <span th:text="${program.activityType.activityType}"></span>
+                </div>
+                <div class="detail-value">
+                    <span>Activity Detail: </span>
+                    <span th:text="${program.activityType.description}"></span>
+                </div>
+            </section>
+            <section class="owner-building-detail">
+                <div class="owner-detail">
+                    <div th:if="${isCurrentUser}">
+                        Edit options
+                    </div>
+                    <div th:unless="${isCurrentUser}">
+                        <div class="col-1">
+                            <div class="owner-avatar">
+                                <img class="avatar" th:src="${program.ownerId.avatarUrl}">
+                            </div>
+                            <div class="owner-name">
+                                <span th:text="${program.ownerId.userName}"></span> | <span th:text="${program.ownerId.profession.professionName}"></span>
+                            </div>
+                        </div>
+                        <div th:if="${program.building}">
+                            <div class="building-detail">
+                                <a th:href="@{/building/{buildingId}(buildingId=${program.building.id})}">
+                                    <span th:text="${program.building.buildingName}"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="program-list">
+                
+            </section>
+        </div>
+    </div>
 </div>
 <div layout:fragment="page_scripts">
     <script th:src="@{/static/js/template/dashboard.js}"></script>

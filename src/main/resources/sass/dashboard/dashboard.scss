@@ -427,3 +427,15 @@ input[type="checkbox"]:checked {
     margin-top: 20px;
     cursor:pointer;
 }
+
+.program-details {
+    margin:15px;
+    display:flex;
+    flex-direction:row;
+}
+
+.detail-value {
+    color:$application-white;
+    font-size:18px;
+}
+

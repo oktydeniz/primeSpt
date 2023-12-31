@@ -45,7 +45,8 @@ public class PublicActivityWorkoutList extends DateIDBaseModel {
     private Integer countOfClicked;
 
     @JsonView(View.Public.class)
-    @Column(name = "building_id")
+    @JoinColumn(name = "building_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Building building;
 
     @JsonView(View.Public.class)

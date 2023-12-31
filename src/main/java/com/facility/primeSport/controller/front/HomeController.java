@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/home")
@@ -66,6 +67,9 @@ public class HomeController {
                                            Authentication authentication){
         PublicActivityWorkoutResponse program = collectionData.getPublicProgramDetail(programId);
         List<PublicActivityWorkoutListDetail> programList = collectionData.getPublicProgramListDetail(programId);
+        JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
+        var isCurrentUser = Objects.equals(userDetail.getId(), program.getOwnerId().getId());
+        model.addAttribute("isCurrentUser", isCurrentUser);
         model.addAttribute("program", program);
         model.addAttribute("programList", programList);
         return "dashboard/program_detail";
