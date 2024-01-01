@@ -11,7 +11,7 @@
 <body>
 <div layout:fragment="page_content">
 
-    <div class="container">
+    <div class="program-container">
         <div class="program-details">
             <section class="program-detail">
                 <div class="detail-value">
@@ -71,9 +71,77 @@
                     </div>
                 </div>
             </section>
-
+        </div>
+        <div class="program-detail-list">
             <section class="program-list">
-                
+                <div class="item" th:each="program : ${programList}">
+                    <div th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).WARM_UP}">
+                        <span> WARM UP </span>
+                        <div th:each="item : ${program.value}">
+                            <div class="image">
+                                <img th:src="${item.workout.workoutImage}">
+                            </div>
+                            <div class="item-info">
+                                <span th:text="${item.workout.workoutName}"></span>
+                                <span th:text="${item.description}"></span>
+                                <div th:if="${item.setCount}">
+                                    <span class="time-duration">[[${item.repeatCount}]] X [[${item.setCount}]]</span>
+                                </div>
+
+                                <div th:unless="${item.setCount}">
+                            <span th:if="${item.repeatCount}">
+                                [[${item.repeatCount}]] X
+                            </span>
+                                    <span class="time-duration">[[${item.setDurationSecond}]]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).EXERCISE}">
+                        <span> EXERCİSE</span>
+                        <div th:each="item : ${program.value}">
+                            <div class="image">
+                                <img th:src="${item.workout.workoutImage}">
+                            </div>
+                            <div class="item-info">
+                                <span th:text="${item.workout.workoutName}"></span>
+                                <span th:text="${item.description}"></span>
+                                <div th:if="${item.setCount}">
+                                    <span class="time-duration">[[${item.repeatCount}]] X [[${item.setCount}]]</span>
+                                </div>
+
+                                <div th:unless="${item.setCount}">
+                            <span th:if="${item.repeatCount}">
+                                [[${item.repeatCount}]] X
+                            </span>
+                                    <span class="time-duration">[[${item.setDurationSecond}]]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).COOL_DOWN}">
+                        <span> Cool Down</span>
+                        <div th:each="item : ${program.value}">
+                            <div class="image">
+                                <img th:src="${item.workout.workoutImage}">
+                            </div>
+                            <div class="item-info">
+                                <span th:text="${item.workout.workoutName}"></span>
+                                <span th:text="${item.description}"></span>
+                                <div th:if="${item.setCount}">
+                                    <span class="time-duration">[[${item.repeatCount}]] X [[${item.setCount}]]</span>
+                                </div>
+
+                                <div th:unless="${item.setCount}">
+                            <span th:if="${item.repeatCount}">
+                                [[${item.repeatCount}]] X
+                            </span>
+                                    <span class="time-duration">[[${item.setDurationSecond}]]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>

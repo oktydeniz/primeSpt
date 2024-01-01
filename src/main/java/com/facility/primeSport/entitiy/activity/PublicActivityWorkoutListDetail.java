@@ -3,13 +3,11 @@ package com.facility.primeSport.entitiy.activity;
 import com.facility.primeSport.View;
 import com.facility.primeSport.entitiy.Workout;
 import com.facility.primeSport.entitiy.base.DateIDBaseModel;
+import com.facility.primeSport.enums.ActivityGroupType;
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "public_activity_workout_list_detail")
@@ -45,5 +43,10 @@ public class PublicActivityWorkoutListDetail extends DateIDBaseModel {
     @JsonView(View.Public.class)
     @ManyToOne
     private Workout workout;
+
+    @JsonView(View.Public.class)
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "activity_type")
+    private ActivityGroupType type;
 
 }

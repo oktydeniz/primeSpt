@@ -5,7 +5,7 @@ public enum WorkoutLevel {
     BEGINNER(101),
     INTERMEDIATE(102),
     ADVANCED(103),
-    SPECIFIC(104),;
+    SPECIFIC(104);
 
     private final int value;
     WorkoutLevel(int value) {

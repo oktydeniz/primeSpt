@@ -2,9 +2,10 @@ package com.facility.primeSport.service;
 
 
 import com.facility.primeSport.dto.fitness.ActivityTypeResponse;
+import com.facility.primeSport.dto.fitness.PublicActivityWorkoutListDetailResponse;
 import com.facility.primeSport.dto.fitness.PublicActivityWorkoutResponse;
-import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutListDetail;
 import com.facility.primeSport.entitiy.fitness.ActivityType;
+import com.facility.primeSport.enums.ActivityGroupType;
 import com.facility.primeSport.repo.ActivityTypeRepository;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,8 @@ public class CollectionData {
 
     }
 
-    public List<PublicActivityWorkoutListDetail> getPublicProgramListDetail(Long programId) {
+    public Map<ActivityGroupType, List<PublicActivityWorkoutListDetailResponse>> getPublicProgramListDetail(Long programId) {
+
         return publicActivityWorkoutListDetailService.findById(programId);
     }
 }

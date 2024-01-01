@@ -439,3 +439,53 @@ input[type="checkbox"]:checked {
     font-size:18px;
 }
 
+/**
+.program-container {
+    display:flex;
+    flex-direction: column;
+    margin:15px;
+}
+.program-detail-list {
+    margin-left:15px;
+    margin-top:30px;
+}
+
+.program-list {
+
+}
+
+.program-detail-list .item {
+    display:flex;
+    flex-direction:row;
+    height: 100px;
+    width: 50%;
+    background:$application-white;
+    border-radius:10px;
+    margin-bottom:10px;
+
+    .image {
+        width:26%;
+        border-radius:10px;
+    }
+
+    .item-info {
+        width:60%;
+    }
+}
+
+.type-class {
+    height:100%;
+    border-radius:5px;
+    width:4%;
+
+    .WARM_UP {
+        background-color:green;
+    }
+    .EXERCISE {
+        background-color:red;
+    }
+    .COOL_DOWN {
+        background-color:blue;
+    }
+}
+**/

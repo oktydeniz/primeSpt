@@ -36,7 +36,7 @@ public class Workout extends DateIDBaseModel {
     private String description;
 
     @JsonView(View.Public.class)
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "workout_level")
     private WorkoutLevel level;
 

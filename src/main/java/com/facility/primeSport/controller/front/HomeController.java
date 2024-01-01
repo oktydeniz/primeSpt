@@ -1,12 +1,11 @@
 package com.facility.primeSport.controller.front;
 
 import com.facility.primeSport.auth.JWTUserDetail;
-import com.facility.primeSport.dto.fitness.ActivityTypeResponse;
+import com.facility.primeSport.dto.fitness.PublicActivityWorkoutListDetailResponse;
 import com.facility.primeSport.dto.fitness.PublicActivityWorkoutResponse;
 import com.facility.primeSport.dto.user.UserDailyDataResponse;
-import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutList;
-import com.facility.primeSport.entitiy.activity.PublicActivityWorkoutListDetail;
 import com.facility.primeSport.entitiy.fitness.ActivityType;
+import com.facility.primeSport.enums.ActivityGroupType;
 import com.facility.primeSport.service.CollectionData;
 import com.facility.primeSport.service.UDailyAnalyticsService;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -66,7 +65,7 @@ public class HomeController {
     public String getSelectedProgramDetail(Model model, @PathVariable(name = "programId") Long programId,
                                            Authentication authentication){
         PublicActivityWorkoutResponse program = collectionData.getPublicProgramDetail(programId);
-        List<PublicActivityWorkoutListDetail> programList = collectionData.getPublicProgramListDetail(programId);
+        Map<ActivityGroupType, List<PublicActivityWorkoutListDetailResponse>> programList = collectionData.getPublicProgramListDetail(programId);
         JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
         var isCurrentUser = Objects.equals(userDetail.getId(), program.getOwnerId().getId());
         model.addAttribute("isCurrentUser", isCurrentUser);
