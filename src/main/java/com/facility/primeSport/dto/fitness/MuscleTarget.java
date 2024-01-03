@@ -4,4 +4,5 @@ public record MuscleTarget(
         String name,
         String image,
         String description
-){}
+) {
+}

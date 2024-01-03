@@ -10,7 +10,7 @@ public class OwnerUserDetail {
 
     private String avatarUrl;
 
-    public OwnerUserDetail(User user){
+    public OwnerUserDetail(User user) {
         this.userName = user.getUserName();
         this.phoneNumber = user.getPhoneNumber();
         this.avatarUrl = user.getAvatarUrl();

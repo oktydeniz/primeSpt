@@ -38,7 +38,7 @@ public class OwnerBuildingInfoResponse {
 
     private List<CoachDetailResponse> coaches;
 
-    public OwnerBuildingInfoResponse(Building building){
+    public OwnerBuildingInfoResponse(Building building) {
         this.buildingName = building.getBuildingName();
         this.buildingLogoUrl = building.getBuildingLogoUrl();
         this.buildingDescription = building.getBuildingDescription();

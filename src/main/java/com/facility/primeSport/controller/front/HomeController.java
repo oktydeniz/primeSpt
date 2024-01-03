@@ -3,11 +3,15 @@ package com.facility.primeSport.controller.front;
 import com.facility.primeSport.auth.JWTUserDetail;
 import com.facility.primeSport.dto.fitness.PublicActivityWorkoutListDetailResponse;
 import com.facility.primeSport.dto.fitness.PublicActivityWorkoutResponse;
+import com.facility.primeSport.dto.fitness.WorkoutResponse;
 import com.facility.primeSport.dto.user.UserDailyDataResponse;
+import com.facility.primeSport.entitiy.Workout;
 import com.facility.primeSport.entitiy.fitness.ActivityType;
 import com.facility.primeSport.enums.ActivityGroupType;
 import com.facility.primeSport.service.CollectionData;
 import com.facility.primeSport.service.UDailyAnalyticsService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -72,5 +77,13 @@ public class HomeController {
         model.addAttribute("program", program);
         model.addAttribute("programList", programList);
         return "dashboard/program_detail";
+    }
+
+    @GetMapping("/workout/{id}")
+    @ResponseBody
+    public ResponseEntity<WorkoutResponse> getWorkout(@PathVariable(name = "id") Long id,
+                                                      Authentication authentication){
+        WorkoutResponse data = collectionData.getWorkout(id);
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 }

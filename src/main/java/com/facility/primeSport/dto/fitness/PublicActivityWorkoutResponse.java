@@ -19,7 +19,7 @@ public class PublicActivityWorkoutResponse {
     private String description;
     private ActivityType activityType;
 
-    public PublicActivityWorkoutResponse(PublicActivityWorkoutList entity){
+    public PublicActivityWorkoutResponse(PublicActivityWorkoutList entity) {
         this.activityType = entity.getActivityType();
         this.description = entity.getDescription();
         this.name = entity.getName();

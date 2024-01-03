@@ -25,7 +25,7 @@ public class UserDetailResponse {
 
     private String language;
 
-    public UserDetailResponse(User user){
+    public UserDetailResponse(User user) {
         this.gender = user.getGender();
         this.userLevel = user.getUserLevel();
         this.userName = user.getUserName();
@@ -40,11 +40,11 @@ public class UserDetailResponse {
         this.buildingSet = user.getBuildings().stream().map(UserBuildingInfoResponse::new).collect(Collectors.toList());
     }
 
-    public void setBirthDate(String data){
+    public void setBirthDate(String data) {
         this.birthDate = data;
     }
 
-    public String getBirthDate(){
+    public String getBirthDate() {
         return this.birthDate;
     }
 

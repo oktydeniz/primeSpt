@@ -14,4 +14,5 @@ public record UpdateCoachRequest(
         LocalDate endDate,
         Long packageId,
         Long coachId
-){}
+) {
+}

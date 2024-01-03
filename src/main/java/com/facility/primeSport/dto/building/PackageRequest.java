@@ -12,6 +12,6 @@ public record PackageRequest(
         Integer discountRate,
         Long buildingId,
         Integer packageUsageRange
-){
+) {
 
 }

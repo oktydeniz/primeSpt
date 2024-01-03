@@ -29,11 +29,12 @@ public class FitnessBodyPart extends DateIDBaseModel {
     public FitnessBodyPart() {
     }
 
-    public FitnessBodyPart(MuscleTarget target){
+    public FitnessBodyPart(MuscleTarget target) {
         this.bodyPart = target.name();
         this.image = target.image();
         this.description = target.description();
     }
+
     public String getBodyPart() {
         return bodyPart;
     }

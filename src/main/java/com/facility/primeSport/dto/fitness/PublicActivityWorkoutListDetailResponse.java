@@ -20,7 +20,7 @@ public class PublicActivityWorkoutListDetailResponse {
     private ActivityGroupType type;
 
 
-    public PublicActivityWorkoutListDetailResponse(PublicActivityWorkoutListDetail detail){
+    public PublicActivityWorkoutListDetailResponse(PublicActivityWorkoutListDetail detail) {
         this.repeatCount = detail.getRepeatCount();
         this.setDurationSecond = detail.getSetDurationSecond();
         this.setCount = detail.getSetCount();

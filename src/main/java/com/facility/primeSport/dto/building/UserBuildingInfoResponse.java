@@ -6,7 +6,7 @@ public class UserBuildingInfoResponse {
     private String buildingName;
     private String buildingLogoUrl;
 
-    public UserBuildingInfoResponse(Building building){
+    public UserBuildingInfoResponse(Building building) {
         this.buildingName = building.getBuildingName();
         this.buildingLogoUrl = building.getBuildingLogoUrl();
     }

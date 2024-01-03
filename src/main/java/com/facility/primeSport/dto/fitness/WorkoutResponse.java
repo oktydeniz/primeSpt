@@ -13,6 +13,7 @@ public class WorkoutResponse {
     private String equipment;
     private String targetMuscle;
     private WorkoutLevel level;
+    private Long id;
 
 
     public WorkoutResponse(Workout workout){
@@ -24,6 +25,15 @@ public class WorkoutResponse {
         this.targetMuscle = workout.getTargetMuscle();
         this.workoutVideoUrl = workout.getWorkoutVideoUrl();
         this.level = workout.getLevel();
+        this.id = workout.getId();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getWorkoutName() {

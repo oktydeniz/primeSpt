@@ -18,7 +18,7 @@ public class BuildingMemberDetailResponse {
     private String level;
 
 
-    public BuildingMemberDetailResponse(UserSportDetail detail){
+    public BuildingMemberDetailResponse(UserSportDetail detail) {
         this.userId = detail.getUser().getId();
         this.userName = detail.getUser().getUserName();
         this.phoneNumber = detail.getUser().getPhoneNumber();

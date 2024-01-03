@@ -13,7 +13,7 @@ public class UserAuthResponse {
 
     private String accessToken;
 
-    private String  refreshToken;
+    private String refreshToken;
 
     private List<String> roles;
 

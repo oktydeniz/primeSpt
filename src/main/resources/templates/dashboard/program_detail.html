@@ -58,7 +58,8 @@
                                 <img class="avatar" th:src="${program.ownerId.avatarUrl}">
                             </div>
                             <div class="owner-name">
-                                <span th:text="${program.ownerId.userName}"></span> | <span th:text="${program.ownerId.profession.professionName}"></span>
+                                <span th:text="${program.ownerId.userName}"></span> | <span
+                                    th:text="${program.ownerId.profession.professionName}"></span>
                             </div>
                         </div>
                         <div th:if="${program.building}">
@@ -75,74 +76,115 @@
         <div class="program-detail-list">
             <section class="program-list">
                 <div class="item" th:each="program : ${programList}">
-                    <div th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).WARM_UP}">
-                        <span> WARM UP </span>
-                        <div th:each="item : ${program.value}">
+                    <div class="exercise-sections"
+                         th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).WARM_UP}">
+                        <span class="item-type"> WARM UP ([[${program.value.size()}]])</span>
+                        <div th:each="item : ${program.value}" class="exercise-section"
+                             th:attr="data-id=${item.workout.id}">
                             <div class="image">
-                                <img th:src="${item.workout.workoutImage}">
+                                <!-- <img th:src="${item.workout.workoutImage}"> -->
+                                <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
                             </div>
                             <div class="item-info">
                                 <span th:text="${item.workout.workoutName}"></span>
                                 <span th:text="${item.description}"></span>
-                                <div th:if="${item.setCount}">
-                                    <span class="time-duration">[[${item.repeatCount}]] X [[${item.setCount}]]</span>
+                                <div th:if="${item.repeatCount}">
+                                    <span class="time-duration">[[${item.setCount}]] X [[${item.repeatCount}]] Repeat</span>
                                 </div>
 
-                                <div th:unless="${item.setCount}">
-                            <span th:if="${item.repeatCount}">
-                                [[${item.repeatCount}]] X
-                            </span>
-                                    <span class="time-duration">[[${item.setDurationSecond}]]</span>
+                                <div th:unless="${item.repeatCount}">
+                                <span th:if="${item.setCount}">
+                                    [[${item.setCount}]] X
+                                </span>
+                                    <span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).EXERCISE}">
-                        <span> EXERCİSE</span>
-                        <div th:each="item : ${program.value}">
+                    <div class="exercise-sections"
+                         th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).EXERCISE}">
+                        <span class="item-type"> EXERCİSE ([[${program.value.size()}]])</span>
+                        <div th:each="item : ${program.value}" class="exercise-section"
+                             th:attr="data-id=${item.workout.id}">
                             <div class="image">
-                                <img th:src="${item.workout.workoutImage}">
+                                <!-- <img th:src="${item.workout.workoutImage}"> -->
+                                <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
                             </div>
                             <div class="item-info">
                                 <span th:text="${item.workout.workoutName}"></span>
                                 <span th:text="${item.description}"></span>
-                                <div th:if="${item.setCount}">
-                                    <span class="time-duration">[[${item.repeatCount}]] X [[${item.setCount}]]</span>
+                                <div th:if="${item.repeatCount}">
+                                    <span class="time-duration">[[${item.setCount}]] X [[${item.repeatCount}]] Repeat</span>
                                 </div>
 
-                                <div th:unless="${item.setCount}">
-                            <span th:if="${item.repeatCount}">
-                                [[${item.repeatCount}]] X
+                                <div th:unless="${item.repeatCount}">
+                            <span th:if="${item.setCount}">
+                                [[${item.setCount}]] X
                             </span>
-                                    <span class="time-duration">[[${item.setDurationSecond}]]</span>
+                                    <span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).COOL_DOWN}">
-                        <span> Cool Down</span>
-                        <div th:each="item : ${program.value}">
+                    <div class="exercise-sections"
+                         th:if="${program.key == T(com.facility.primeSport.enums.ActivityGroupType).COOL_DOWN}">
+                        <span class="item-type">COOL DOWN ([[${program.value.size()}]])</span>
+                        <div th:each="item : ${program.value}" class="exercise-section"
+                             th:attr="data-id=${item.workout.id}">
                             <div class="image">
-                                <img th:src="${item.workout.workoutImage}">
+                                <!-- <img th:src="${item.workout.workoutImage}"> -->
+                                <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
                             </div>
                             <div class="item-info">
                                 <span th:text="${item.workout.workoutName}"></span>
                                 <span th:text="${item.description}"></span>
-                                <div th:if="${item.setCount}">
-                                    <span class="time-duration">[[${item.repeatCount}]] X [[${item.setCount}]]</span>
+                                <div th:if="${item.repeatCount}">
+                                    <span class="time-duration">[[${item.setCount}]] X [[${item.repeatCount}]] Repeat</span>
                                 </div>
 
-                                <div th:unless="${item.setCount}">
-                            <span th:if="${item.repeatCount}">
-                                [[${item.repeatCount}]] X
+                                <div th:unless="${item.repeatCount}">
+                            <span th:if="${item.setCount}">
+                                [[${item.setCount}]] X
                             </span>
-                                    <span class="time-duration">[[${item.setDurationSecond}]]</span>
+                                    <span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
+
+        <div id="workoutPopup">
+            <div class="popupContent">
+                <span class="closeBtn">&times;</span>
+                <div class="workout-video-content"></div>
+                <div class="information-content">
+                   <div class="workout-item">
+                       <span>Workout: </span>
+                       <p id="workout-name"></p>
+                   </div>
+                    <div class="workout-item">
+                        <p id="workout-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Integer imperdiet ullamcorper nulla vitae scelerisque. Fusce pulvinar ac lectus eget convallis.
+                            Nullam eu metus porta, condimentum dolor a, tempus libero. Morbi vel ipsum eleifend, tincidunt, cdfgt.</p>
+                    </div>
+                </div>
+                <div class="info-part">
+                    <div>
+                        <span>Equipment: </span>
+                        <span id="workout-equipment"></span>
+                    </div>
+                    <div>
+                        <span>Body Part: </span>
+                        <span id="workout-bodyPart"></span>
+                    </div>
+                    <div>
+                        <span>Target Muscle: </span>
+                        <span id="workout-targetMuscle"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

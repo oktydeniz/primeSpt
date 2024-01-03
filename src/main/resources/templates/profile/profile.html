@@ -4,51 +4,51 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{dashboard/master}">
 <head>
-  <link th:href="@{/static/stylesheets/profile/profile.css}"
-        rel="stylesheet" type="text/css" media="screen">
-  <title>[[#{profile}]]</title>
+    <link th:href="@{/static/stylesheets/profile/profile.css}"
+          rel="stylesheet" type="text/css" media="screen">
+    <title>[[#{profile}]]</title>
 </head>
 <body>
 <div layout:fragment="page_content">
 
-  <button id="loginBtn">Create Activity List</button>
+    <button id="loginBtn">Create Activity List</button>
 
-  <div id="loginPopup">
-    <div class="popupContent">
-      <span class="closeBtn">&times;</span>
-      <h2>Login</h2>
-      <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <input type="submit" value="Login">
-      </form>
+    <div id="loginPopup">
+        <div class="popupContent">
+            <span class="closeBtn">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
     </div>
-  </div>
 
 
     <input name="name" id="name">
     <input name="description" id="description">
     <input name="imageUrl" id="imageUrl">
-  <div class="list-level">
-    <select class="select-ui" name="app-language" id="workoutLevel">
-      <option value="101">Beginner</option>
-      <option value="102">Intermediate</option>
-      <option value="103">Advance</option>
-      <option value="104">Specific</option>
-    </select>
-  </div>
-  <div class="list-level">
-    <select class="select-ui" name="app-language" id="activities">
-      <option th:each="option : ${activities}" th:value="${option.id}" th:text="${option.name}"></option>
-    </select>
-  </div>
+    <div class="list-level">
+        <select class="select-ui" name="app-language" id="workoutLevel">
+            <option value="101">Beginner</option>
+            <option value="102">Intermediate</option>
+            <option value="103">Advance</option>
+            <option value="104">Specific</option>
+        </select>
+    </div>
+    <div class="list-level">
+        <select class="select-ui" name="app-language" id="activities">
+            <option th:each="option : ${activities}" th:value="${option.id}" th:text="${option.name}"></option>
+        </select>
+    </div>
     <input type="checkbox" name="isPrivate" id="isPrivate">
     <input id="create_activity" type="submit" value="Login">
 </div>
 <div layout:fragment="page_scripts">
-  <script th:src="@{/static/js/template/profile.js}"></script>
+    <script th:src="@{/static/js/template/profile.js}"></script>
 </div>
 </body>
 </html>

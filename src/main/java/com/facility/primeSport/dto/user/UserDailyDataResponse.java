@@ -6,7 +6,7 @@ import com.facility.primeSport.entitiy.analytics.UserDailyData;
 import java.math.BigDecimal;
 
 public class UserDailyDataResponse {
-    
+
     private Integer calories;
     private Double distance;
     private Integer steps;
@@ -19,7 +19,7 @@ public class UserDailyDataResponse {
 
     private User user;
 
-    public UserDailyDataResponse(){
+    public UserDailyDataResponse() {
         this.calories = 0;
         this.distance = 0.0;
         this.steps = 0;

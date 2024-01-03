@@ -21,7 +21,7 @@ public class PackageDetailResponse {
 
     private Integer packageUsageRange;
 
-    public PackageDetailResponse(BuildingPackage buildingPackage){
+    public PackageDetailResponse(BuildingPackage buildingPackage) {
         this.discountRate = buildingPackage.getDiscountRate();
         this.endDate = buildingPackage.getEndDate();
         this.packageUrl = buildingPackage.getPackageUrl();

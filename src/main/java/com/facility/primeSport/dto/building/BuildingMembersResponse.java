@@ -20,7 +20,7 @@ public class BuildingMembersResponse {
     private String profession;
     private String coachAvatar;
 
-    public BuildingMembersResponse(UserSportDetail userSportDetail){
+    public BuildingMembersResponse(UserSportDetail userSportDetail) {
         this.userId = userSportDetail.getUser().getId();
         this.userName = userSportDetail.getUser().getUserName();
         this.phoneNumber = userSportDetail.getUser().getPhoneNumber();

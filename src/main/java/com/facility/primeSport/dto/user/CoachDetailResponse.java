@@ -10,8 +10,8 @@ public class CoachDetailResponse {
     private UserProfession profession;
 
 
-    public CoachDetailResponse(User user){
-        if (user!= null){
+    public CoachDetailResponse(User user) {
+        if (user != null) {
             this.userName = user.getUserName();
             this.avatarUrl = user.getAvatarUrl();
             this.profession = user.getProfession();
@@ -22,6 +22,7 @@ public class CoachDetailResponse {
         }
 
     }
+
     public String getUserName() {
         return userName;
     }

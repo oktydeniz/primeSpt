@@ -12,7 +12,7 @@ public class UserPackagesList {
     private LocalDate packageEndDate;
     private LocalDate packageStartDate;
 
-    public UserPackagesList(BuildingMemberDetailResponse response){
+    public UserPackagesList(BuildingMemberDetailResponse response) {
         this.coachAvatar = response.getCoachAvatar();
         this.packageStartDate = response.getPackageStartDate();
         this.coachName = response.getCoachName();
