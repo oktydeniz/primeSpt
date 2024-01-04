@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
       lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{dashboard/master}">
@@ -49,8 +49,12 @@
             </section>
             <section class="owner-building-detail">
                 <div class="owner-detail">
-                    <div th:if="${isCurrentUser}">
-                        Edit options
+                    <div class="update-list" th:attr="data-id=${program.id}" th:if="${isCurrentUser}">
+                        <label>
+                            <input id="make-private" type="checkbox">Private</input>
+                        </label>
+                        <button class="delete-list">Delete List</button>
+                        <a th:href="@{/profile/program/{programId}(programId=${program.id})}">Update List</a>
                     </div>
                     <div th:unless="${isCurrentUser}">
                         <div class="col-1">
@@ -120,8 +124,7 @@
                                 <div th:unless="${item.repeatCount}">
                             <span th:if="${item.setCount}">
                                 [[${item.setCount}]] X
-                            </span>
-                                    <span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
+                            </span><span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
                                 </div>
                             </div>
                         </div>
@@ -160,14 +163,16 @@
                 <span class="closeBtn">&times;</span>
                 <div class="workout-video-content"></div>
                 <div class="information-content">
-                   <div class="workout-item">
-                       <span>Workout: </span>
-                       <p id="workout-name"></p>
-                   </div>
+                    <div class="workout-item">
+                        <span>Workout: </span>
+                        <p id="workout-name"></p>
+                    </div>
                     <div class="workout-item">
                         <p id="workout-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Integer imperdiet ullamcorper nulla vitae scelerisque. Fusce pulvinar ac lectus eget convallis.
-                            Nullam eu metus porta, condimentum dolor a, tempus libero. Morbi vel ipsum eleifend, tincidunt, cdfgt.</p>
+                            Integer imperdiet ullamcorper nulla vitae scelerisque. Fusce pulvinar ac lectus eget
+                            convallis.
+                            Nullam eu metus porta, condimentum dolor a, tempus libero. Morbi vel ipsum eleifend,
+                            tincidunt, cdfgt.</p>
                     </div>
                 </div>
                 <div class="info-part">

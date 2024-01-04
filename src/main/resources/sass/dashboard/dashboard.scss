@@ -586,3 +586,8 @@ input[type="checkbox"]:checked {
     top: 1px;
     cursor: pointer;
 }
+
+.update-list {
+    display:flex;
+    flex-direction:row;
+}

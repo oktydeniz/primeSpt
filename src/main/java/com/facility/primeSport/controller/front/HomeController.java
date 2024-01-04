@@ -16,10 +16,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -38,13 +35,13 @@ public class HomeController {
     }
 
     @GetMapping
-    public String home(Model model){
+    public String home(Model model) {
         return "index/m_index";
     }
 
     @GetMapping("/dashboard")
-    public String dashboard(Authentication authentication, Model model){
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+    public String dashboard(Authentication authentication, Model model) {
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "redirect:/login";
         }
         JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
@@ -58,7 +55,7 @@ public class HomeController {
 
     @GetMapping("/dashboard/category/{categoryId}")
     public String getCategory(Model model, @PathVariable(name = "categoryId") Long categoryId,
-                             Authentication authentication){
+                              Authentication authentication) {
         List<PublicActivityWorkoutResponse> category = collectionData.getByCategory(categoryId);
         ActivityType activity = collectionData.getActivityType(categoryId);
         model.addAttribute("category", category);
@@ -68,7 +65,7 @@ public class HomeController {
 
     @GetMapping("/dashboard/program/{programId}")
     public String getSelectedProgramDetail(Model model, @PathVariable(name = "programId") Long programId,
-                                           Authentication authentication){
+                                           Authentication authentication) {
         PublicActivityWorkoutResponse program = collectionData.getPublicProgramDetail(programId);
         Map<ActivityGroupType, List<PublicActivityWorkoutListDetailResponse>> programList = collectionData.getPublicProgramListDetail(programId);
         JWTUserDetail userDetail = (JWTUserDetail) authentication.getPrincipal();
@@ -82,8 +79,24 @@ public class HomeController {
     @GetMapping("/workout/{id}")
     @ResponseBody
     public ResponseEntity<WorkoutResponse> getWorkout(@PathVariable(name = "id") Long id,
-                                                      Authentication authentication){
+                                                      Authentication authentication) {
         WorkoutResponse data = collectionData.getWorkout(id);
         return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/workout/{id}")
+    @ResponseBody
+    public ResponseEntity<Boolean> deleteWorkout(@PathVariable(name = "id") Long id,
+                                                 Authentication authentication) {
+        boolean result = collectionData.deleteWorkoutList(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PatchMapping("/workout/{id}")
+    @ResponseBody
+    public ResponseEntity<Boolean> makePrivate(@PathVariable(name = "id") Long id,
+                                               Authentication authentication) {
+        boolean result = collectionData.setPrivate(id);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

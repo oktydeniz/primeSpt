@@ -34,11 +34,11 @@ public class CollectionData {
         this.workoutRepository = workoutRepository;
     }
 
-    public List<ActivityTypeResponse> getActivityTypes(){
+    public List<ActivityTypeResponse> getActivityTypes() {
         return activityType.findAll().stream().map(ActivityTypeResponse::new).collect(Collectors.toList());
     }
 
-    public ActivityType getActivityType(Long id){
+    public ActivityType getActivityType(Long id) {
         return activityType.findById(id).orElse(null);
     }
 
@@ -62,9 +62,17 @@ public class CollectionData {
 
     public WorkoutResponse getWorkout(Long id) {
         Workout workout = workoutRepository.findById(id).orElse(null);
-        if (workout != null){
+        if (workout != null) {
             return new WorkoutResponse(workout);
         }
         return null;
+    }
+
+    public boolean deleteWorkoutList(Long id) {
+        return publicActivityWorkoutListService.deleteList(id);
+    }
+
+    public boolean setPrivate(Long id) {
+        return publicActivityWorkoutListService.setPrivate(id);
     }
 }

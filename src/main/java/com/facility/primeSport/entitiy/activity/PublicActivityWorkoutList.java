@@ -67,12 +67,12 @@ public class PublicActivityWorkoutList extends DateIDBaseModel {
     private ActivityType activityType;
 
 
-    public PublicActivityWorkoutList(){
+    public PublicActivityWorkoutList() {
 
     }
 
 
-    public PublicActivityWorkoutList(CreateActivityRequest request){
+    public PublicActivityWorkoutList(CreateActivityRequest request) {
         this.description = request.description();
         this.name = request.name();
         this.imageUrl = request.imageUrl();
@@ -84,7 +84,7 @@ public class PublicActivityWorkoutList extends DateIDBaseModel {
     }
 
     private WorkoutLevel getLevel(Integer integer) {
-        switch (integer){
+        switch (integer) {
             case 101 -> {
                 return WorkoutLevel.BEGINNER;
             }

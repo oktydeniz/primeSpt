@@ -26,17 +26,18 @@ public class PublicActivityWorkoutListService {
     }
 
 
-    public List<PublicActivityWorkoutResponse> getByCategoryId(Long id){
+    public List<PublicActivityWorkoutResponse> getByCategoryId(Long id) {
         List<PublicActivityWorkoutList> workoutLists = repository.findByActivityTypeId(id);
         return workoutLists.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
+
     private PublicActivityWorkoutResponse convertToDTO(PublicActivityWorkoutList entity) {
         return new PublicActivityWorkoutResponse(entity);
     }
 
-    private Map<ActivityType, List<PublicActivityWorkoutResponse>>  groupByActivity(List<PublicActivityWorkoutList> workoutLists ) {
+    private Map<ActivityType, List<PublicActivityWorkoutResponse>> groupByActivity(List<PublicActivityWorkoutList> workoutLists) {
         return workoutLists.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.groupingBy(PublicActivityWorkoutResponse::getActivityType));
@@ -44,9 +45,29 @@ public class PublicActivityWorkoutListService {
 
     public PublicActivityWorkoutResponse findById(Long programId) {
         PublicActivityWorkoutList response = repository.findById(programId).orElse(null);
-        if (response != null){
+        if (response != null) {
             return new PublicActivityWorkoutResponse(response);
         }
         return null;
+    }
+
+    public boolean deleteList(Long id) {
+        PublicActivityWorkoutList response = repository.findById(id).orElse(null);
+        if (response != null) {
+            response.setDeleted(true);
+            repository.save(response);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setPrivate(Long id) {
+        PublicActivityWorkoutList response = repository.findById(id).orElse(null);
+        if (response != null) {
+            response.setPrivate(!response.isPrivate());
+            repository.save(response);
+            return true;
+        }
+        return false;
     }
 }

@@ -6,7 +6,6 @@ import com.facility.primeSport.enums.ActivityGroupType;
 import com.facility.primeSport.repo.PublicActivityWorkoutListDetailRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
