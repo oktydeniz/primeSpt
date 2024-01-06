@@ -19,6 +19,8 @@ public class PublicActivityWorkoutResponse {
     private String description;
     private ActivityType activityType;
 
+    private boolean isPrivate;
+
     public PublicActivityWorkoutResponse(PublicActivityWorkoutList entity) {
         this.activityType = entity.getActivityType();
         this.description = entity.getDescription();
@@ -30,8 +32,16 @@ public class PublicActivityWorkoutResponse {
         this.imageUrl = entity.getImageUrl();
         this.workoutLevel = entity.getWorkoutLevel();
         this.ownerId = entity.getOwnerId();
+        this.isPrivate = entity.isPrivate();
     }
 
+    public boolean getPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(Boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
 
     public User getOwnerId() {
         return ownerId;

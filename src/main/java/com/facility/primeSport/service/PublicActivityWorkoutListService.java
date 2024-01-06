@@ -51,6 +51,10 @@ public class PublicActivityWorkoutListService {
         return null;
     }
 
+    public PublicActivityWorkoutList findByID(Long programId) {
+        return repository.findById(programId).orElse(null);
+    }
+
     public boolean deleteList(Long id) {
         PublicActivityWorkoutList response = repository.findById(id).orElse(null);
         if (response != null) {
@@ -69,5 +73,8 @@ public class PublicActivityWorkoutListService {
             return true;
         }
         return false;
+    }
+    public void save(PublicActivityWorkoutList entity){
+        repository.save(entity);
     }
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/master}">
+<head>
+  <link th:href="@{/static/stylesheets/profile/profile.css}"
+        rel="stylesheet" type="text/css" media="screen">
+  <title>[[#{profile}]]</title>
+</head>
+<body>
+<div layout:fragment="page_content">
+  <div class="program-info">
+    <input name="name" th:value="${activity.name}" id="name">
+    <input name="description" id="description" th:value="${activity.description}">
+    <input name="imageUrl" id="imageUrl" th:value="${activity.imageUrl}">
+    <div class="list-level">
+      <select class="select-ui" name="app-language" id="workoutLevel">
+        <option value="101" th:selected="${activity.workoutLevel.value == 101}">Beginner</option>
+        <option value="102" th:selected="${activity.workoutLevel.value == 102}">Intermediate</option>
+        <option value="103" th:selected="${activity.workoutLevel.value == 103}">Advance</option>
+        <option value="104" th:selected="${activity.workoutLevel.value == 104}">Specific</option>
+      </select>
+    </div>
+    <div class="list-level">
+      <select class="select-ui" name="app-language" id="activities">
+        <option th:each="option : ${activities}" th:value="${option.id}" th:text="${option.name}" th:selected="${option.id == activity.activityType.id}"></option>
+      </select>
+    </div>
+    <input type="hidden" name="model-id" th:value="${activity.id}" id="activity_id">
+    <input type="checkbox" th:checked="${activity.getPrivate()}" name="isPrivate" id="isPrivate">
+    <input id="create_activity" type="submit" value="Save">
+  </div>
+</div>
+<div layout:fragment="page_scripts">
+  <script th:src="@{/static/js/template/program.js}"></script>
+</div>
+</body>
+</html>
+

@@ -1,5 +1,7 @@
 package com.facility.primeSport.util;
 
+import com.facility.primeSport.enums.WorkoutLevel;
+
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -44,6 +46,20 @@ public class CommonUtil {
             return  date.format(formatter);
         }
         return "-";
+    }
+
+    public static WorkoutLevel findLevel(Long id){
+        if (id == 101) {
+            return WorkoutLevel.BEGINNER;
+        } else if (id == 102){
+            return WorkoutLevel.INTERMEDIATE;
+        } else if (id == 103){
+            return WorkoutLevel.ADVANCED;
+        } else if (id == 104){
+            return WorkoutLevel.SPECIFIC;
+        }else {
+            return WorkoutLevel.BEGINNER;
+        }
     }
 
     public static boolean isValidEmail(String email) {
