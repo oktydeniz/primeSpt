@@ -31,8 +31,56 @@
     <input type="checkbox" th:checked="${activity.getPrivate()}" name="isPrivate" id="isPrivate">
     <input id="create_activity" type="submit" value="Save">
   </div>
+
+  <div class="container-cc">
+    <article class="swipeable" id="1">
+      <div class="inner">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
+        <div class="tab-icon"></div>
+      </div>
+      <div class="action-button delete">
+        <span class="text">Delete</span>
+      </div>
+    </article>
+
+    <article class="swipeable" id="2">
+      <div class="row inner">
+        <div class="col">
+          59 kg
+        </div>
+        <div class="col">
+          5. hafta <span>(2. gün)</span>
+        </div>
+      </div>
+      <div class="action-button save">
+        <span class="text">Save</span>
+      </div>
+    </article>
+
+    <article class="swipeable" id="3">
+      <div class="inner">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
+        <div class="tab-icon"></div>
+      </div>
+      <div class="action-button delete">
+        <span class="text">Delete</span>
+      </div>
+    </article>
+
+    <article class="swipeable" id="4">
+      <div class="inner">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
+        <div class="tab-icon"></div>
+      </div>
+      <div class="action-button save">
+        <span class="text">Save</span>
+      </div>
+    </article>
+  </div>
 </div>
 <div layout:fragment="page_scripts">
+  <script th:src="@{/static/plugin/query-ui.min.js}"></script>
+  <script th:src="@{/static/plugin/touch-swipe.min.js}"></script>
   <script th:src="@{/static/js/template/program.js}"></script>
 </div>
 </body>
