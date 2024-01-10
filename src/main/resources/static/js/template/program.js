@@ -27,12 +27,12 @@ $(document).ready(function() {
 
     $(function() {
 
-        $(".container-cc").sortable({
+        $(".exercise-section").sortable({
             items: ".swipeable", // Elements with this class will be sortable
             handle: ".inner", // Use the ".inner" class as the handle to drag
             axis: "y", // Only allow vertical dragging for reordering
             containment: "parent", // Limit dragging within the parent container
-            connectWith: ".container-cc",
+            connectWith: ".exercise-section",
             stop: function(event, ui) {
                 var newOrder = $(this).sortable("toArray");
                 console.log("New order:", newOrder);
@@ -58,4 +58,20 @@ $(document).ready(function() {
             console.log("delete -save")
         });
     });
+
+
+    $('#warm-up-btn').click(function() {
+        $(this).toggleClass('selected');
+        $('#warm-up-section').toggleClass('hide-activity-box');
+    })
+
+    $('#exercise-btn').click(function() {
+        $(this).toggleClass('selected');
+        $('#exercise-section').toggleClass('hide-activity-box');
+    })
+
+    $('#cool-down-btn').click(function() {
+        $(this).toggleClass('selected');
+        $('#cool-down-section').toggleClass('hide-activity-box');
+    })
 });

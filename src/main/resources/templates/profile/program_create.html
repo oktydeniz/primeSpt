@@ -4,84 +4,135 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{dashboard/master}">
 <head>
-  <link th:href="@{/static/stylesheets/profile/profile.css}"
-        rel="stylesheet" type="text/css" media="screen">
-  <title>[[#{profile}]]</title>
+    <link th:href="@{/static/stylesheets/profile/profile.css}"
+          rel="stylesheet" type="text/css" media="screen">
+    <title>[[#{profile}]]</title>
 </head>
 <body>
 <div layout:fragment="page_content">
-  <div class="program-info">
-    <input name="name" th:value="${activity.name}" id="name">
-    <input name="description" id="description" th:value="${activity.description}">
-    <input name="imageUrl" id="imageUrl" th:value="${activity.imageUrl}">
-    <div class="list-level">
-      <select class="select-ui" name="app-language" id="workoutLevel">
-        <option value="101" th:selected="${activity.workoutLevel.value == 101}">Beginner</option>
-        <option value="102" th:selected="${activity.workoutLevel.value == 102}">Intermediate</option>
-        <option value="103" th:selected="${activity.workoutLevel.value == 103}">Advance</option>
-        <option value="104" th:selected="${activity.workoutLevel.value == 104}">Specific</option>
-      </select>
-    </div>
-    <div class="list-level">
-      <select class="select-ui" name="app-language" id="activities">
-        <option th:each="option : ${activities}" th:value="${option.id}" th:text="${option.name}" th:selected="${option.id == activity.activityType.id}"></option>
-      </select>
-    </div>
-    <input type="hidden" name="model-id" th:value="${activity.id}" id="activity_id">
-    <input type="checkbox" th:checked="${activity.getPrivate()}" name="isPrivate" id="isPrivate">
-    <input id="create_activity" type="submit" value="Save">
-  </div>
-
-  <div class="container-cc">
-    <article class="swipeable" id="1">
-      <div class="inner">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
-        <div class="tab-icon"></div>
-      </div>
-      <div class="action-button delete">
-        <span class="text">Delete</span>
-      </div>
-    </article>
-
-    <article class="swipeable" id="2">
-      <div class="row inner">
-        <div class="col">
-          59 kg
+    <div class="program-info">
+        <input name="name" th:value="${activity.name}" id="name">
+        <input name="description" id="description" th:value="${activity.description}">
+        <input name="imageUrl" id="imageUrl" th:value="${activity.imageUrl}">
+        <div class="list-level">
+            <select class="select-ui" name="app-language" id="workoutLevel">
+                <option value="101" th:selected="${activity.workoutLevel.value == 101}">Beginner</option>
+                <option value="102" th:selected="${activity.workoutLevel.value == 102}">Intermediate</option>
+                <option value="103" th:selected="${activity.workoutLevel.value == 103}">Advance</option>
+                <option value="104" th:selected="${activity.workoutLevel.value == 104}">Specific</option>
+            </select>
         </div>
-        <div class="col">
-          5. hafta <span>(2. gün)</span>
+        <div class="list-level">
+            <select class="select-ui" name="app-language" id="activities">
+                <option th:each="option : ${activities}" th:value="${option.id}" th:text="${option.name}"
+                        th:selected="${option.id == activity.activityType.id}"></option>
+            </select>
         </div>
-      </div>
-      <div class="action-button save">
-        <span class="text">Save</span>
-      </div>
-    </article>
+        <input type="hidden" name="model-id" th:value="${activity.id}" id="activity_id">
+        <input type="checkbox" th:checked="${activity.getPrivate()}" name="isPrivate" id="isPrivate">
+        <input id="create_activity" type="submit" value="Save">
+    </div>
 
-    <article class="swipeable" id="3">
-      <div class="inner">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
-        <div class="tab-icon"></div>
-      </div>
-      <div class="action-button delete">
-        <span class="text">Delete</span>
-      </div>
-    </article>
+    <div class="activity-main-container">
 
-    <article class="swipeable" id="4">
-      <div class="inner">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
-        <div class="tab-icon"></div>
-      </div>
-      <div class="action-button save">
-        <span class="text">Save</span>
-      </div>
-    </article>
-  </div>
+        <div class="selected-activity-types">
+            <button id="warm-up-btn" th:class="${warmUp} ? 'activity-button selected' : 'activity-button'">Warm UP
+            </button>
+            <button id="exercise-btn" th:class="${exercise} ? 'activity-button selected' : 'activity-button'">EXERCISE
+            </button>
+            <button id="cool-down-btn" th:class="${coolDown} ? 'activity-button selected' : 'activity-button'">COOL
+                DOWN
+            </button>
+        </div>
+
+        <div class="selected-activities">
+            <div class="box" id="warm-up-section">
+                warm-up
+            </div>
+
+            <div class="box" id="exercise-section">
+                <div class="exercise-section swipeable" th:each="item : ${exercise}" th:attr="data-id=${item.id}"
+                     th:id="${item.workoutOrder}">
+                    <div class="inner">
+                        <div class="image">
+                            <!-- <img th:src="${item.workout.workoutImage}"> -->
+                            <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
+                        </div>
+                        <div class="item-info inner">
+                            <span th:text="${item.workout.workoutName}"></span>
+                            <span th:text="${item.description}"></span>
+                            <div th:if="${item.repeatCount}">
+                                <span class="time-duration">[[${item.setCount}]] X [[${item.repeatCount}]] Repeat</span>
+                            </div>
+                            <div th:unless="${item.repeatCount}">
+                            <span th:if="${item.setCount}">
+                                [[${item.setCount}]] X
+                            </span><span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-button delete">
+                        <span class="text">Delete</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box" id="cool-down-section">
+                cool-down
+            </div>
+        </div>
+    </div>
+
+    <div class="container-cc">
+        <article class="swipeable" id="1">
+            <div class="inner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
+                <div class="tab-icon"></div>
+            </div>
+            <div class="action-button delete">
+                <span class="text">Delete</span>
+            </div>
+        </article>
+
+        <article class="swipeable" id="2">
+            <div class="row inner">
+                <div class="col">
+                    59 kg
+                </div>
+                <div class="col">
+                    5. hafta <span>(2. gün)</span>
+                </div>
+            </div>
+            <div class="action-button save">
+                <span class="text">Save</span>
+            </div>
+        </article>
+
+        <article class="swipeable" id="3">
+            <div class="inner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
+                <div class="tab-icon"></div>
+            </div>
+            <div class="action-button delete">
+                <span class="text">Delete</span>
+            </div>
+        </article>
+
+        <article class="swipeable" id="4">
+            <div class="inner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, officia.</p>
+                <div class="tab-icon"></div>
+            </div>
+            <div class="action-button save">
+                <span class="text">Save</span>
+            </div>
+        </article>
+    </div>
 </div>
 <div layout:fragment="page_scripts">
-  <script th:src="@{/static/plugin/query-ui.min.js}"></script>
-  <script th:src="@{/static/plugin/touch-swipe.min.js}"></script>
-  <script th:src="@{/static/js/template/program.js}"></script>
+    <script th:src="@{/static/plugin/query-ui.min.js}"></script>
+    <script th:src="@{/static/plugin/touch-swipe.min.js}"></script>
+    <script th:src="@{/static/js/template/program.js}"></script>
 </div>
 </body>
 </html>

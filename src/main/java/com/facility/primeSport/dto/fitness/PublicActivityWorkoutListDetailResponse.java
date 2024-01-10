@@ -19,6 +19,8 @@ public class PublicActivityWorkoutListDetailResponse {
 
     private ActivityGroupType type;
 
+    private Long id;
+
 
     public PublicActivityWorkoutListDetailResponse(PublicActivityWorkoutListDetail detail) {
         this.repeatCount = detail.getRepeatCount();
@@ -28,6 +30,16 @@ public class PublicActivityWorkoutListDetailResponse {
         this.workout = new WorkoutResponse(detail.getWorkout());
         this.description = detail.getDescription();
         this.type = detail.getType();
+        this.id = detail.getId();
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public ActivityGroupType getType() {
