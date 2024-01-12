@@ -10,3 +10,9 @@ $user-bms-card-bg:#2F353E;
 $white:#FFFFFF;
 $text-color-gray:#B3B5B9;
 $text-gray:#A5A5AA;
+
+
+
+@mixin gradient-background($color1, $color2) {
+  background: linear-gradient(to right, $color1, $color2);
+}

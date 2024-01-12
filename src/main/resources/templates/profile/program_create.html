@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
       lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{dashboard/master}">
@@ -43,22 +43,21 @@
             <button id="cool-down-btn" th:class="${coolDown} ? 'activity-button selected' : 'activity-button'">COOL
                 DOWN
             </button>
+
+            <input class="search-input" type="text" placeholder="search">
         </div>
 
         <div class="selected-activities">
             <div class="box" id="warm-up-section">
-                warm-up
-            </div>
-
-            <div class="box" id="exercise-section">
-                <div class="exercise-section swipeable" th:each="item : ${exercise}" th:attr="data-id=${item.id}"
-                     th:id="${item.workoutOrder}">
-                    <div class="inner">
+                <div class="warm-up-sections"
+                     th:if="${warmUp}">
+                    <div th:each="item : ${warmUp}" class="warm-up-section"
+                         th:attr="data-id=${item.id}">
                         <div class="image">
                             <!-- <img th:src="${item.workout.workoutImage}"> -->
                             <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
                         </div>
-                        <div class="item-info inner">
+                        <div class="item-info">
                             <span th:text="${item.workout.workoutName}"></span>
                             <span th:text="${item.description}"></span>
                             <div th:if="${item.repeatCount}">
@@ -70,15 +69,67 @@
                             </span><span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
                             </div>
                         </div>
+                        <div class="delete-warm-up-item">
+                            <span class="delete-icon">X</span>
+                        </div>
                     </div>
-                    <div class="action-button delete">
-                        <span class="text">Delete</span>
+                </div>
+            </div>
+
+            <div class="box" id="exercise-section">
+                <div class="exercise-sections"
+                     th:if="${exercise}">
+                    <div th:each="item : ${exercise}" class="exercise-section"
+                         th:attr="data-id=${item.id}">
+                        <div class="image">
+                            <!-- <img th:src="${item.workout.workoutImage}"> -->
+                            <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
+                        </div>
+                        <div class="item-info">
+                            <span th:text="${item.workout.workoutName}"></span>
+                            <span th:text="${item.description}"></span>
+                            <div th:if="${item.repeatCount}">
+                                <span class="time-duration">[[${item.setCount}]] X [[${item.repeatCount}]] Repeat</span>
+                            </div>
+                            <div th:unless="${item.repeatCount}">
+                            <span th:if="${item.setCount}">
+                                [[${item.setCount}]] X
+                            </span><span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
+                            </div>
+                        </div>
+                        <div class="delete-exercise-item">
+                            <span class="delete-icon">X</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="box" id="cool-down-section">
-                cool-down
+                <div class="cool-down-sections"
+                     th:if="${coolDown}">
+                    <div th:each="item : ${coolDown}" class="cool-down-section"
+                         th:attr="data-id=${item.id}">
+                        <div class="image">
+                            <!-- <img th:src="${item.workout.workoutImage}"> -->
+                            <img src="https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg">
+                        </div>
+                        <div class="item-info">
+                            <span th:text="${item.workout.workoutName}"></span>
+                            <span th:text="${item.description}"></span>
+                            <div th:if="${item.repeatCount}">
+                                <span class="time-duration">[[${item.setCount}]] X [[${item.repeatCount}]] Repeat</span>
+                            </div>
+                            <div th:unless="${item.repeatCount}">
+                            <span th:if="${item.setCount}">
+                                [[${item.setCount}]] X
+                            </span><span class="time-duration">[[${item.setDurationSecond}]] Seconds</span>
+                            </div>
+                        </div>
+                        <div class="delete-cool-down-item">
+                            <span class="delete-icon">X</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
