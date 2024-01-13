@@ -31,7 +31,6 @@ $(document).ready(function() {
             update: function(event, ui) {
                 var newOrder = $(this).sortable("toArray", { attribute: "data-id" });
                 console.log("New order:", newOrder);
-                // Perform any action with the new order here
             },
             start: function(event, ui) {
                 $(".delete-btn", ui.item).show();
@@ -43,7 +42,6 @@ $(document).ready(function() {
             update: function(event, ui) {
                 var newOrder = $(this).sortable("toArray", { attribute: "data-id" });
                 console.log("New order:", newOrder);
-                // Perform any action with the new order here
             }
         });
 
@@ -52,7 +50,6 @@ $(document).ready(function() {
             update: function(event, ui) {
                 var newOrder = $(this).sortable("toArray", { attribute: "data-id" });
                 console.log("New order:", newOrder);
-                // Perform any action with the new order here
             }
         });
 
@@ -104,6 +101,32 @@ $(document).ready(function() {
         $('.save').on('click', function(e){
             console.log("delete -save")
         });
+
+        $('#warm-up-section, #exercise-section, #cool-down-section').droppable({
+            accept: '.search-results div',
+            drop: function (event, ui) {
+                var droppedItem = ui.helper.clone();
+                var sectionId = $(this).closest('.box').attr('id');
+                var sectionClass;
+
+                switch (sectionId) {
+                    case 'warm-up-section':
+                        sectionClass = 'delete-warm-up-item';
+                        break;
+                    case 'exercise-section':
+                        sectionClass = 'delete-exercise-item';
+                        break;
+                    case 'cool-down-section':
+                        sectionClass = 'delete-cool-down-item';
+                        break;
+                }
+                debugger;
+                droppedItem.removeClass('ui-draggable ui-draggable-handle').removeAttr('style');
+                droppedItem.find('.delete-icon').addClass(sectionClass);
+
+                $(this).append(droppedItem);
+            }
+        });
     });
 
 
@@ -123,16 +146,20 @@ $(document).ready(function() {
     })
 
 
+
     $('.search-input').on('input', function() {
         var searchTerm = $(this).val();
-        debugger;
-        if (searchTerm.trim() !== '') {
+        if (searchTerm.trim() !== '' && searchTerm.trim().length >=4) {
             $.ajax({
                 url: '/api/search/workout',
                 method: 'GET',
                 data: { query: searchTerm },
                 success: function(response) {
                     updateSearchResults(response);
+                    $('.search-results div').draggable({
+                        helper: 'clone',
+                        revert: 'invalid',
+                    });
                 },
                 error: function(error) {
                     console.error('Error:', error);
@@ -143,11 +170,21 @@ $(document).ready(function() {
         }
     })
 
+
     function updateSearchResults(results) {
         clearSearchResults();
         var resultContainer = $('.search-results');
         for (var i = 0; i < results.length; i++) {
-            resultContainer.append('<li>' + results[i] + '</li>');
+            var item = results[i]
+            var newItem = $('<div>').addClass('exercise-section').attr('data-id', item.id);
+
+            newItem.append($('<div>').addClass('image')
+                .append($('<img>').attr('src', 'https://us.123rf.com/450wm/lioputra/lioputra2106/lioputra210600059/170025342-man-doing-monkey-bars-climbing-frame-exercise-flat-vector-illustration-isolated-on-white.jpg')));
+
+            newItem.append($('<div>').addClass('item-info')
+                .append($('<span>').text(item.workoutName))
+                .append($('<span>').text(item.description)));
+            resultContainer.append(newItem);
         }
     }
 
