@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @MappedSuperclass
 public class DailyBaseModel extends DateIDBaseModel {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @JsonView(View.Public.class)
     @Getter
