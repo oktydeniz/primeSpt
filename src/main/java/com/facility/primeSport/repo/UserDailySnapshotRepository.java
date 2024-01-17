@@ -13,9 +13,9 @@ import java.util.List;
 public interface UserDailySnapshotRepository extends JpaRepository<UserDailySnapshot, Long> {
 
     @Modifying
-    @Query(value = "SELECT NEW com.facility.primeSport.dto.chart.GraphResponse(t.snapshotDate, t.steps) FROM psf_user_analytics_snapshot t " +
-            "WHERE snapshot_date >= :startDate AND snapshot_date <= :endDate AND user_id = :userId")
-    List<GraphResponse> findValuesByMount(
+    @Query(value = "SELECT * FROM psf_user_analytics_snapshot " +
+            "WHERE snapshot_date >= :startDate AND snapshot_date <= :endDate AND user_id = :userId", nativeQuery = true)
+    List<UserDailySnapshot> findValuesByMount(
             @Param("startDate") LocalDate startDate,
             @Param("endDate") LocalDate endDate,
             @Param("userId") Long userId
