@@ -3,11 +3,11 @@ package com.facility.primeSport.controller.front;
 import com.facility.primeSport.dto.chart.GraphRequest;
 import com.facility.primeSport.dto.chart.GraphResponse;
 import com.facility.primeSport.service.UserActivitiesService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -28,10 +28,9 @@ public class ActivitiesController {
         return "activities/activities_index";
     }
 
-
     @GetMapping("/chart")
     @ResponseBody
-    public List<GraphResponse> getUserDataByType(Authentication authentication, @RequestBody GraphRequest request){
+    public List<GraphResponse> getUserDataByType(Authentication authentication, GraphRequest request){
         return userActivitiesService.userActivities(request);
     }
 }

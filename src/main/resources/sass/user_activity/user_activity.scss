@@ -1,0 +1,58 @@
+@import "variables";
+
+.title {
+    margin-left: 10px;
+    font-size: 30px;
+    color:$application-white;
+}
+
+.coaches {
+    display:flex;
+    .user-box {
+      margin:10px;
+      width:200px;
+      height:180px;
+      cursor:pointer;
+      position:relative;
+      .info {
+        position:absolute;
+        bottom:5px;
+        left:10px;
+        width:75%;
+        @include custom-background;
+        span {
+            left: 0;
+            width: 100%;
+        }
+      }
+      .add-box {
+        width:200px;
+        height:180px;
+        align-items: center;
+        border-radius:10px;
+        background:$search-bg-color-dark;
+        display:flex;
+        img {
+            width:50px;
+            height:50px;
+            margin: 0 auto;
+         }
+      }
+    }
+    .user-avatar{
+      width:200px;
+      height:180px;
+      border-radius:10px;
+    }
+
+    .selected {
+        width:220px;
+        height:200px;
+
+    .user-avatar{
+        width:220px;
+        height:200px;
+        border-radius:10px;
+        }
+    }
+}

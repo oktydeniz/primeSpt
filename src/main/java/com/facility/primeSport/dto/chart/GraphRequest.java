@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public record GraphRequest(
         String type,
-        LocalDate startDate,
+        LocalDate today,
         LocalDate endDate,
         Long userId
 ) {

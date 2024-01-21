@@ -4,16 +4,12 @@ import com.facility.primeSport.dto.chart.GraphRequest;
 import com.facility.primeSport.dto.chart.GraphResponse;
 import com.facility.primeSport.entitiy.analytics.UserDailySnapshot;
 import com.facility.primeSport.repo.UserDailySnapshotRepository;
-import org.hibernate.mapping.Any;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,22 +25,17 @@ public class UserActivitiesService implements IUserActivitiesService {
 
     @CacheEvict(allEntries = true, value = "findValuesByMount")
     @Scheduled(fixedDelay = 86400)
-    private List<UserDailySnapshot> getList(GraphRequest request){
-        return userDailySnapshotRepository.findValuesByMount(request.startDate(), request.endDate(), request.userId());
+    private List<UserDailySnapshot> getList(GraphRequest request) {
+        return userDailySnapshotRepository.findValuesByMount(request.endDate(), request.today(), request.userId());
     }
+
     public List<GraphResponse> userActivities(GraphRequest request) {
-        String type = "";
-        if (request.type().equals("step")) {
-            type = "steps";
-           // return findBySteps(list);
-        } else if (request.type().equals("calorie")) {
-            type = "calories";
-            //return findByCalories(list);
-        } else if (request.type().equals("sleeping_time")) {
-            type = "sleep_time";
-        } else if (request.type().equals("stress_level")) {
-            type = "stress_level";
-        }
+        String type = switch (request.type()) {
+            case "calorie" -> "calories";
+            case "sleeping_time" -> "sleep_time";
+            case "stress_level" -> "stress_level";
+            default -> "steps";
+        };
 
         return group(getList(request), type);
     }
@@ -62,7 +53,7 @@ public class UserActivitiesService implements IUserActivitiesService {
                 .collect(Collectors.toList());
     }
 
-    private Integer getValue(String type, UserDailySnapshot data){
+    private Integer getValue(String type, UserDailySnapshot data) {
         return switch (type) {
             case "steps" -> data.getSteps();
             case "calories" -> data.getCalories();

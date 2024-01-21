@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/master}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link th:href="@{/static/stylesheets/user_activity/user_activity.css}"
+          rel="stylesheet" type="text/css" media="screen">
+    <title>My Activity History</title>
 </head>
 <body>
+<div layout:fragment="page_content">
 
+    <h2 class="title">Current Activities Info</h2>
+    <section id="user-coach-list">
+        <div class="coaches">
+            <div class="user-box selected">
+                <div class="coach-img">
+                    <img class="user-avatar" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                </div>
+                <div class="info">
+                    <span>Davis Geidt</span>
+                    <span>GMY| Fitness</span>
+                </div>
+
+            </div>
+            <div class="user-box">
+                <div class="coach-img">
+                    <img class="user-avatar" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                </div>
+                <div class="info">
+                    <span>Davis Geidt</span>
+                    <span>Tennis</span>
+                </div>
+            </div>
+
+            <div class="user-box">
+                <div class="add-box">
+                    <img th:src="@{/static/img/add_btn.png}">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+<div layout:fragment="page_scripts">
+    <script th:src="@{/static/js/template/activity.js}"></script>
+</div>
 </body>
 </html>

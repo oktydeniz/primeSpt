@@ -16,3 +16,10 @@ $text-gray:#A5A5AA;
 @mixin gradient-background($color1, $color2) {
   background: linear-gradient(to right, $color1, $color2);
 }
+
+
+
+@mixin custom-background {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgba(34, 193, 195, 0.9066) 0%, rgba(253, 187, 45, 0) 100%);
+}

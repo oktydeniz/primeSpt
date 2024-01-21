@@ -3,21 +3,21 @@ package com.facility.primeSport.dto.chart;
 import java.time.LocalDate;
 
 public class GraphResponse {
-    private Integer type;
+    private Integer value;
     private LocalDate snapshotDate;
 
 
-    public GraphResponse(LocalDate snapshotDate, Integer steps) {
-        this.type = steps;
+    public GraphResponse(LocalDate snapshotDate, Integer value) {
+        this.value = value;
         this.snapshotDate = snapshotDate;
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getValue() {
+        return value;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
     public LocalDate getSnapshotDate() {
