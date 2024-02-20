@@ -12,8 +12,16 @@ $(document).ready(function() {
 
     //bar.setOption(option);
 
+
+
 });
 
+function toggleSelection(element) {
+    document.querySelectorAll('.user-box').forEach(box => {
+        box.classList.remove('selected');
+    });
+    element.classList.add('selected');
+}
 function collectData(type){
     const currentDate = new Date();
     const startDateStr = "" + currentDate.getFullYear() + "-" + getMonth(currentDate.getMonth() + 1) + "-" + currentDate.getDate()

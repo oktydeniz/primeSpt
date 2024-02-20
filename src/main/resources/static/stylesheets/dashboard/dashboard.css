@@ -244,9 +244,10 @@ body, html {
   border-radius: 10px;
   background-color: #21222D;
   margin: 20px;
+  z-index: 1111;
 }
 
-/* line 213, ../../../sass/dashboard/dashboard.scss */
+/* line 214, ../../../sass/dashboard/dashboard.scss */
 .search-icon {
   width: 30px;
   padding: 8px;
@@ -254,7 +255,7 @@ body, html {
   height: 30px;
 }
 
-/* line 220, ../../../sass/dashboard/dashboard.scss */
+/* line 221, ../../../sass/dashboard/dashboard.scss */
 .input-search {
   height: 52px;
   flex: 1;
@@ -269,18 +270,18 @@ body, html {
   outline: none;
 }
 
-/* line 234, ../../../sass/dashboard/dashboard.scss */
+/* line 235, ../../../sass/dashboard/dashboard.scss */
 .input-search::placeholder {
   color: #B3B5B9;
   opacity: 1;
 }
 
-/* line 238, ../../../sass/dashboard/dashboard.scss */
+/* line 239, ../../../sass/dashboard/dashboard.scss */
 .input-search::-ms-input-placeholder {
   color: #B3B5B9;
 }
 
-/* line 243, ../../../sass/dashboard/dashboard.scss */
+/* line 244, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"] {
   position: relative;
   width: 40px;
@@ -294,7 +295,7 @@ input[type="checkbox"] {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-/* line 256, ../../../sass/dashboard/dashboard.scss */
+/* line 257, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"]::before {
   content: "";
   width: 20px;
@@ -307,18 +308,18 @@ input[type="checkbox"]::before {
   transition: 0.5s;
 }
 
-/* line 268, ../../../sass/dashboard/dashboard.scss */
+/* line 269, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"]:checked::before {
   transform: translateX(100%);
   background: #FFFFFF;
 }
 
-/* line 273, ../../../sass/dashboard/dashboard.scss */
+/* line 274, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"]:checked {
   background: #A9DFD8;
 }
 
-/* line 277, ../../../sass/dashboard/dashboard.scss */
+/* line 278, ../../../sass/dashboard/dashboard.scss */
 .overview {
   display: flex;
   overflow: auto;
@@ -327,13 +328,13 @@ input[type="checkbox"]:checked {
   scrollbar-width: none;
 }
 
-/* line 283, ../../../sass/dashboard/dashboard.scss */
+/* line 284, ../../../sass/dashboard/dashboard.scss */
 .overview::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
 }
 
-/* line 287, ../../../sass/dashboard/dashboard.scss */
+/* line 288, ../../../sass/dashboard/dashboard.scss */
 .user-daily-info {
   margin: 15px;
   display: flex;
@@ -342,7 +343,7 @@ input[type="checkbox"]:checked {
   flex-wrap: nowrap;
 }
 
-/* line 295, ../../../sass/dashboard/dashboard.scss */
+/* line 296, ../../../sass/dashboard/dashboard.scss */
 .box {
   width: 180px;
   height: 150px;
@@ -351,12 +352,12 @@ input[type="checkbox"]:checked {
   background-color: #21222D;
 }
 
-/* line 302, ../../../sass/dashboard/dashboard.scss */
+/* line 303, ../../../sass/dashboard/dashboard.scss */
 .box:first-child {
   margin: 0;
 }
 
-/* line 305, ../../../sass/dashboard/dashboard.scss */
+/* line 306, ../../../sass/dashboard/dashboard.scss */
 .info-block {
   display: flex;
   flex-direction: column;
@@ -364,22 +365,311 @@ input[type="checkbox"]:checked {
   height: 100%;
   justify-content: center;
 }
-/* line 312, ../../../sass/dashboard/dashboard.scss */
+/* line 313, ../../../sass/dashboard/dashboard.scss */
 .info-block .value {
   color: #FFFFFF;
   font-weight: 500;
   margin-top: 10px;
   margin-bottom: 5px;
 }
-/* line 318, ../../../sass/dashboard/dashboard.scss */
+/* line 319, ../../../sass/dashboard/dashboard.scss */
 .info-block .info-type {
   color: #A5A5AA;
 }
 
-/* line 322, ../../../sass/dashboard/dashboard.scss */
+/* line 323, ../../../sass/dashboard/dashboard.scss */
 .title {
   color: #B3B5B9;
   font-size: 18px;
   font-weight: 400;
   margin: 15px;
+}
+
+/* line 330, ../../../sass/dashboard/dashboard.scss */
+.programs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+/* line 337, ../../../sass/dashboard/dashboard.scss */
+.category-keys {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+
+/* line 350, ../../../sass/dashboard/dashboard.scss */
+.see-all {
+  text-decoration: none !important;
+  color: #B3B5B9;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* line 357, ../../../sass/dashboard/dashboard.scss */
+.see-all:hover {
+  text-decoration: underline !important;
+}
+
+/* line 361, ../../../sass/dashboard/dashboard.scss */
+.category-item {
+  width: 250px;
+  height: 180px;
+  position: relative;
+  border-radius: 10px;
+}
+/* line 367, ../../../sass/dashboard/dashboard.scss */
+.category-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8%;
+}
+/* line 373, ../../../sass/dashboard/dashboard.scss */
+.category-item p {
+  position: absolute;
+  color: #B3B5B9;
+  font-size: 14px;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* line 382, ../../../sass/dashboard/dashboard.scss */
+.category-values-section {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: calc(100% - 30px);
+  margin: 15px;
+  display: flex;
+}
+
+/* line 391, ../../../sass/dashboard/dashboard.scss */
+.category-values-section::-webkit-scrollbar {
+  display: none;
+}
+
+/* line 394, ../../../sass/dashboard/dashboard.scss */
+.category-item {
+  margin-left: 10px;
+}
+
+/* line 398, ../../../sass/dashboard/dashboard.scss */
+.category-values {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* line 402, ../../../sass/dashboard/dashboard.scss */
+.category-values:first-child {
+  margin: 0;
+}
+
+/* line 406, ../../../sass/dashboard/dashboard.scss */
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  color: #B3B5B9;
+  margin: 15px;
+}
+
+/* line 414, ../../../sass/dashboard/dashboard.scss */
+.activity-programs {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+/* line 425, ../../../sass/dashboard/dashboard.scss */
+.activity-programs .category {
+  margin-right: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* line 431, ../../../sass/dashboard/dashboard.scss */
+.program-details {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 437, ../../../sass/dashboard/dashboard.scss */
+.detail-value {
+  color: #B3B5B9;
+  font-size: 18px;
+}
+
+/* line 443, ../../../sass/dashboard/dashboard.scss */
+.program-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+/* line 448, ../../../sass/dashboard/dashboard.scss */
+.program-detail-list {
+  margin-left: 5px;
+  margin-top: 30px;
+}
+
+/* line 453, ../../../sass/dashboard/dashboard.scss */
+.exercise-sections {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+/* line 458, ../../../sass/dashboard/dashboard.scss */
+.exercise-sections .item-type {
+  margin-bottom: 15px;
+  color: #B3B5B9;
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+/* line 466, ../../../sass/dashboard/dashboard.scss */
+.exercise-section {
+  background-color: blue;
+  height: 120px;
+  width: 60%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+/* line 476, ../../../sass/dashboard/dashboard.scss */
+.exercise-section .image {
+  height: 100%;
+  border-radius: 10px;
+}
+/* line 480, ../../../sass/dashboard/dashboard.scss */
+.exercise-section .image img {
+  height: 100%;
+  border-radius: 10px;
+}
+/* line 486, ../../../sass/dashboard/dashboard.scss */
+.exercise-section .item-info {
+  width: 60%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/**
+
+.type-class {
+    height:100%;
+    border-radius:5px;
+    width:4%;
+
+    .WARM_UP {
+        background-color:green;
+    }
+    .EXERCISE {
+        background-color:red;
+    }
+    .COOL_DOWN {
+        background-color:blue;
+    }
+}
+**/
+/* line 514, ../../../sass/dashboard/dashboard.scss */
+#workoutPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 526, ../../../sass/dashboard/dashboard.scss */
+.popupContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  height: 580px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+/* line 538, ../../../sass/dashboard/dashboard.scss */
+.popupContent .workout-video-content {
+  width: 650px;
+  height: 400px;
+  margin-top: 15px;
+  background-color: red;
+  border-radius: 10px;
+}
+
+/* line 546, ../../../sass/dashboard/dashboard.scss */
+#workout-description {
+  text-indent: 15px;
+}
+
+/* line 550, ../../../sass/dashboard/dashboard.scss */
+.information-content {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* line 557, ../../../sass/dashboard/dashboard.scss */
+.information-content .workout-item {
+  margin-top: 15px;
+  display: flex;
+}
+/* line 561, ../../../sass/dashboard/dashboard.scss */
+.information-content .workout-item p {
+  max-width: 620px;
+  text-align: left;
+}
+/* line 565, ../../../sass/dashboard/dashboard.scss */
+.information-content .workout-item #workout-name {
+  margin-left: 5px;
+}
+
+/* line 571, ../../../sass/dashboard/dashboard.scss */
+.info-part {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  bottom: 15px;
+  left: -6px;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* line 582, ../../../sass/dashboard/dashboard.scss */
+.closeBtn {
+  position: absolute;
+  right: 10px;
+  font-size: 40px;
+  top: 1px;
+  cursor: pointer;
+}
+
+/* line 590, ../../../sass/dashboard/dashboard.scss */
+.update-list {
+  display: flex;
+  flex-direction: row;
 }
