@@ -28,11 +28,11 @@
                         <label for="remember_me">Remember Me</label><br>
                     </div>
                     <div class="forgot-pass">
-                        <span>Forgot password</span>
+                        <a class="forgot-password" th:href="@{/password}">Forgot password</a>
                     </div>
                 </div>
                 <button class="login_btn" type="submit">Sign in</button>
-                <span class="create_account">Don’t have an account?<span class="colored_link">Sign up free!</span></span>
+                <span class="create_account">Don’t have an account?<a class="colored_link" th:href="@{/register}" >Sign up free!</a></span>
             </form>
         </div>
         <div class="form-image-content">

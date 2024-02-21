@@ -17,10 +17,18 @@ public class UserAuthController {
         return "redirect:/home/dashboard";
     }
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public String register(Authentication authentication, HttpSession session){
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
             return "register/register";
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/password")
+    public String password(Authentication authentication, HttpSession session){
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+            return "register/change_password";
         }
         return "redirect:/";
     }

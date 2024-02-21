@@ -36,7 +36,7 @@ public class SecurityConfiguration {
     private CustomLoginSuccessHandler loginSuccessHandler;
 
     public static String[] NON_LOGIN_REQUIRED_URLS = { "/robot*", "/test/**", "/chart-test/**", "/captcha/**",
-            "/register/**", "/login/**", "/webjars/**", "/terms/**", "/static/**", "/stylesheets/**", "/js/**", "/registration-confirmation/**",
+            "/register/**", "/password/**", "/login/**", "/webjars/**", "/terms/**", "/static/**", "/stylesheets/**", "/js/**", "/registration-confirmation/**",
             "/home/**", "/profile/**"};
 
     @Autowired

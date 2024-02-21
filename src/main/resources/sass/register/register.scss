@@ -13,6 +13,23 @@ body, html {
 
 }
 
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    .welcome_up {
+        color: #89C5CC;
+        font-size: 34px;
+
+    }
+    .welcome_desc {
+        margin-top:15px;
+    }
+}
+
 .auth-container {
     display: flex;
     color: #636364;
@@ -29,22 +46,6 @@ body, html {
         justify-content: center;
     }
 
-    .welcome {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-
-        .welcome_up {
-            color: #89C5CC;
-            font-size: 34px;
-
-        }
-        .welcome_desc {
-            margin-top:15px;
-        }
-    }
     .form-input{
         display: flex;
         flex-direction: column;
@@ -79,7 +80,8 @@ body, html {
         .form-img {
             width: 500px;
             height: 435px;
-            margin-top:50px;
+            margin-top:30px;
+            margin-left:70px;
         }
     }
 
@@ -100,6 +102,7 @@ body, html {
         .colored_link {
             color: #89C5CC;
             margin-left: 5px;
+            text-decoration:none;
             cursor: pointer;
 
             &:hover {
@@ -119,10 +122,65 @@ body, html {
         accent-color: #89C5CC;
     }
 }
+
+.forgot-password {
+    margin-left: 5px;
+    color: #89C5CC;
+    text-decoration:none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration:underline;
+    }
+}
 //login
 
 //register
 
+.tabs {
+    display:flex;
+    flex-direction:column;
+
+}
+.user-terms {
+    display:flex;
+    flex-direction:column;
+    margin: 15px 0 15px 0;
+    align-items: flex-start;
+
+}
+
+.w2-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 35px;
+    position:relative;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+    .w2-bar-item {
+        margin:10px;
+        border:none;
+        background:transparent;
+        text-transform: uppercase;
+        font-size: 22px;
+        cursor:pointer;
+
+        &:hover {
+        }
+    }
+    .bottom_bar {
+        position: absolute;
+        width: 100%;
+        border-radius: 20px;
+        bottom: -8px;
+        border-bottom: 1px solid #89C5CC;
+    }
+}
+.selected-tab {
+
+}
 
 //forgot pass
 

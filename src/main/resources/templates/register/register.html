@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{register/register_master}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
 </head>
 <body>
 
-register page
+<div layout:fragment="register_content">
+    <div class="auth-container">
+        <div class="tabs">
+            <div class="welcome">
+                <span class="welcome_up">REGISTER</span>
+            </div>
+            <div class="w2-bar">
+                <div class="w2-bar-item w2-button first-tab" onclick="openTab('user', this)">User</div>
+                <div class="w2-bar-item w2-button" onclick="openTab('organization', this)">Owner</div>
+                <hr class="bottom_bar"/>
+            </div>
 
+            <div id="user" class="w3-container w3-display-container tab">
+                <div class="form-content">
+                    <form class="form-items" method="POST" name="login" th:action="@{/register}">
+                        <div class="form-input">
+                            <label for="user_name"></label>
+                            <input class="primary-input" id="user_name" type="email" placeholder="Full Name" name="user_name">
+                            <label for="user_email"></label>
+                            <input class="primary-input" id="user_email" type="email" placeholder="Email" name="email">
+                            <label for="user_password"></label>
+                            <input class="primary-input" id="user_password" type="password" placeholder="Password" name="password">
+                            <label for="user_password-verify"></label>
+                            <input class="primary-input" id="user_password-verify" type="password" placeholder="Verify password" name="password-verify">
+                            <label for="user_phone"></label>
+                            <input class="primary-input" id="user_phone" type="tel" placeholder="Phone number" name="user_phone">
+                        </div>
+                        <div class="user-terms">
+                            <div class="remember">
+                                By clicking Sign up, you agree to our Terms and have read and acknowledge our Privacy Statement
+                            </div>
+                        </div>
+                        <button class="login_btn" type="submit">Sign up</button>
+                        <span class="create_account">Already  have an account!<a class="colored_link" th:href="@{/login}" >Sign in</a></span>
+                    </form>
+                </div>
+            </div>
+
+            <div id="organization" class="w3-container w3-display-container tab" style="display:none">
+                <div class="form-content">
+                    <form class="form-items" method="POST" name="login" th:action="@{/register}">
+                        <div class="form-input">
+                            <label for="owner_name"></label>
+                            <input class="primary-input" id="owner_name" type="email" placeholder="Full Name" name="owner_name">
+                            <label for="org_name"></label>
+                            <input class="primary-input" id="org_name" type="email" placeholder="Organization Name" name="org_name">
+                            <label for="org_email"></label>
+                            <input class="primary-input" id="org_email" type="email" placeholder="Email" name="org_email">
+                            <label for="org_password"></label>
+                            <input class="primary-input" id="org_password" type="password" placeholder="Password" name="org_password">
+                            <label for="org_password_verify"></label>
+                            <input class="primary-input" id="org_password_verify" type="password" placeholder="Verify Password" name="org_password_verify">
+                            <label for="org_phone"></label>
+                            <input class="primary-input" id="org_phone" type="tel" placeholder="Phone number" name="user_phone">
+                        </div>
+                        <div class="user-terms">
+                            <div class="remember">
+                                By clicking Sign up, you agree to our Terms and have read and acknowledge our Privacy Statement
+                            </div>
+                        </div>
+                        <button class="login_btn" type="submit">Sign up</button>
+                        <span class="create_account">Already  have an account!<a class="colored_link" th:href="@{/login}" >Sign in</a></span>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-image-content">
+            <img class="form-img" th:src="@{/static/img/front/register.svg}">
+        </div>
+    </div>
+</div>
+<div layout:fragment="page_scripts">
+    <script>
+        $('.first-tab').css("color", "#89C5CC");
+        function openTab(name, element) {
+            $(".tab").css("display", "none");
+            $("#" + name).css("display", "block");
+            $('.w2-bar-item').css('color', '#636364');
+            $(element).css("color", "#89C5CC");
+        }
+    </script>
+</div>
 </body>
 </html>
