@@ -1,7 +1,7 @@
 @import "variables";
 
 body, html {
-background-color:#131219;
+background-color:#F9FAFC;
  margin: 0;
   padding: 0;
   height: 100%;
@@ -15,26 +15,27 @@ display:flex;
 
 .left-section,
 .right-section {
-  width: 100px; /* Adjust width as needed */
+  width: 100px;
   overflow-y: auto;
 }
 
 .middle-section {
   flex: 1;
-  overflow-y: auto; /* Enable scrolling for the middle section */
+  overflow-y: auto;
   position: relative;
 }
 
 .left-section {
-    width: 260px;
-    background-color:#131219;
-    border-right:2px solid #2F3035;
+    width: 250px;
+    position:relative;
+    border-right:2px solid #BCBCBC;
 }
 
 .application-nav {
     display: flex;
     flex-direction:column;
     align-items: center;
+    height: 100%;
 }
 
 .application-name {
@@ -43,7 +44,7 @@ display:flex;
 }
 
 .application-name a{
-    color:white;
+    color: #BCBCBC;
     font-weight:400;
     font-size:35px;
     text-decoration-color:$application-light-green !important;
@@ -65,16 +66,38 @@ display:flex;
     cursor:pointer;
     font-size:20px;
     display: flex;
-    width:100%;
-    height:34px;
+    height:25px;
     color:$text-color-light;
     align-items: center;
-    margin:4px;
+
+    a {
+        text-decoration:none;
+        color: #AEAEAE;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: #89C5CC;
+            color: #89C5CC;
+        }
+    }
 }
-.menu-item:hover {
-    background-color:$application-light-green;
-    border-radius:8px;
-    color:#1F262A;
+
+.user-information-section{
+    position: absolute;
+    bottom: 20px;
+    align-items: center;
+
+    .information-section {
+        display: flex;
+        flex-direction: row;
+        color: #AEAEAE;
+
+        .user-account-type {
+            display: flex;
+            margin-left: 10px;
+            flex-direction: column;
+        }
+    }
 }
 .menu-item img {
     margin-right: 10px;
@@ -89,8 +112,7 @@ display:flex;
 
 .right-section {
     background-color:#21222D;
-  //  max-width:300px;
-   // min-width:250px;
+    display:none !important;
    border-radius: 15px 0 0 15px;
     width: 20%;
     display:flex;

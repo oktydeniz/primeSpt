@@ -7,6 +7,24 @@
 }
 
 /* line 16, ../../../sass/register/register.scss */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+/* line 23, ../../../sass/register/register.scss */
+.welcome .welcome_up {
+  color: #89C5CC;
+  font-size: 34px;
+}
+/* line 28, ../../../sass/register/register.scss */
+.welcome .welcome_desc {
+  margin-top: 15px;
+}
+
+/* line 33, ../../../sass/register/register.scss */
 .auth-container {
   display: flex;
   color: #636364;
@@ -15,7 +33,7 @@
   align-items: center;
   height: 100%;
 }
-/* line 24, ../../../sass/register/register.scss */
+/* line 41, ../../../sass/register/register.scss */
 .auth-container .form-content {
   height: 100%;
   display: flex;
@@ -23,60 +41,44 @@
   flex-direction: column;
   justify-content: center;
 }
-/* line 32, ../../../sass/register/register.scss */
-.auth-container .welcome {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-/* line 39, ../../../sass/register/register.scss */
-.auth-container .welcome .welcome_up {
-  color: #89C5CC;
-  font-size: 34px;
-}
-/* line 44, ../../../sass/register/register.scss */
-.auth-container .welcome .welcome_desc {
-  margin-top: 15px;
-}
-/* line 48, ../../../sass/register/register.scss */
+/* line 49, ../../../sass/register/register.scss */
 .auth-container .form-input {
   display: flex;
   flex-direction: column;
 }
-/* line 52, ../../../sass/register/register.scss */
+/* line 53, ../../../sass/register/register.scss */
 .auth-container .remember-inputs {
   display: flex;
   justify-content: space-between;
   margin: 15px 0 15px 0;
 }
-/* line 57, ../../../sass/register/register.scss */
+/* line 58, ../../../sass/register/register.scss */
 .auth-container .remember-inputs .forgot-pass {
   cursor: pointer;
 }
-/* line 60, ../../../sass/register/register.scss */
+/* line 61, ../../../sass/register/register.scss */
 .auth-container .remember-inputs .forgot-pass:hover {
   text-decoration: underline;
   text-decoration-color: #636364;
 }
-/* line 71, ../../../sass/register/register.scss */
+/* line 72, ../../../sass/register/register.scss */
 .auth-container .form-items {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-/* line 76, ../../../sass/register/register.scss */
+/* line 77, ../../../sass/register/register.scss */
 .auth-container .form-image-content {
   height: 100%;
 }
-/* line 79, ../../../sass/register/register.scss */
+/* line 80, ../../../sass/register/register.scss */
 .auth-container .form-image-content .form-img {
   width: 500px;
   height: 435px;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-left: 70px;
 }
-/* line 86, ../../../sass/register/register.scss */
+/* line 88, ../../../sass/register/register.scss */
 .auth-container .primary-input {
   height: 20px;
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -84,34 +86,90 @@
   border-radius: 12px;
   margin-top: 15px;
 }
-/* line 93, ../../../sass/register/register.scss */
+/* line 95, ../../../sass/register/register.scss */
 .auth-container .primary-input:focus {
   outline: none;
 }
-/* line 97, ../../../sass/register/register.scss */
+/* line 99, ../../../sass/register/register.scss */
 .auth-container .create_account {
   margin-top: 20px;
 }
-/* line 100, ../../../sass/register/register.scss */
+/* line 102, ../../../sass/register/register.scss */
 .auth-container .create_account .colored_link {
   color: #89C5CC;
   margin-left: 5px;
+  text-decoration: none;
   cursor: pointer;
 }
-/* line 105, ../../../sass/register/register.scss */
+/* line 108, ../../../sass/register/register.scss */
 .auth-container .create_account .colored_link:hover {
   text-decoration: underline;
 }
-/* line 110, ../../../sass/register/register.scss */
+/* line 113, ../../../sass/register/register.scss */
 .auth-container .login_btn {
-  height: 32px;
+  height: 40px;
+  font-size: 18px;
   background-color: #89C5CC;
   border: none;
   cursor: pointer;
   border-radius: 18px;
   color: white;
 }
-/* line 118, ../../../sass/register/register.scss */
+/* line 122, ../../../sass/register/register.scss */
 .auth-container .remember-me {
   accent-color: #89C5CC;
+}
+
+/* line 127, ../../../sass/register/register.scss */
+.forgot-password {
+  margin-left: 5px;
+  color: #89C5CC;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* line 133, ../../../sass/register/register.scss */
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* line 141, ../../../sass/register/register.scss */
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 146, ../../../sass/register/register.scss */
+.user-terms {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 15px 0;
+  align-items: flex-start;
+}
+
+/* line 154, ../../../sass/register/register.scss */
+.w2-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 35px;
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+/* line 163, ../../../sass/register/register.scss */
+.w2-bar .w2-bar-item {
+  margin: 10px;
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 22px;
+  cursor: pointer;
+}
+/* line 174, ../../../sass/register/register.scss */
+.w2-bar .bottom_bar {
+  position: absolute;
+  width: 100%;
+  border-radius: 20px;
+  bottom: -8px;
+  border-bottom: 1px solid #89C5CC;
 }

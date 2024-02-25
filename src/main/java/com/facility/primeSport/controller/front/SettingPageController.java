@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/setting")
-public class UserSettingPageController {
+public class SettingPageController {
 
     private UserService userService;
 
-    public UserSettingPageController(UserService userService) {
+    public SettingPageController(UserService userService) {
         this.userService = userService;
     }
 

@@ -25,39 +25,40 @@
       <div class="application-name"> <a href="#">Prime Sport</a></div>
       <div class="menu">
         <div class="menu-item">
-          <img th:src="@{/static/img/icons/home.png}">
           <span><a href="/home/dashboard">Dashboard</a></span>
         </div>
         <div class="menu-item">
-          <img th:src="@{/static/img/icons/activities.png}">
-          <span><a href="/activities">My Activities</a></span>
+          <span><a href="/activities">User Management</a></span>
         </div>
         <div class="menu-item">
-          <img th:src="@{/static/img/icons/activities.png}">
-          <span>Messages</span>
+          <span><a href="/messages">Venue Management</a></span>
         </div>
         <div class="menu-item">
-          <img th:src="@{/static/img/icons/user_icon.png}">
-          <span><a href="/profile">Profile</a></span>
+          <span><a href="/messages">Messages</a></span>
         </div>
         <div class="menu-item">
-          <img th:src="@{/static/img/icons/settings.png}">
-          <span><a href="/setting">Settings</a></span>
+          <span><a th:href="@{/setting}">Settings</a></span>
         </div>
         <div id="sign-out" class="menu-item">
           <a href="/logout">
-            <img th:src="@{/static/img/icons/sign_out.png}">
             <span>Sign-out</span>
           </a>
+        </div>
+      </div>
+      <div class="user-information-section">
+        <div class="information-section">
+          <div class="user-avatar">
+            <img th:src="@{/static/img/front/avatar_none.svg}" alt="user-avatar">
+          </div>
+          <div class="user-account-type">
+            <span>Andrew Scot</span>
+            <span>Organization Admin</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <section class="middle-section">
-    <div class="search-bar">
-      <img th:src="@{/static/img/icons/search.png}" class="search-icon">
-      <input class="input-search" placeholder="Search">
-    </div>
     <div layout:fragment="page_content"></div>
   </section>
   <section class="right-section">
