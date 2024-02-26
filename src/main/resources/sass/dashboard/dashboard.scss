@@ -20,15 +20,28 @@ display:flex;
 }
 
 .middle-section {
-  flex: 1;
-  overflow-y: auto;
-  position: relative;
+    flex: 1;
+    -webkit-box-shadow: 14px 0px 71px -14px rgba(64,64,64,1);
+    -moz-box-shadow: 14px 0px 71px -14px rgba(64,64,64,1);
+    box-shadow: 14px 0px 71px -14px rgba(64,64,64,1);
+    border-radius:16px;
+    margin: 5px 8px 5px 0px;
+    overflow-y: auto;
+    position: relative;
 }
 
 .left-section {
     width: 250px;
     position:relative;
-    border-right:2px solid #BCBCBC;
+}
+.screen-name {
+    color: #AEAEAE;
+    font-size:26px;
+    margin-bottom: 10px;
+}
+
+.screen-container {
+    margin-left:20px;
 }
 
 .application-nav {

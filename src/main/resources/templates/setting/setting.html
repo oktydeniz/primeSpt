@@ -11,6 +11,35 @@
 <body>
 <div layout:fragment="page_content">
 
+    <div class="screen-container">
+
+        <div class="tabs-container">
+
+            <div class="tab">
+                <h2 class="screen-name">Settings</h2>
+                <button class="tablinks" onclick="openTab(event, 'Profil')">Venue Management</button>
+                <button class="tablinks" onclick="openTab(event, 'İzinler')">Billing & Plans</button>
+                <button class="tablinks" onclick="openTab(event, 'Veriler')">Profile</button>
+            </div>
+            <div class="tabs-screens">
+                <div id="Profil" class="tabcontent">
+                    <h3>Profil</h3>
+                    <p>Kullanıcı profil bilgileri burada görüntülenir.</p>
+                </div>
+
+                <div id="İzinler" class="tabcontent">
+                    <h3>İzinler</h3>
+                    <p>Kullanıcı izin ayarları burada görüntülenir.</p>
+                </div>
+
+                <div id="Veriler" class="tabcontent">
+                    <h3>Veriler</h3>
+                    <p>Kullanıcı veri yönetimi burada görüntülenir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <div layout:fragment="page_scripts">
     <script th:src="@{/static/js/template/setting.js}"></script>
