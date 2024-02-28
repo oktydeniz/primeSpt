@@ -1,4 +1,5 @@
 @import "variables";
+
 .tabs-container {
     display: flex;
     width: 100%;
@@ -45,4 +46,96 @@
     display: none;
     padding: 10px;
     height: 100%;
+}
+/* base  */
+.form {
+    display: flex;
+    flex-direction: column;
+
+    .form-box {
+        display: flex;
+        flex-direction: column;
+        position:relative;
+    }
+}
+
+.primary-input {
+        height: 15px;
+        width:50%;
+        border: 1px solid rgba(43, 41, 41, 0.15);
+        padding: 10px;
+        border-radius: 12px;
+        margin-top: 15px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+.js-map-box {
+    height:400px;
+    background-color:yellow;
+    border-radius:22px;
+}
+
+.fullsize {
+    width:90%;
+}
+
+.venue-content {
+    margin:10px 0;
+    display: flex;
+    flex-direction: row;
+
+    .hours {
+        flex:1;
+        margin: 10px;
+
+        section {
+            margin-top:10px;
+            margin-bottom:10px;
+            display:flex;
+            flex-direction:row;
+
+            .day {
+                display:flex;
+                flex-direction:row;
+                align-items: center;
+                justify-content: space-between;
+                .per-hours {
+                    display:flex;
+                    flex-direction:row;
+                }
+            }
+            .day-inp {
+              display:flex;
+              margin:5px;
+              flex-direction:row;
+              align-items: center;
+            }
+        }
+    }
+    .links {
+        flex:2;
+        margin: 10px;
+    }
+}
+
+.form-checkbox {
+    accent-color: #89C5CC;
+}
+
+.btn {
+    width:80px;
+    height:30px;
+    border-radius:18px;
+    cursor:pointer;
+    border:none;
+    font-size: 16px;
+    align-self: end;
+}
+
+.primary {
+    background-color: #89C5CC;
+    color:white;
 }

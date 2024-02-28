@@ -23,8 +23,183 @@
             </div>
             <div class="tabs-screens">
                 <div id="Profil" class="tabcontent">
-                    <h3>Profil</h3>
-                    <p>Kullanıcı profil bilgileri burada görüntülenir.</p>
+                    <div class="form">
+                        <div class="form-box input-text">
+                            <label for="user_email">Venue Name</label>
+                            <input class="primary-input" id="user_email" type="email" placeholder="email" name="email">
+                        </div>
+                        <div class="form-box input-text">
+                            <label for="user_password">Venue Email</label>
+                            <input class="primary-input" id="user_password" type="password" placeholder="password" name="password">
+                        </div>
+                        <div class="form-box input-text">
+                            <label for="user_password">Venue Description</label>
+                            <input class="primary-input" id="user_password" type="password" placeholder="password" name="password">
+                        </div>
+                        <div class="form-box input-text">
+                            <label for="user_password">Venue Phone Number</label>
+                            <input class="primary-input" id="user_password" type="password" placeholder="(primary)" name="password">
+                        </div>
+                        <div class="hidden-inputs" style="display:none;">
+                            <div class="form-box input-text">
+                                <label for="user_password">Venue Description</label>
+                                <input class="primary-input" id="user_password" type="password" placeholder="password" name="password">
+                            </div>
+                            <div class="form-box input-text">
+                                <label for="user_password">Venue Phone Number</label>
+                                <input class="primary-input" id="user_password" type="password" placeholder="(primary)" name="password">
+                            </div>
+                        </div>
+                        <div class="form-box input-text">
+                            <label for="user_password">Location</label>
+                            <div class="js-map-box">
+
+                            </div>
+                        </div>
+                        <div class="venue-content">
+                            <div class="hours">
+                                <span>Opens & Working Days</span>
+                                <section>
+                                    <div class="opens-days">
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Monday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Monday">Monday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Tuesday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Tuesday">Tuesday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Wednesday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Wednesday">Wednesday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Thursday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Thursday">Thursday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Friday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Friday">Friday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Saturday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Saturday">Saturday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="day">
+                                            <div class="day-inp">
+                                                <input type="checkbox" id="Sunday" class="form-checkbox" name="remember_me" value="remember-me">
+                                                <label for="Sunday">Sunday</label>
+                                            </div>
+                                            <div class="per-hours">
+                                                <div class="day">
+                                                    <input type="time" id="hours-opened" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-opened"></label>
+                                                </div>
+                                                <div class="day">
+                                                    <input type="time" id="hours-closed" class="form-checkbox" name="remember_me" value="remember-me">
+                                                    <label for="hours-closed"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="links">
+                                <span>Social Media Links</span>
+                                <section>
+                                    <div class="form-box input-text">
+                                        <label for="user_password">Venue Phone Number</label>
+                                        <input class="primary-input fullsize" id="user_password" type="password" placeholder="(primary)" name="password">
+                                    </div>
+                                    <div class="form-box input-text">
+                                        <label for="user_password">Venue Phone Number</label>
+                                        <input class="primary-input fullsize" id="user_password" type="password" placeholder="(primary)" name="password">
+                                    </div>
+                                    <div class="form-box input-text">
+                                        <label for="user_password">Venue Phone Number</label>
+                                        <input class="primary-input fullsize" id="user_password" type="password" placeholder="(primary)" name="password">
+                                    </div>
+                                    <div class="form-box input-text">
+                                        <label for="user_password">Venue Phone Number</label>
+                                        <input class="primary-input fullsize" id="user_password" type="password" placeholder="(primary)" name="password">
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <button class="btn primary" type="submit">Send</button>
+                    </div>
                 </div>
 
                 <div id="İzinler" class="tabcontent">
