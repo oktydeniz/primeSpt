@@ -3,7 +3,7 @@
 .tabs-container {
     display: flex;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
     max-height: 100vh;
     overflow-y: hidden;
 }
@@ -74,8 +74,8 @@
 
 .js-map-box {
     height:400px;
-    background-color:yellow;
     border-radius:22px;
+    margin: 5px;
 }
 
 .fullsize {
@@ -118,6 +118,10 @@
     .links {
         flex:2;
         margin: 10px;
+
+        section {
+            margin-top:10px;
+        }
     }
 }
 
@@ -138,4 +142,65 @@
 .primary {
     background-color: #89C5CC;
     color:white;
+}
+
+.input-label {
+    font-size:12px;
+    color: #D9D9D9;
+}
+
+.mt5 {
+    margin-top:5px !important;
+}
+
+::placeholder {
+  color: #636364;
+  opacity: 0.9;
+}
+
+.controls {
+    position: absolute;
+    left: 110px;
+    width: 67%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    top: 10px !important;
+    padding: 10px;
+
+}
+
+*:focus {
+    outline: none;
+}
+
+.time-inputs {
+    border-radius: 10px;
+    padding: 3px;
+    margin: 2px;
+    color: #636364;
+    border: 1px solid grey;
+}
+
+.no-shadow {
+    box-shadow:none !important;
+}
+
+.relative{
+    position:relative;
+}
+
+.absolute{
+    position:absolute;
+}
+
+.position-input-add {
+    bottom: 6px;
+    left: 54%;
+}
+
+.icon-img {
+    width:24px;
+    height:24px;
+    cursor:pointer;
 }
