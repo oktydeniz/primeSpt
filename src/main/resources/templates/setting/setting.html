@@ -203,13 +203,79 @@
                 </div>
 
                 <div id="Billing-Plans" class="tabcontent">
-                    <h3>İzinler</h3>
-                    <p>Kullanıcı izin ayarları burada görüntülenir.</p>
-                </div>
 
+                        <div class="sub-tab">
+                            <button class="sub-tab-links" onclick="openSubTab(event, 'Plans')">Plans</button>
+                            <button class="sub-tab-links" onclick="openSubTab(event, 'Billing-History')">Billing-History</button>
+                            <button class="sub-tab-links" onclick="openSubTab(event, 'Debit-Cards')">Debit-Cards</button>
+                            <button class="sub-tab-links" onclick="openSubTab(event, 'Promotion-Code')">Promotion-Code</button>
+                        </div>
+                        <div class="sub-tabs-screens">
+                        <div id="Plans" class="sub-tab-content">
+                            <span>Plans</span>
+                        </div>
+                        <div id="Billing-History" class="sub-tab-content">
+                            <span>Billing</span>
+                        </div>
+                        <div id="Debit-Cards" class="sub-tab-content">
+                            <span>Debit</span>
+                        </div>
+                        <div id="Promotion-Code" class="sub-tab-content">
+                            <span>Promotion-Code</span>
+                        </div>
+                        </div>
+                </div>
                 <div id="Profile" class="tabcontent">
-                    <h3>Veriler</h3>
-                    <p>Kullanıcı veri yönetimi burada görüntülenir.</p>
+                    <div class="form">
+                        <div class="form-box input-text">
+                            <label class="input-label mt5"  for="full_name">Venue Email</label>
+                            <input class="primary-input mt5" id="full_name" type="text" placeholder="Full Name" name="fullName">
+                        </div>
+                        <div class="form-box input-text relative">
+                            <label class="input-label mt5"  for="password">Password</label>
+                            <input class="primary-input mt5" id="password" type="text" placeholder="*********" name="password">
+                            <span class="absolute position-span icon-img" onclick="chancePassword()">Change</span>
+                        </div>
+                        <div class="chance-password" style="display:none;">
+                            <div class="form-box input-text ">
+                                <label class="input-label mt5"  for="new_password">Create New Password</label>
+                                <input class="primary-input mt5" id="new_password" type="password" placeholder="*******" name="createPassword">
+                            </div>
+                            <div class="form-box input-text">
+                                <label class="input-label mt5"  for="third_phone_number">Verify New Password</label>
+                                <input class="primary-input mt5" id="verify_pass" type="password" placeholder="*******" name="verifyPassword">
+                            </div>
+                        </div>
+
+                        <div class="languages">
+                            <span>Language : </span>
+                            <div class="select-wrapper">
+                                <select id="customSelect">
+                                    <option value="tr">Turkish</option>
+                                    <option selected value="en">English</option>
+                                    <option value="rus">Russian</option>
+                                </select>
+                                <img class="arrow" alt="arrow" th:src="@{/static/img/icons/arrow_down.svg}">
+                            </div>
+                        </div>
+                        <div class="perms-switch mt10">
+                            <a class="content" href="#">Except User Massages</a>
+                            <div class="remember">
+                                <input type="checkbox" id="send-msg-perm" class="perm-switch" name="sendMessagePerm">
+                                <label for="send-msg-perm"></label><br>
+                            </div>
+                        </div>
+                        <div class="perms-content mt10">
+                            <a class="content-btn" href="#">Clear all my data but keep the account</a>
+                        </div>
+                        <div class="perms-content mt10">
+                            <a class="content-btn"  href="#">Delete Account</a>
+                        </div>
+                        <div class="perms-content mt10">
+                            <a class="content" href="#">Get Help</a>
+                        </div>
+                        <button class="btn primary self-center" type="submit">Send</button>
+                    </div>
                 </div>
             </div>
         </div>

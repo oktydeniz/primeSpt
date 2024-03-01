@@ -36,6 +36,16 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#customSelect').on('change', function() {
+        // Optional: Handle change event if needed
+    });
+
+    $('#customSelect').on('focus', function() {
+        $('.arrow').html('&#9650;'); // Up arrow
+    }).on('blur', function() {
+        $('.arrow').html('&#9660;'); // Down arrow
+    });
 });
 
 function openInputs(e) {
@@ -44,9 +54,14 @@ function openInputs(e) {
 
 function openFirstTab() {
     document.querySelector(".tablinks").click();
+    document.querySelector(".sub-tab-links").click();
 }
 
 window.onload = openFirstTab;
+
+function chancePassword() {
+    $('.chance-password').toggle();
+}
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -55,6 +70,20 @@ function openTab(evt, tabName) {
         tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function openSubTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("sub-tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("sub-tab-links");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
