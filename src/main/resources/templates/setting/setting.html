@@ -203,7 +203,6 @@
                 </div>
 
                 <div id="Billing-Plans" class="tabcontent">
-
                         <div class="sub-tab">
                             <button class="sub-tab-links" onclick="openSubTab(event, 'Plans')">Plans</button>
                             <button class="sub-tab-links" onclick="openSubTab(event, 'Billing-History')">Billing-History</button>
@@ -215,13 +214,111 @@
                             <span>Plans</span>
                         </div>
                         <div id="Billing-History" class="sub-tab-content">
-                            <span>Billing</span>
+
+                            <div class="table-container mt10">
+                                <table class="primary-table">
+                                    <thead>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Receipt</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>07.01.2024</td>
+                                        <td>Monthly Package</td>
+                                        <td>39,99 TL</td>
+                                        <td>Not Paid</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07.12.2023</td>
+                                        <td>Monthly Package</td>
+                                        <td>39,99 TL</td>
+                                        <td>Paid</td>
+                                        <td><button onclick="openInfoAlert(this, 34234)" class="table-btn">Show Receipt</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07.11.2023</td>
+                                        <td>Monthly Package</td>
+                                        <td>39,99 TL</td>
+                                        <td>Paid</td>
+                                        <td><button onclick="openInfoAlert(this, 24556)" class="table-btn">Show Receipt</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07.10.2023</td>
+                                        <td>Monthly Package</td>
+                                        <td>32,99 TL</td>
+                                        <td>Paid</td>
+                                        <td><button onclick="openInfoAlert(this, 231)" class="table-btn">Show Receipt</button></td>
+                                    <tr>
+                                        <td>07.09.2023</td>
+                                        <td>Monthly Package</td>
+                                        <td>32,99 TL</td>
+                                        <td>Paid</td>
+                                        <td><button onclick="openInfoAlert(this, 324)" class="table-btn">Show Receipt</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07.09.2023</td>
+                                        <td>Monthly Package</td>
+                                        <td>32,99 TL</td>
+                                        <td>Paid</td>
+                                        <td><button onclick="openInfoAlert(this, 4545)" class="table-btn">Show Receipt</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-inf">
+                                <span class="mt10">You agree that a membership fee of 39,99 TL for Premium will be automatically charged every month until you cancel. You can cancel your Spotify Premium membership at any time by following the instructions <a href="#">here</a> on the <a href="#">Account page</a>.</span>
+                                <a class="mt10" href="#">Terms and Conditions</a>
+                            </div>
+
+                            <div id="infoModal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close-button">&times;</span>
+                                    <p id="modelIdDisplay"></p>
+                                    <p>This is your dialog content. You can place anything here.</p>
+                                </div>
+                            </div>
                         </div>
                         <div id="Debit-Cards" class="sub-tab-content">
                             <span>Debit</span>
                         </div>
                         <div id="Promotion-Code" class="sub-tab-content">
-                            <span>Promotion-Code</span>
+                            <div class="promotion-content">
+                                <span class="mt10">Use Promotion Code</span>
+                                <span class="mt10">Enter the PIN code on the back of your gift card or the premium code on your in-store receipt.</span>
+                                <div class="form-box input-text mt10">
+                                    <label class="input-label mt5"  for="promotion"></label>
+                                    <input class="primary-input fullsize mt5" id="promotion" type="password" placeholder="Code" name="promotionCode">
+                                </div>
+                                <button class="primary-button mt10">Use Code</button>
+                            </div>
+                            <div class="promotion-history">
+                                <span class="mt10" >Promotion Code History</span>
+                                <ul class="responsive-table mt10">
+                                    <li class="table-header">
+                                        <div class="col col-1 color-white">Code</div>
+                                        <div class="col col-2 color-white">Description</div>
+                                        <div class="col col-3 color-white">Time Range</div>
+                                        <div class="col col-4 color-white">Used Time</div>
+                                    </li>
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="Code">42235</div>
+                                        <div class="col col-2" data-label="Customer Name">3 Month Limitless Access</div>
+                                        <div class="col col-3" data-label="Time Range">3 Month</div>
+                                        <div class="col col-4" data-label="Used Time">27/01/2024</div>
+                                    </li>
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="Code">42442</div>
+                                        <div class="col col-2" data-label="Description">3 Month Free Nutrition Plan</div>
+                                        <div class="col col-3" data-label="Time Range">4 Month</div>
+                                        <div class="col col-4" data-label="Used Time">13/05/2023</div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         </div>
                 </div>

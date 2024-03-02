@@ -46,7 +46,22 @@ $(document).ready(function() {
     }).on('blur', function() {
         $('.arrow').html('&#9660;'); // Down arrow
     });
+
+    $(".close-button").click(function() {
+        $("#infoModal").fadeOut();
+    });
+
+    $(window).click(function(e) {
+        if ($(e.target).is('.modal')) {
+            $("#infoModal").fadeOut();
+        }
+    });
 });
+
+function openInfoAlert(e, id) {
+    $("#modelIdDisplay").text("Model ID: " + id);
+    $("#infoModal").fadeIn();
+}
 
 function openInputs(e) {
         $('.hidden-inputs').toggle();
