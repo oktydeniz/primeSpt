@@ -933,3 +933,39 @@ input {
     transform: rotateY(180deg);
 }
 }
+
+.plans-content {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    margin:10px;
+
+    .user-current-plan {
+        display:flex;
+        flex-direction:column;
+
+        p {
+
+        }
+    }
+
+    .plan-card {
+        width: 50%;
+        height: 130px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display:flex;
+        flex-direction:column;
+        cursor:pointer;
+
+        .title {
+            color:#89C5CC;
+            font-size:20px;
+            margin: 12px 12px 5px 12px;
+        }
+        .desc {
+            font-size: 14px;
+            margin: 5px 0px 0px 12px;
+        }
+    }
+}

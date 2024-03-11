@@ -27,11 +27,11 @@ public class ActivityController {
     @PostMapping("/create")
     @ResponseBody
     public ResponseEntity<Boolean> createActivity(Authentication authentication,
-                                                  @RequestBody CreateActivityRequest createActivity){
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+                                                  @RequestBody CreateActivityRequest createActivity) {
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
         }
         JWTUserDetail user = (JWTUserDetail) authentication.getPrincipal();
-        return activityService.createNewActivity(createActivity,user.getId());
+        return activityService.createNewActivity(createActivity, user.getId());
     }
 }
