@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="importedContent">
+    <div class="form">
+      <div class="form-box input-text">
+        <label class="input-label mt5" for="venue_name">Venue Name</label>
+        <input class="primary-input mt5" id="venue_name" type="text" placeholder="Venue Name"
+               name="venueName">
+      </div>
+      <div class="form-box input-text">
+        <label class="input-label mt5" for="venue_email">Venue Email</label>
+        <input class="primary-input mt5" id="venue_email" type="text" placeholder="Venue Email"
+               name="venueEmail">
+      </div>
+      <div class="form-box input-text">
+        <label class="input-label mt5" for="venue_desc">Venue Description</label>
+        <input class="primary-input mt5" id="venue_desc" type="text" placeholder="Venue Description"
+               name="venueDesc">
+      </div>
+      <div class="form-box input-text relative">
+        <label class="input-label mt5" for="primary_number">Venue Phone Number</label>
+        <input class="primary-input mt5" id="primary_number" type="tel"
+               placeholder="Primary Phone Number" name="venuePrimaryNumber">
+        <img class="absolute position-input-add icon-img" onclick="openInputs()"
+             th:src="@{/static/img/icons/plus.svg}" alt="open inputs">
+      </div>
+      <div class="hidden-inputs" style="display:none;">
+        <div class="form-box input-text ">
+          <label class="input-label mt5" for="second_phone_number">Second Phone Number</label>
+          <input class="primary-input mt5" id="second_phone_number" type="password"
+                 placeholder="Second Phone Number" name="venueNumberSecond">
+        </div>
+        <div class="form-box input-text">
+          <label class="input-label mt5" for="third_phone_number">Third Phone Number</label>
+          <input class="primary-input mt5" id="third_phone_number" type="password"
+                 placeholder="Third Phone Number" name="venueNumberThird">
+        </div>
+      </div>
+      <div class="form-box input-text">
+        <label class="input-label mt5" for="pac-input">Venue Location</label>
+        <input id="pac-input" class="controls" type="search" placeholder="Search">
+        <div id="map" class="js-map-box"></div>
+      </div>
+      <div class="venue-content">
+        <div class="hours">
+          <span style="color:#AEAEAE;">Opens & Working Days</span>
+          <section>
+            <div class="opens-days">
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Monday" class="form-checkbox no-shadow"
+                         name="monday">
+                  <label for="Monday">Monday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="monday-hours-opened" class="time-inputs"
+                           name="mondayHourOpened">
+                    <label for="monday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="monday-hours-closed" class="time-inputs"
+                           name="mondayHourClosed">
+                    <label for="monday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Tuesday" class="form-checkbox no-shadow"
+                         name="tuesday">
+                  <label for="Tuesday">Tuesday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="tuesday-hours-opened" class="time-inputs"
+                           name="tuesdayHourOpened">
+                    <label for="tuesday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="tuesday-hours-closed" class="time-inputs"
+                           name="tuesdayHourClosed">
+                    <label for="tuesday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Wednesday" class="form-checkbox no-shadow"
+                         name="wednesday">
+                  <label for="Wednesday">Wednesday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="wednesday-hours-opened" class="time-inputs"
+                           name="wednesdayHourOpened">
+                    <label for="wednesday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="wednesday-hours-closed" class="time-inputs"
+                           name="wednesdayHourClosed">
+                    <label for="wednesday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Thursday" class="form-checkbox no-shadow"
+                         name="thursday">
+                  <label for="Thursday">Thursday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="thursday-hours-opened" class="time-inputs"
+                           name="thursdayHourOpened">
+                    <label for="thursday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="thursday-hours-closed" class="time-inputs"
+                           name="thursdayHourClosed">
+                    <label for="thursday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Friday" class="form-checkbox no-shadow"
+                         name="friday">
+                  <label for="Friday">Friday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="friday-hours-opened" class="time-inputs"
+                           name="fridayHourOpened">
+                    <label for="friday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="friday-hours-closed" class="time-inputs"
+                           name="fridayHourClosed">
+                    <label for="friday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Saturday" class="form-checkbox no-shadow"
+                         name="saturday">
+                  <label for="Saturday">Saturday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="saturday-hours-opened" class="time-inputs"
+                           name="saturdayHourOpened">
+                    <label for="saturday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="saturday-hours-closed" class="time-inputs"
+                           name="saturdayHourClosed">
+                    <label for="saturday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+              <div class="day">
+                <div class="day-inp">
+                  <input type="checkbox" id="Sunday" class="form-checkbox no-shadow"
+                         name="sunday">
+                  <label for="Sunday">Sunday</label>
+                </div>
+                <div class="per-hours">
+                  <div class="day">
+                    <input type="time" id="sunday-hours-opened" class="time-inputs"
+                           name="sundayHourOpened">
+                    <label for="sunday-hours-opened"></label>
+                  </div>
+                  <div class="day">
+                    <input type="time" id="sunday-hours-closed" class="time-inputs"
+                           name="sundayHourClosed">
+                    <label for="sunday-hours-closed"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="links">
+          <span style="color:#AEAEAE;">Social Media Links</span>
+          <section>
+            <div class="form-box input-text">
+              <label class="input-label " for="venue_facebook">Facebook Url</label>
+              <input class="primary-input fullsize mt5" id="venue_facebook" type="password"
+                     placeholder="Facebook Url" name="facebookLink">
+            </div>
+            <div class="form-box input-text">
+              <label class="input-label " for="instagram_url">Instagram Url</label>
+              <input class="primary-input fullsize mt5" id="instagram_url" type="password"
+                     placeholder="Instagram Url" name="instagramLink">
+            </div>
+            <div class="form-box input-text">
+              <label class="input-label " for="web_link">Web Link</label>
+              <input class="primary-input fullsize mt5" id="web_link" type="password"
+                     placeholder="Web Link" name="webLink">
+            </div>
+            <div class="form-box input-text">
+              <label class="input-label mt5" for="x_link">X Link</label>
+              <input class="primary-input fullsize mt5" id="x_link" type="password"
+                     placeholder="X Link" name="xLink">
+            </div>
+            <div class="form-box input-text">
+              <label class="input-label mt5" for="tiktok_link">Tiktok Link</label>
+              <input class="primary-input fullsize mt5" id="tiktok_link" type="password"
+                     placeholder="Tiktok Link" name="tiktokLink">
+            </div>
+            <div class="form-box input-text">
+              <label class="input-label mt5" for="trip_link">TripAdvisor Link</label>
+              <input class="primary-input fullsize mt5" id="trip_link" type="password"
+                     placeholder="TripAdvisor Link" name="tripLink">
+            </div>
+          </section>
+        </div>
+      </div>
+      <button class="btn primary" type="submit">Send</button>
+    </div>
+</div>
+</body>
+</html>

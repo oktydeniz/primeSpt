@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/master}">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link th:href="@{/static/stylesheets/management/management.css}"
+        rel="stylesheet" type="text/css" media="screen">
+  <title>Manage Users</title>
+</head>
+<body>
+<div layout:fragment="page_content">
+
+  <div class="page-container">
+    <h2 class="mt10" style="margin-bottom:10px;">Manage Venue</h2>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Building')">Building</button>
+    <button class="tablinks" onclick="openTab(event, 'Packages')" >Packages</button>
+    <button class="tablinks" onclick="openTab(event, 'ManageActivities')" >Manage Activities</button>
+    <button class="tablinks" onclick="openTab(event, 'NutritionDiet')" >Nutrition and Diet</button>
+    <button class="tablinks" onclick="openTab(event, 'MessageContext')" >Message Context</button>
+    <button class="tablinks" onclick="openTab(event, 'ManageServices')" >Manage Services</button>
+    <button class="tablinks" onclick="openTab(event, 'VenueBlog')" >Venue Blog</button>
+    <button class="tablinks" onclick="openTab(event, 'Storage')" >Storage</button>
+    </div>
+    <div class="tabs-screens">
+      <div id="Building" class="tabcontent">
+        <div th:replace="context/building-content :: importedContent"></div>
+      </div>
+      <div id="Packages" class="tabcontent">
+        <div th:replace="context/packages-content :: importedContent"></div>
+      </div>
+      <div id="ManageActivities" class="tabcontent">ManageActivities</div>
+      <div id="NutritionDiet" class="tabcontent">NutritionDiet</div>
+      <div id="MessageContext" class="tabcontent">MessageContext</div>
+      <div id="ManageServices" class="tabcontent">ManageServices</div>
+      <div id="VenueBlog" class="tabcontent">VenueBlog</div>
+      <div id="Storage" class="tabcontent">Storage</div>
+    </div>
+  </div>
+</div>
+<div layout:fragment="page_scripts">
+
+  <script>
+    (g => {
+      var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window;
+      b = b[c] || (b[c] = {});
+      var d = b.maps || (b.maps = {}), r = new Set(["places"]), e = new URLSearchParams, u = () => h || (h = new Promise(async(f, n) => {
+        await(a = m.createElement("script"));
+        e.set("libraries", [...r] + "");
+        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+        e.set("callback", c + ".maps." + q);
+        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+        d[q] = f;
+        a.onerror = () => h = n(Error(p + " could not load."));
+        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+        m.head.append(a);
+      }));
+      d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+    })({
+      key: "AIzaSyBkyeh3iex2OGB6cgwprMUOi3IbyAUi5gY",
+      v: "weekly",
+    });
+  </script>
+  <script th:src="@{/static/js/template/management.js}"></script>
+</div>
+</body>
+</html>
+
+
+
+

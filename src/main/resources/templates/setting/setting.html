@@ -17,7 +17,7 @@
 
             <div class="tab">
                 <h2 class="screen-name">Settings</h2>
-                <button class="tablinks" onclick="openTab(event, 'Venue-Mng')">Venue Management</button>
+                <button class="tablinks" onclick="openTab(event, 'Venue-Mng')">Manage Venue</button>
                 <button class="tablinks" onclick="openTab(event, 'Billing-Plans')">Billing & Plans</button>
                 <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
             </div>
@@ -227,6 +227,16 @@
                                         <input class="primary-input fullsize mt5" id="x_link" type="password"
                                                placeholder="X Link" name="xLink">
                                     </div>
+                                    <div class="form-box input-text">
+                                        <label class="input-label mt5" for="tiktok_link">Tiktok Link</label>
+                                        <input class="primary-input fullsize mt5" id="tiktok_link" type="password"
+                                               placeholder="Tiktok Link" name="tiktokLink">
+                                    </div>
+                                    <div class="form-box input-text">
+                                        <label class="input-label mt5" for="trip_link">TripAdvisor Link</label>
+                                        <input class="primary-input fullsize mt5" id="trip_link" type="password"
+                                               placeholder="TripAdvisor Link" name="tripLink">
+                                    </div>
                                 </section>
                             </div>
                         </div>
@@ -250,17 +260,59 @@
                                 <div class="user-current-plan">
                                     <p class="mt10">Your Current Plan</p>
                                     <section class="mt10">
-                                        <div class="plan-card">
-                                            <span class="title">Aylık Paket (500+)</span>
-                                            <span class="desc">Sonraki faturan 9577 ile biten Mastercard kartından 39,99 TL tutarında ve 7.02.2024 tarihinde işlem yapılacaktır.</span>
+                                        <div class="plan-card relative">
+                                            <img th:src="@{/static/img/icons/pkg_logo.svg}" class="pkg-logo absolute">
+                                            <span class="title">Monthly Package (500+)</span>
+                                            <span class="desc">Your next bill will be from your Mastercard card ending in 9577.
+                                                 It costs 39.99 TL and will be processed on 7.02.2024.v</span>
+                                            <div class="pkg-action mt10">
+                                                <button class="pkg-btn" onclick="showDetail()">Detail</button>
+                                                <button class="pkg-btn" onclick="cancelPlan()">Cancel Plan</button>
+                                            </div>
                                         </div>
                                     </section>
                                 </div>
 
                                 <div class="app-plans mt10">
                                     <p>Plans</p>
-                                    <section>
+                                    <section class="mt10 plans-list">
+                                        <div class="card mt10">
+                                            <section class="plan-header">
+                                                <div style="color:white;font-size:20px;" class="plan-name mt10">Standard</div>
+                                                <div class="circle">
+                                                    <div class="c-container">
+                                                        <div style="color:white;font-size:20px;" class="amount mat10">39,99 TL</div>
+                                                        <div style="color:white;font-size:12px;" class="plan-discount mat10">(Monthly)</div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section class="features mt10">
 
+                                            </section>
+                                            <section class="mt10" style="align-self: end;width: 100%;justify-content: center;display: flex;">
+                                                <button class="plan-btn" onclick="selectPlan(12)">Select This Plan</button>
+                                            </section>
+
+                                        </div>
+                                        <div class="card mt10">
+                                            <section class="plan-header">
+                                                <div style="color:white;font-size:20px;" class="plan-name mt10">Standard</div>
+                                                <div class="circle">
+                                                    <div class="c-container">
+                                                        <div style="color:white;font-size:12px;" class="plan-discount">Save 30%</div>
+                                                        <div style="color:white;font-size:20px;" class="amount mat10">39,99 TL</div>
+                                                        <div style="color:white;font-size:12px;" class="plan-discount mat10">(Monthly)</div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section class="features mt10">
+
+                                            </section>
+                                            <section class="mt10" style="align-self: end;width: 100%;justify-content: center;display: flex;">
+                                                <button class="plan-btn" onclick="selectPlan(12)">Select This Plan</button>
+                                            </section>
+
+                                        </div>
                                     </section>
                                 </div>
                             </div>

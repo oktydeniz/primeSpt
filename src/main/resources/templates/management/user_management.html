@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/master}">
+<head>
+    <link th:href="@{/static/stylesheets/management/management.css}"
+          rel="stylesheet" type="text/css" media="screen">
+    <title>Manage Users</title>
+</head>
+<body>
+<div layout:fragment="page_content">
+
+    <div class="page-container">
+        <h2 class="mt10" style="color:#4A85F6;margin-bottom:10px;">Manage User</h2>
+        <div class="select-wrapper mt10">
+            <select class="select-box" id="customSelect">
+                <option selected value="users">Users</option>
+                <option value="trainers">Trainers</option>
+            </select>
+        </div>
+        <div class="search-container mt10">
+            <input id="pac-input" class="controls" type="search" placeholder="Search">
+            <button class="add-user">Add User</button>
+        </div>
+
+        <div class="users-table">
+
+        </div>
+    </div>
+</div>
+<div layout:fragment="page_scripts">
+
+</div>
+</body>
+</html>
+

@@ -210,6 +210,35 @@
     left: 54%;
 }
 
+.pkg-logo {
+    width:24px;
+    height:24px;
+    top:5px;
+    right:10px;
+}
+
+.pkg-action {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pkg-btn {
+    background: transparent;
+    border: none;
+    width:80px;
+    height:30px;
+    &:hover {
+        cursor:pointer;
+        background-color: #89C5CC;
+        color: white;
+        width:80px;
+        height:30px;
+        border-radius:15px;
+    }
+}
+
 .icon-img {
     width:24px;
     height:24px;
@@ -956,7 +985,6 @@ input {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         display:flex;
         flex-direction:column;
-        cursor:pointer;
 
         .title {
             color:#89C5CC;
@@ -966,6 +994,82 @@ input {
         .desc {
             font-size: 14px;
             margin: 5px 0px 0px 12px;
+        }
+    }
+
+    .plans-list {
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content: space-around;
+
+        .card {
+            width: 200px;
+            height: 350px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            display:flex;
+            justify-content: space-between;
+            flex-direction:column;
+
+            .title {
+                color:#89C5CC;
+                font-size:20px;
+                margin: 12px 12px 5px 12px;
+            }
+            .desc {
+                font-size: 14px;
+                margin: 5px 0px 0px 12px;
+            }
+        }
+        .plan-header {
+            height:108px;
+            background-color: rgba(241, 189, 78, 1.0);
+            border-radius: 10px 10px 5px 5px;
+            position:relative;
+            justify-content: center;
+            align-items: center;
+
+            display: flex;
+            flex-direction: column;
+
+            .circle {
+                position: absolute;
+                height: 80px;
+                width: 38%;
+                left: 30%;
+                bottom: -35px;
+                border-radius: 50%;
+                background-color: rgba(241, 189, 78, 1.0);
+                border: 2px solid rgba(231, 231, 231, 1.0);
+                .c-container {
+                    display:flex;
+                    flex-direction:column;
+                    color: white;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+            }
+
+            .plan-name {
+                margin-top:-20px;
+            }
+        }
+    }
+
+    .plan-btn {
+        background: transparent;
+        border: 1px solid rgba(241, 189, 78, 1.0);
+        width:120px;
+        border-radius:15px;
+        height:30px;
+        margin-bottom:10px;
+        &:hover {
+            cursor:pointer;
+            background-color: rgba(241, 189, 78, 1.0);
+            color: white;
         }
     }
 }
