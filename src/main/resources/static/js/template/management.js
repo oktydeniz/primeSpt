@@ -4,6 +4,7 @@ $(document).ready(function() {
         document.querySelector(".tablinks").click();
     }
     initMap()
+    events()
 })
 
 function openInputs(e) {
@@ -105,3 +106,32 @@ async function initMap() {
         console.log("Selected location:", e.latLng.lat(), e.latLng.lng());
     });
 }
+
+function events() {
+
+    $('#create-package').on('click', function () {
+        openPackagePopup(this)
+    })
+
+    $('.close-button').on('click', function(){
+        $('#package-screen').fadeOut()
+    })
+}
+
+const openPackagePopup = (e, id = null) => {
+    $('#package-screen').fadeIn()
+}
+
+$('#imageInput').on('change', function(event) {
+    var file = event.target.files[0];
+
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var img = $('<img>').attr('src', e.target.result).css({width: '300px', height: 'auto'});
+            $('#imageContainer').html(img);
+        };
+
+        reader.readAsDataURL(file);
+    }
+});

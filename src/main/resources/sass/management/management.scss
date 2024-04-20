@@ -326,26 +326,78 @@
     }
 
     .cars-context {
-        margin:5px;
-
         .cards-list {
             display: flex;
             flex-direction: row;
             align-content: center;
             align-items: center;
+            margin-top:10px;
             justify-content: flex-start;
             flex-wrap: wrap;
 
             .item {
-                width:230px;
+                width:250px;
                 background:grey;
-                height:125px;
+                position:relative;
+                height:140px;
                 border-radius:15px;
                 margin-right: 10px;
                 margin-bottom: 10px;
                 &:hover {
                     cursor:pointer;
                 }
+
+                .item-name {
+                    position:absolute;
+                    font-size:18px;
+                    bottom:16px;
+                    left:5px;
+                    text-decoration: underline;
+                }
+                .price {
+                    position:absolute;
+                    font-size:13px;
+                    bottom:3px;
+                    left:9px;
+                    color:#FAF9FA;
+                    font-style: italic;
+                }
+
+                .pack-img {
+                    width:250px;
+                    height:140px;
+                    border-radius:15px;
+                    cursor:hover;
+                }
+
+                .labels {
+                    position:absolute;
+                    display:flex;
+                    top:10px;
+                    right:5px;
+                    flex-direction: column;
+                    text-transform: math-auto;
+                       .label {
+                            font-size: 14px;
+                            text-align: right;
+                            width: 75px;
+                            padding: 2px;
+                            height: 14px;
+                            margin: 2px;
+                            border-radius: 5px;
+                            &.new {
+                                background-color:red;
+                            }
+                            &.discount {
+                                background-color:yellow;
+                            }
+                            &.campaign {
+                                background-color:blue;
+                            }
+
+                       }
+                }
+
             }
 
         }
@@ -375,5 +427,46 @@
 
     i {
         font-size:22px;
+    }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+
+
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        border-radius: 15px;
+        height: 300px;
+    }
+
+    .close-button {
+        color: #95A5A6;
+        position: absolute;
+        top: 5px;
+        right: 12px;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
     }
 }
