@@ -87,10 +87,66 @@
     <div id="package-screen" class="popup">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <div id="imageContainer"></div>
-            <form method="POST" action="/manage/venue/upload" enctype="multipart/form-data">
+            <div class="form-input">
+                <label for="package-name">
+                    <input name="packageName" id="package-name" type="text" required placeholder="Package Name">
+                </label>
+            </div>
+            <div class="form-input">
+                <label for="package-desc">
+                    <input name="packageDesc" id="package-desc" type="text" placeholder="Description">
+                </label>
+            </div>
+            <div class="form-input">
+                <label for="package-desc">
+                    <input name="price" id="price" type="number" required placeholder="Price">
+                </label>
+            </div>
+            <div class="form-input">
+                <label for="end-date">
+                    <input name="endDate" id="end-date" type="date" placeholder="Price">
+                </label>
+            </div>
+            <div class="form-input">
+                <label for="range">
+                    <input name="range" id="range" type="number" placeholder="Price">
+                </label>
+            </div>
+            <div>
                 <label for="imageInput">Choose file to upload</label>
                 <input type="file" id="imageInput" name="file" accept="image/*">
+                <div id="imageContainer"></div>
+            </div>
+            <div class="discount-section">
+                <span>Discount</span>
+                <label for="discount">
+                    <input id="discountOn" type="checkbox" name="discount">
+                </label>
+                <span id="new-price">12 TL</span>
+            </div>
+            <label for="is-hidden">
+                <span>Set Hidden</span>
+                <input name="isHidden" type="checkbox" id="is-hidden">
+            </label>
+
+            <div class="labels-list">
+                <input type="checkbox" id="new" name="new" value="new">
+                <label for="new">New</label><br>
+                <input type="checkbox" id="campaign" name="campaign" value="new">
+                <label for="campaign">Campaign</label><br>
+                <input type="checkbox" id="discount" name="discount" value="discount">
+                <label for="discount">Discount</label><br>
+                <input type="checkbox" id="limited" name="Limited" value="limited">
+                <label for="limited">Limited</label><br>
+                <input type="number" id="userCountFor" name="Limited" value="limited">
+                <label for="userCountFor">Limit to Package</label><br>
+            </div>
+            <div class="actions">
+                <button type="button">Delete</button>
+                <button type="reset">Clear</button>
+                <button type="submit">Save</button>
+            </div>
+            <form method="POST" action="/manage/venue/upload" enctype="multipart/form-data">
                 <button type="submit">Upload</button>
             </form>
 
