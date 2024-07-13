@@ -12,6 +12,7 @@ import com.facility.primeSport.service.CollectionData;
 import com.facility.primeSport.service.UDailyAnalyticsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -98,5 +99,12 @@ public class HomeController {
                                                Authentication authentication) {
         boolean result = collectionData.setPrivate(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+
+    @PostMapping("/addCoach")
+    @PreAuthorize("hasAuthority('admin:admin')")
+    public ResponseEntity<String> addNewCoach(Authentication authentication){
+        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully. Please verify your email. Token : ");
     }
 }

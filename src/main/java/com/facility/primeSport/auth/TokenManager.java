@@ -44,7 +44,8 @@ public class TokenManager {
     }
 
     private Claims getClaims(String token) {
-        return Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+        //return Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
     }
 
     public Long getUserIdFromJwt(String token) {

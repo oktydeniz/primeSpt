@@ -22,18 +22,34 @@ body, html {
 /* line 22, ../../../sass/dashboard/dashboard.scss */
 .middle-section {
   flex: 1;
+  -webkit-box-shadow: 14px 0px 71px -14px #404040;
+  -moz-box-shadow: 14px 0px 71px -14px #404040;
+  box-shadow: 14px 0px 71px -14px #404040;
+  border-radius: 16px;
+  margin: 5px 8px 5px 0px;
   overflow-y: auto;
   position: relative;
 }
 
-/* line 28, ../../../sass/dashboard/dashboard.scss */
+/* line 33, ../../../sass/dashboard/dashboard.scss */
 .left-section {
   width: 250px;
   position: relative;
-  border-right: 2px solid #BCBCBC;
 }
 
-/* line 34, ../../../sass/dashboard/dashboard.scss */
+/* line 37, ../../../sass/dashboard/dashboard.scss */
+.screen-name {
+  color: #AEAEAE;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+/* line 43, ../../../sass/dashboard/dashboard.scss */
+.screen-container {
+  margin-left: 20px;
+}
+
+/* line 47, ../../../sass/dashboard/dashboard.scss */
 .application-nav {
   display: flex;
   flex-direction: column;
@@ -41,13 +57,13 @@ body, html {
   height: 100%;
 }
 
-/* line 41, ../../../sass/dashboard/dashboard.scss */
+/* line 54, ../../../sass/dashboard/dashboard.scss */
 .application-name {
   margin-top: 25px;
   margin-bottom: 48px;
 }
 
-/* line 46, ../../../sass/dashboard/dashboard.scss */
+/* line 59, ../../../sass/dashboard/dashboard.scss */
 .application-name a {
   color: #BCBCBC;
   font-weight: 400;
@@ -57,7 +73,7 @@ body, html {
   text-underline-offset: 6px;
 }
 
-/* line 55, ../../../sass/dashboard/dashboard.scss */
+/* line 68, ../../../sass/dashboard/dashboard.scss */
 .menu {
   display: flex;
   width: 70%;
@@ -67,7 +83,7 @@ body, html {
   flex-wrap: wrap;
 }
 
-/* line 64, ../../../sass/dashboard/dashboard.scss */
+/* line 77, ../../../sass/dashboard/dashboard.scss */
 .menu-item {
   padding: 8px;
   cursor: pointer;
@@ -77,50 +93,50 @@ body, html {
   color: #F6F6F6;
   align-items: center;
 }
-/* line 73, ../../../sass/dashboard/dashboard.scss */
+/* line 86, ../../../sass/dashboard/dashboard.scss */
 .menu-item a {
   text-decoration: none;
   color: #AEAEAE;
 }
-/* line 77, ../../../sass/dashboard/dashboard.scss */
+/* line 90, ../../../sass/dashboard/dashboard.scss */
 .menu-item a:hover {
   text-decoration: underline;
   text-decoration-color: #89C5CC;
   color: #89C5CC;
 }
 
-/* line 85, ../../../sass/dashboard/dashboard.scss */
+/* line 98, ../../../sass/dashboard/dashboard.scss */
 .user-information-section {
   position: absolute;
   bottom: 20px;
   align-items: center;
 }
-/* line 90, ../../../sass/dashboard/dashboard.scss */
+/* line 103, ../../../sass/dashboard/dashboard.scss */
 .user-information-section .information-section {
   display: flex;
   flex-direction: row;
   color: #AEAEAE;
 }
-/* line 95, ../../../sass/dashboard/dashboard.scss */
+/* line 108, ../../../sass/dashboard/dashboard.scss */
 .user-information-section .information-section .user-account-type {
   display: flex;
   margin-left: 10px;
   flex-direction: column;
 }
 
-/* line 102, ../../../sass/dashboard/dashboard.scss */
+/* line 115, ../../../sass/dashboard/dashboard.scss */
 .menu-item img {
   margin-right: 10px;
   width: 30px;
   height: 30px;
 }
 
-/* line 108, ../../../sass/dashboard/dashboard.scss */
+/* line 121, ../../../sass/dashboard/dashboard.scss */
 .menu-item span {
   flex: 1;
 }
 
-/* line 113, ../../../sass/dashboard/dashboard.scss */
+/* line 126, ../../../sass/dashboard/dashboard.scss */
 .right-section {
   background-color: #21222D;
   display: none !important;
@@ -131,7 +147,7 @@ body, html {
   flex-direction: column;
 }
 
-/* line 123, ../../../sass/dashboard/dashboard.scss */
+/* line 136, ../../../sass/dashboard/dashboard.scss */
 .user-scheduled {
   width: 100%;
   height: 250px;
@@ -139,19 +155,19 @@ body, html {
   margin-top: 5px;
 }
 
-/* line 129, ../../../sass/dashboard/dashboard.scss */
+/* line 142, ../../../sass/dashboard/dashboard.scss */
 .user-inf {
   margin-bottom: 50px;
 }
 
-/* line 132, ../../../sass/dashboard/dashboard.scss */
+/* line 145, ../../../sass/dashboard/dashboard.scss */
 .scheduled-list {
   overflow-y: auto;
   height: 380px;
   margin-top: 12px;
 }
 
-/* line 137, ../../../sass/dashboard/dashboard.scss */
+/* line 150, ../../../sass/dashboard/dashboard.scss */
 .detail-item {
   display: flex;
   margin: 15px;
@@ -164,21 +180,21 @@ body, html {
   flex-direction: column;
 }
 
-/* line 149, ../../../sass/dashboard/dashboard.scss */
+/* line 162, ../../../sass/dashboard/dashboard.scss */
 .item-name {
   color: #FAF9FA;
   font-size: 20px;
   padding: 5px;
 }
 
-/* line 154, ../../../sass/dashboard/dashboard.scss */
+/* line 167, ../../../sass/dashboard/dashboard.scss */
 .time {
   color: #BABBBD;
   font-size: 16px;
   padding: 5px;
 }
 
-/* line 160, ../../../sass/dashboard/dashboard.scss */
+/* line 173, ../../../sass/dashboard/dashboard.scss */
 .detail-item img {
   position: absolute;
   right: 12px;
@@ -186,14 +202,14 @@ body, html {
   top: 12px;
 }
 
-/* line 167, ../../../sass/dashboard/dashboard.scss */
+/* line 180, ../../../sass/dashboard/dashboard.scss */
 .scheduled-title {
   font-size: 24px;
   color: #F6F6F6;
   margin: 20px;
 }
 
-/* line 173, ../../../sass/dashboard/dashboard.scss */
+/* line 186, ../../../sass/dashboard/dashboard.scss */
 .user-body-info {
   background-color: #2F353E;
   height: 70px;
@@ -204,7 +220,7 @@ body, html {
   flex-decoration: row;
 }
 
-/* line 183, ../../../sass/dashboard/dashboard.scss */
+/* line 196, ../../../sass/dashboard/dashboard.scss */
 .body-info {
   display: flex;
   flex-direction: column;
@@ -212,33 +228,33 @@ body, html {
   justify-content: space-evenly;
 }
 
-/* line 190, ../../../sass/dashboard/dashboard.scss */
+/* line 203, ../../../sass/dashboard/dashboard.scss */
 .value-name {
   font-size: 18px;
   font-weight: 400;
   color: #B3B5B9;
 }
 
-/* line 195, ../../../sass/dashboard/dashboard.scss */
+/* line 208, ../../../sass/dashboard/dashboard.scss */
 .value {
   color: #F6F6F6;
   font-size: 14px;
 }
 
-/* line 200, ../../../sass/dashboard/dashboard.scss */
+/* line 213, ../../../sass/dashboard/dashboard.scss */
 .activity-lvl {
   color: #A1D4CF;
   font-size: 12px;
   margin-top: 5px;
 }
 
-/* line 205, ../../../sass/dashboard/dashboard.scss */
+/* line 218, ../../../sass/dashboard/dashboard.scss */
 .user-name {
   color: #F6F6F6;
   font-size: 24px;
 }
 
-/* line 209, ../../../sass/dashboard/dashboard.scss */
+/* line 222, ../../../sass/dashboard/dashboard.scss */
 .info {
   display: flex;
   flex-direction: column;
@@ -247,7 +263,7 @@ body, html {
   margin-top: 20px;
 }
 
-/* line 217, ../../../sass/dashboard/dashboard.scss */
+/* line 230, ../../../sass/dashboard/dashboard.scss */
 .avatar {
   width: 125px;
   border-radius: 50%;
@@ -255,7 +271,7 @@ body, html {
   margin-bottom: 20px;
 }
 
-/* line 224, ../../../sass/dashboard/dashboard.scss */
+/* line 237, ../../../sass/dashboard/dashboard.scss */
 .search-bar {
   height: 58px;
   position: sticky;
@@ -268,7 +284,7 @@ body, html {
   z-index: 1111;
 }
 
-/* line 236, ../../../sass/dashboard/dashboard.scss */
+/* line 249, ../../../sass/dashboard/dashboard.scss */
 .search-icon {
   width: 30px;
   padding: 8px;
@@ -276,7 +292,7 @@ body, html {
   height: 30px;
 }
 
-/* line 243, ../../../sass/dashboard/dashboard.scss */
+/* line 256, ../../../sass/dashboard/dashboard.scss */
 .input-search {
   height: 52px;
   flex: 1;
@@ -291,18 +307,18 @@ body, html {
   outline: none;
 }
 
-/* line 257, ../../../sass/dashboard/dashboard.scss */
+/* line 270, ../../../sass/dashboard/dashboard.scss */
 .input-search::placeholder {
   color: #B3B5B9;
   opacity: 1;
 }
 
-/* line 261, ../../../sass/dashboard/dashboard.scss */
+/* line 274, ../../../sass/dashboard/dashboard.scss */
 .input-search::-ms-input-placeholder {
   color: #B3B5B9;
 }
 
-/* line 266, ../../../sass/dashboard/dashboard.scss */
+/* line 279, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"] {
   position: relative;
   width: 40px;
@@ -316,7 +332,7 @@ input[type="checkbox"] {
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-/* line 279, ../../../sass/dashboard/dashboard.scss */
+/* line 292, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"]::before {
   content: "";
   width: 20px;
@@ -329,18 +345,18 @@ input[type="checkbox"]::before {
   transition: 0.5s;
 }
 
-/* line 291, ../../../sass/dashboard/dashboard.scss */
+/* line 304, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"]:checked::before {
   transform: translateX(100%);
   background: #FFFFFF;
 }
 
-/* line 296, ../../../sass/dashboard/dashboard.scss */
+/* line 309, ../../../sass/dashboard/dashboard.scss */
 input[type="checkbox"]:checked {
   background: #A9DFD8;
 }
 
-/* line 300, ../../../sass/dashboard/dashboard.scss */
+/* line 313, ../../../sass/dashboard/dashboard.scss */
 .overview {
   display: flex;
   overflow: auto;
@@ -349,13 +365,13 @@ input[type="checkbox"]:checked {
   scrollbar-width: none;
 }
 
-/* line 306, ../../../sass/dashboard/dashboard.scss */
+/* line 319, ../../../sass/dashboard/dashboard.scss */
 .overview::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
 }
 
-/* line 310, ../../../sass/dashboard/dashboard.scss */
+/* line 323, ../../../sass/dashboard/dashboard.scss */
 .user-daily-info {
   margin: 15px;
   display: flex;
@@ -364,7 +380,7 @@ input[type="checkbox"]:checked {
   flex-wrap: nowrap;
 }
 
-/* line 318, ../../../sass/dashboard/dashboard.scss */
+/* line 331, ../../../sass/dashboard/dashboard.scss */
 .box {
   width: 180px;
   height: 150px;
@@ -373,12 +389,12 @@ input[type="checkbox"]:checked {
   background-color: #21222D;
 }
 
-/* line 325, ../../../sass/dashboard/dashboard.scss */
+/* line 338, ../../../sass/dashboard/dashboard.scss */
 .box:first-child {
   margin: 0;
 }
 
-/* line 328, ../../../sass/dashboard/dashboard.scss */
+/* line 341, ../../../sass/dashboard/dashboard.scss */
 .info-block {
   display: flex;
   flex-direction: column;
@@ -386,19 +402,19 @@ input[type="checkbox"]:checked {
   height: 100%;
   justify-content: center;
 }
-/* line 335, ../../../sass/dashboard/dashboard.scss */
+/* line 348, ../../../sass/dashboard/dashboard.scss */
 .info-block .value {
   color: #FFFFFF;
   font-weight: 500;
   margin-top: 10px;
   margin-bottom: 5px;
 }
-/* line 341, ../../../sass/dashboard/dashboard.scss */
+/* line 354, ../../../sass/dashboard/dashboard.scss */
 .info-block .info-type {
   color: #A5A5AA;
 }
 
-/* line 345, ../../../sass/dashboard/dashboard.scss */
+/* line 358, ../../../sass/dashboard/dashboard.scss */
 .title {
   color: #B3B5B9;
   font-size: 18px;
@@ -406,7 +422,7 @@ input[type="checkbox"]:checked {
   margin: 15px;
 }
 
-/* line 352, ../../../sass/dashboard/dashboard.scss */
+/* line 365, ../../../sass/dashboard/dashboard.scss */
 .programs {
   display: flex;
   flex-direction: column;
@@ -414,7 +430,7 @@ input[type="checkbox"]:checked {
   overflow: auto;
 }
 
-/* line 359, ../../../sass/dashboard/dashboard.scss */
+/* line 372, ../../../sass/dashboard/dashboard.scss */
 .category-keys {
   display: flex;
   flex-direction: row;
@@ -423,7 +439,7 @@ input[type="checkbox"]:checked {
   margin: 15px;
 }
 
-/* line 372, ../../../sass/dashboard/dashboard.scss */
+/* line 385, ../../../sass/dashboard/dashboard.scss */
 .see-all {
   text-decoration: none !important;
   color: #B3B5B9;
@@ -431,25 +447,25 @@ input[type="checkbox"]:checked {
   cursor: pointer;
 }
 
-/* line 379, ../../../sass/dashboard/dashboard.scss */
+/* line 392, ../../../sass/dashboard/dashboard.scss */
 .see-all:hover {
   text-decoration: underline !important;
 }
 
-/* line 383, ../../../sass/dashboard/dashboard.scss */
+/* line 396, ../../../sass/dashboard/dashboard.scss */
 .category-item {
   width: 250px;
   height: 180px;
   position: relative;
   border-radius: 10px;
 }
-/* line 389, ../../../sass/dashboard/dashboard.scss */
+/* line 402, ../../../sass/dashboard/dashboard.scss */
 .category-item img {
   width: 100%;
   height: 100%;
   border-radius: 8%;
 }
-/* line 395, ../../../sass/dashboard/dashboard.scss */
+/* line 408, ../../../sass/dashboard/dashboard.scss */
 .category-item p {
   position: absolute;
   color: #B3B5B9;
@@ -458,7 +474,7 @@ input[type="checkbox"]:checked {
   left: 10px;
 }
 
-/* line 404, ../../../sass/dashboard/dashboard.scss */
+/* line 417, ../../../sass/dashboard/dashboard.scss */
 .category-values-section {
   overflow-x: auto;
   overflow-y: hidden;
@@ -468,28 +484,28 @@ input[type="checkbox"]:checked {
   display: flex;
 }
 
-/* line 413, ../../../sass/dashboard/dashboard.scss */
+/* line 426, ../../../sass/dashboard/dashboard.scss */
 .category-values-section::-webkit-scrollbar {
   display: none;
 }
 
-/* line 416, ../../../sass/dashboard/dashboard.scss */
+/* line 429, ../../../sass/dashboard/dashboard.scss */
 .category-item {
   margin-left: 10px;
 }
 
-/* line 420, ../../../sass/dashboard/dashboard.scss */
+/* line 433, ../../../sass/dashboard/dashboard.scss */
 .category-values {
   margin-left: 10px;
   cursor: pointer;
 }
 
-/* line 424, ../../../sass/dashboard/dashboard.scss */
+/* line 437, ../../../sass/dashboard/dashboard.scss */
 .category-values:first-child {
   margin: 0;
 }
 
-/* line 428, ../../../sass/dashboard/dashboard.scss */
+/* line 441, ../../../sass/dashboard/dashboard.scss */
 .detail-section {
   display: flex;
   flex-direction: column;
@@ -498,7 +514,7 @@ input[type="checkbox"]:checked {
   margin: 15px;
 }
 
-/* line 436, ../../../sass/dashboard/dashboard.scss */
+/* line 449, ../../../sass/dashboard/dashboard.scss */
 .activity-programs {
   display: flex;
   flex-direction: row;
@@ -510,46 +526,46 @@ input[type="checkbox"]:checked {
   justify-content: flex-start;
 }
 
-/* line 447, ../../../sass/dashboard/dashboard.scss */
+/* line 460, ../../../sass/dashboard/dashboard.scss */
 .activity-programs .category {
   margin-right: 15px;
   margin-top: 20px;
   cursor: pointer;
 }
 
-/* line 453, ../../../sass/dashboard/dashboard.scss */
+/* line 466, ../../../sass/dashboard/dashboard.scss */
 .program-details {
   margin: 15px;
   display: flex;
   flex-direction: row;
 }
 
-/* line 459, ../../../sass/dashboard/dashboard.scss */
+/* line 472, ../../../sass/dashboard/dashboard.scss */
 .detail-value {
   color: #B3B5B9;
   font-size: 18px;
 }
 
-/* line 465, ../../../sass/dashboard/dashboard.scss */
+/* line 478, ../../../sass/dashboard/dashboard.scss */
 .program-container {
   display: flex;
   flex-direction: column;
   margin: 15px;
 }
 
-/* line 470, ../../../sass/dashboard/dashboard.scss */
+/* line 483, ../../../sass/dashboard/dashboard.scss */
 .program-detail-list {
   margin-left: 5px;
   margin-top: 30px;
 }
 
-/* line 475, ../../../sass/dashboard/dashboard.scss */
+/* line 488, ../../../sass/dashboard/dashboard.scss */
 .exercise-sections {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
-/* line 480, ../../../sass/dashboard/dashboard.scss */
+/* line 493, ../../../sass/dashboard/dashboard.scss */
 .exercise-sections .item-type {
   margin-bottom: 15px;
   color: #B3B5B9;
@@ -557,7 +573,7 @@ input[type="checkbox"]:checked {
   margin-left: 2px;
 }
 
-/* line 488, ../../../sass/dashboard/dashboard.scss */
+/* line 501, ../../../sass/dashboard/dashboard.scss */
 .exercise-section {
   background-color: blue;
   height: 120px;
@@ -568,17 +584,17 @@ input[type="checkbox"]:checked {
   flex-direction: row;
   cursor: pointer;
 }
-/* line 498, ../../../sass/dashboard/dashboard.scss */
+/* line 511, ../../../sass/dashboard/dashboard.scss */
 .exercise-section .image {
   height: 100%;
   border-radius: 10px;
 }
-/* line 502, ../../../sass/dashboard/dashboard.scss */
+/* line 515, ../../../sass/dashboard/dashboard.scss */
 .exercise-section .image img {
   height: 100%;
   border-radius: 10px;
 }
-/* line 508, ../../../sass/dashboard/dashboard.scss */
+/* line 521, ../../../sass/dashboard/dashboard.scss */
 .exercise-section .item-info {
   width: 60%;
   margin-left: 10px;
@@ -605,7 +621,7 @@ input[type="checkbox"]:checked {
     }
 }
 **/
-/* line 536, ../../../sass/dashboard/dashboard.scss */
+/* line 549, ../../../sass/dashboard/dashboard.scss */
 #workoutPopup {
   display: none;
   position: fixed;
@@ -619,7 +635,7 @@ input[type="checkbox"]:checked {
   align-items: center;
 }
 
-/* line 548, ../../../sass/dashboard/dashboard.scss */
+/* line 561, ../../../sass/dashboard/dashboard.scss */
 .popupContent {
   background-color: white;
   padding: 20px;
@@ -632,7 +648,7 @@ input[type="checkbox"]:checked {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
-/* line 560, ../../../sass/dashboard/dashboard.scss */
+/* line 573, ../../../sass/dashboard/dashboard.scss */
 .popupContent .workout-video-content {
   width: 650px;
   height: 400px;
@@ -641,12 +657,12 @@ input[type="checkbox"]:checked {
   border-radius: 10px;
 }
 
-/* line 568, ../../../sass/dashboard/dashboard.scss */
+/* line 581, ../../../sass/dashboard/dashboard.scss */
 #workout-description {
   text-indent: 15px;
 }
 
-/* line 572, ../../../sass/dashboard/dashboard.scss */
+/* line 585, ../../../sass/dashboard/dashboard.scss */
 .information-content {
   display: flex;
   width: 100%;
@@ -654,22 +670,22 @@ input[type="checkbox"]:checked {
   flex-direction: column;
   align-items: flex-start;
 }
-/* line 579, ../../../sass/dashboard/dashboard.scss */
+/* line 592, ../../../sass/dashboard/dashboard.scss */
 .information-content .workout-item {
   margin-top: 15px;
   display: flex;
 }
-/* line 583, ../../../sass/dashboard/dashboard.scss */
+/* line 596, ../../../sass/dashboard/dashboard.scss */
 .information-content .workout-item p {
   max-width: 620px;
   text-align: left;
 }
-/* line 587, ../../../sass/dashboard/dashboard.scss */
+/* line 600, ../../../sass/dashboard/dashboard.scss */
 .information-content .workout-item #workout-name {
   margin-left: 5px;
 }
 
-/* line 593, ../../../sass/dashboard/dashboard.scss */
+/* line 606, ../../../sass/dashboard/dashboard.scss */
 .info-part {
   position: absolute;
   width: 100%;
@@ -680,7 +696,7 @@ input[type="checkbox"]:checked {
   justify-content: space-around;
 }
 
-/* line 604, ../../../sass/dashboard/dashboard.scss */
+/* line 617, ../../../sass/dashboard/dashboard.scss */
 .closeBtn {
   position: absolute;
   right: 10px;
@@ -689,7 +705,7 @@ input[type="checkbox"]:checked {
   cursor: pointer;
 }
 
-/* line 612, ../../../sass/dashboard/dashboard.scss */
+/* line 625, ../../../sass/dashboard/dashboard.scss */
 .update-list {
   display: flex;
   flex-direction: row;
